@@ -1,0 +1,73 @@
+{
+	"num_of_cities": 6,
+	"cities":[
+		{
+			"name": "San Francisco",
+			"colour": "blue",
+			"num_of_connections": 4,
+			"connections":["Chicago", "Tokyo", "Manila", "Los Angeles"],
+			"black": 0,
+			"blue": 0,
+			"red": 0,
+			"yellow": 0,
+			"station": false
+		},
+		{
+			"name": "Chicago",
+			"colour":"blue",
+			"num_of_connections": 5,
+			"connections":["San Francisco", "Atlanta", "Montréal", "Los Angeles", "Mexico City"],
+			"black": 0,
+			"blue": 0,
+			"red": 0,
+			"yellow": 0,
+			"station": false
+		},
+		{
+			"name": "Atlanta",
+			"colour":"blue",
+			"num_of_connections": 3,
+			"connections":["Chicago", "Washington", "Miami"],
+			"black": 0,
+			"blue": 0,
+			"red": 0,
+			"yellow": 0,
+			"station": true
+		},
+		{
+			"name": "Montréal",
+			"colour":"blue",
+			"num_of_connections": 3,
+			"connections":["Chicago", "Washington", "New York"],
+			"black": 0,
+			"blue": 0,
+			"red": 0,
+			"yellow": 0,
+			"station": false
+		},
+		{
+			"name": "Washington",
+			"colour":"blue",
+			"num_of_connections": 4,
+			"connections":["Montréal", "Atlanta", "New York", "Miami"],
+			"black": 0,
+			"blue": 0,
+			"red": 0,
+			"yellow": 0,
+			"station": false
+		},
+		{
+			"name": "New York",
+			"colour":"blue",
+			"num_of_connections": 4,
+			"connections":["Montréal", "Washington", "London", "Madrid"],
+			"black": 0,
+			"blue": 0,
+			"red": 0,
+			"yellow": 0,
+			"station": false
+		},
+	],
+	"cures": [false,false,false,false],
+	"outbreaks": 0
+}
