@@ -9,6 +9,7 @@ var blue_cubes
 var red_cubes
 var yellow_cubes
 var station
+var outbreak = false
 
 func _init(city_info) -> void:
 	city_name = city_info["name"]
@@ -19,3 +20,49 @@ func _init(city_info) -> void:
 	blue_cubes = city_info["blue"]
 	red_cubes = city_info["red"]
 	yellow_cubes = city_info["yellow"]
+
+func get_city_name() -> String:
+	return city_name
+
+func get_colour() -> String:
+	return colour
+
+func get_num_of_connections() -> float:
+	return num_of_connections
+
+func get_connection_name(index) -> String:
+	return connections[index]
+
+func set_outbreak(o) -> void:
+	outbreak = o
+
+func should_outbreak() -> bool:
+	return !outbreak
+
+func infect(c) -> bool:
+	match c:
+		"black":
+			if black_cubes == 3:
+				return true
+			else: 
+				black_cubes += 1
+				return false
+		"blue":
+			if blue_cubes == 3:
+				return true
+			else: 
+				blue_cubes += 1
+				return false
+		"red":
+			if red_cubes == 3:
+				return true
+			else: 
+				red_cubes += 1
+				return false
+		"yellow":
+			if yellow_cubes == 3:
+				return true
+			else: 
+				yellow_cubes += 1
+				return false
+	return false

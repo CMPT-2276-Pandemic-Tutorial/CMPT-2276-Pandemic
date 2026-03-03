@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://cj7tg23gwysge"]
 
+[ext_resource type="Script" uid="uid://qxyis2q65ouy" path="res://scripts/game_manager.gd" id="1_x5nem"]
 [ext_resource type="Script" uid="uid://c653pcf40nxla" path="res://scripts/map.gd" id="1_y150f"]
 
-[node name="MapTest" type="Node" unique_id=532217544]
+[node name="GameManagerTest" type="Node" unique_id=532217544]
+script = ExtResource("1_x5nem")
+
+[node name="Map" type="Node" parent="." unique_id=1736286338]
 script = ExtResource("1_y150f")
+
+[node name="Button" type="Button" parent="." unique_id=802734064]
+offset_left = 851.0
+offset_top = 482.0
+offset_right = 1017.0
+offset_bottom = 600.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

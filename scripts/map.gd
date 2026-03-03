@@ -23,3 +23,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func findCity(cityName) -> City:
+	for i in num_of_cities:
+		if cities[i].get_city_name() == cityName:
+			return cities[i]
+	return null
+	
+func resetOutbreaks() -> void:
+	for i in num_of_cities:
+		cities[i].set_outbreak(false)
