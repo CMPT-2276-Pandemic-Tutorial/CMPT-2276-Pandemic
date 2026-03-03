@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6vsl5ex40mc3"]
+
+[ext_resource type="Texture2D" uid="uid://cf1fraaq0tl7g" path="res://assets/infect-yellow.PNG" id="1_fuiug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(536, 369)
+
+[node name="infect-Card" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fuiug")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_h2yge")
