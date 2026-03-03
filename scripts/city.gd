@@ -68,3 +68,26 @@ func infect(c) -> bool:
 				yellow_cubes += 1
 				return false
 	return false
+	
+func treat_disease(c, cured) -> void:
+	match c:
+		"black":
+			if cured:
+				black_cubes = 0
+			else:
+				black_cubes -= 1
+		"blue":
+			if cured:
+				blue_cubes = 0
+			else:
+				blue_cubes -= 1
+		"red":
+			if cured:
+				red_cubes = 0
+			else:
+				red_cubes -= 1
+		"yellow":
+			if cured:
+				yellow_cubes = 0
+			else:
+				yellow_cubes -= 1
