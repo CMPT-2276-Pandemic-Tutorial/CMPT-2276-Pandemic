@@ -18,6 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+#Functions to handle start/end of turn
 func beginNextTurn()-> void:
 	currentPlayer = turnNum % playerCount
 	actionCount = 4
@@ -26,6 +27,15 @@ func endTurn() -> void:
 	#Draw two player cards
 	infectCities()
 
+#Game end function, parameter is bool - true means won, false means lost
+func gameEnd(won) -> void:
+	if won:
+		print("game won")
+	else:
+		print("game lost")
+
+
+#Functions for handling infecting cities and outbreaks
 func infectCities() -> void:
 	var cityToInfect
 	for i in infectionRate[infectionIndex]:
@@ -47,12 +57,6 @@ func outbreak(cityOutbreaking) -> void:
 			if chain: 
 				outbreak(map.findCity(cityOutbreaking.get_connection_name(i)))
 
-func gameEnd(won) -> void:
-	if won:
-		print("game won")
-	else:
-		print("game lost")
 
-
-func _on_button_pressed() -> void:
+func _on_button_pressed() -> void: #test button
 	endTurn()
