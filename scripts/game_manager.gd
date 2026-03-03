@@ -37,15 +37,21 @@ func infectCities() -> void:
 
 func outbreak(cityOutbreaking) -> void:
 	if cityOutbreaking.should_outbreak():
+		print(cityOutbreaking.get_city_name() + " is outbreaking")
 		cityOutbreaking.set_outbreak(true)
 		outbreakLevel += 1
 		if outbreakLevel >= 8:
 			gameEnd(false)
 		for i in cityOutbreaking.get_num_of_connections():
-			map.findCity(cityOutbreaking.get_connection_name(i)).infect(cityOutbreaking.get_colour())
+			var chain = map.findCity(cityOutbreaking.get_connection_name(i)).infect(cityOutbreaking.get_colour())
+			if chain: 
+				outbreak(map.findCity(cityOutbreaking.get_connection_name(i)))
 
 func gameEnd(won) -> void:
-	pass
+	if won:
+		print("game won")
+	else:
+		print("game lost")
 
 
 func _on_button_pressed() -> void:
