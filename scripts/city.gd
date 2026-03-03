@@ -10,6 +10,7 @@ var red_cubes
 var yellow_cubes
 var station
 var outbreak = false
+var selector
 
 func _init(city_info) -> void:
 	city_name = city_info["name"]

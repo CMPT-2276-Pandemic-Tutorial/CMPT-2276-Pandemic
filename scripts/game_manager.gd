@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 
 #Functions to handle start/end of turn
 func beginNextTurn()-> void:
+	turnNum += 1
 	currentPlayer = turnNum % playerCount
 	actionCount = 4
 
