@@ -17,7 +17,7 @@ func _ready() -> void:
 		for i : int in num_of_cities:
 			cities.append(City.new(data_received["cities"][i])) 
 		for i : int in num_of_cities:
-			print(cities[i].names)
+			print(cities[i].name)
 	else:
 		print("JSON Parse Error")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
