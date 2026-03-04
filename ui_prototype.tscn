@@ -19,6 +19,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndaj4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbd0r"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y252u"]
+
 [node name="UI Prototype" type="Node2D" unique_id=790515674]
 script = ExtResource("1_qhc5k")
 
@@ -31,7 +37,7 @@ scale = Vector2(1.6003758, 0.9680561)
 texture = ExtResource("1_2e5bk")
 
 [node name="mapBackdrop" type="Sprite2D" parent="." unique_id=1264458958]
-position = Vector2(-4, -219)
+position = Vector2(-22, -233)
 texture = ExtResource("2_w4lg7")
 
 [node name="Markers" type="Node" parent="." unique_id=1724747024]
@@ -293,6 +299,15 @@ offset_top = -628.0
 offset_right = 576.0
 offset_bottom = -593.0
 text = "Player 1's turn"
+
+[node name="Button2" type="Button" parent="." unique_id=560487138]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ndaj4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_sbd0r")
+text = "Cure"
+icon = SubResource("CanvasTexture_y252u")
+flat = true
 
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
