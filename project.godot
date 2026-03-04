@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="PandemicTutorial"
-run/main_scene="uid://cj7tg23gwysge"
+run/main_scene="uid://b471o0iju7kt2"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
 [autoload]
 
 Map="*uid://c653pcf40nxla"
+GameManager="*uid://qxyis2q65ouy"
 
 [display]
 

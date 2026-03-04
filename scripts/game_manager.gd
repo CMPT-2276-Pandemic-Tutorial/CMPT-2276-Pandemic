@@ -6,7 +6,7 @@ var input_handler
 var turnNum = 0
 var playerCount = 4
 var currentPlayer = 0
-var actionCount = 0
+var actionCount = 4
 var infectionIndex = 0
 var infectionRate = [2,2,2,3,3,4,4]
 var outbreakLevel = 0
@@ -14,7 +14,7 @@ var cured = {"black": false, "blue": false, "red": false, "yellow": false}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	map = get_node("Map")
+	map = Map
 	input_handler = get_node("")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	pass
 
 #Functions to handle start/end of turn
-func beginNextTurn()-> void:
+func beginNextTurn() -> void:
 	turnNum += 1
 	currentPlayer = turnNum % playerCount
 	actionCount = 4
