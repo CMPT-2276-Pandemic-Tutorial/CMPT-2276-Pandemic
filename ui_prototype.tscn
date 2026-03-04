@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://cbhulfiaudhi7"]
 
 [ext_resource type="Texture2D" uid="uid://cqwmbeqlbf4q5" path="res://assets/map/background.jpg" id="1_2e5bk"]
+[ext_resource type="Script" uid="uid://bo5mklfhh26s3" path="res://ui_prototype.gd" id="1_qhc5k"]
 [ext_resource type="Texture2D" uid="uid://b404tol6d0pue" path="res://assets/map/pandemic.jpg" id="2_w4lg7"]
 [ext_resource type="Texture2D" uid="uid://wgk6pkcajuo0" path="res://assets/markers/infectionMarker.png" id="3_byiq6"]
+[ext_resource type="Script" uid="uid://b1g6a4pp2ju45" path="res://Scripts/markers.gd" id="3_uhl5y"]
 [ext_resource type="Texture2D" uid="uid://01knmvffxqwt" path="res://assets/markers/outbreakMarker.png" id="3_w4lg7"]
 [ext_resource type="Texture2D" uid="uid://cas0j7vc4hn0" path="res://assets/markers/cureMarkerRed.png" id="5_7v5yk"]
 [ext_resource type="Texture2D" uid="uid://busrkex1wt2d" path="res://assets/markers/cureMarkerYel.png" id="6_uhl5y"]
 [ext_resource type="Texture2D" uid="uid://qcfqar2nujlk" path="res://assets/markers/cureMarkerBlue.png" id="7_4ar3p"]
 [ext_resource type="Texture2D" uid="uid://eqmb65trpdr7" path="res://assets/markers/cureMarkerPurp.png" id="8_7v5yk"]
+[ext_resource type="Script" uid="uid://bmph5lkvot553" path="res://area_2d.gd" id="11_npjd0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
 [node name="UI Prototype" type="Node2D" unique_id=790515674]
+script = ExtResource("1_qhc5k")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=934114908]
 position = Vector2(-3, -97)
@@ -24,6 +30,7 @@ position = Vector2(-4, -219)
 texture = ExtResource("2_w4lg7")
 
 [node name="Markers" type="Node" parent="." unique_id=1724747024]
+script = ExtResource("3_uhl5y")
 
 [node name="InfectionMarker" type="Sprite2D" parent="Markers" unique_id=232925066]
 position = Vector2(165.00002, -448)
@@ -229,3 +236,12 @@ offset_right = 389.0
 offset_bottom = 149.0
 theme_override_font_sizes/font_size = 20
 text = "Discard: Y"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1803910068]
+script = ExtResource("11_npjd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=714598306]
+scale = Vector2(1.3, 1.3)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
