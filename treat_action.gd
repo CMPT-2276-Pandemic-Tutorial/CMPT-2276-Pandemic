@@ -1,6 +1,5 @@
 extends Area2D
 
-@onready var ui = get_node("/root/UI Prototype")
 @onready var player1 = get_node("/root/UI Prototype/Player1")
 @onready var player2 = get_node("/root/UI Prototype/Player2")
 @onready var player3 = get_node("/root/UI Prototype/Player3")
