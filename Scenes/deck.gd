@@ -2,14 +2,27 @@ extends Node2D
 
 const CARD_SCENE_PATH = "res://Scenes/player_card.tscn"
 
-var player_deck = ["player-yellow", "player-blue", "player-event", "player-epidemic", "player-black", "player-red"]
+
+var player_deck = []
+var infect_deck = []
 
 func _ready() -> void:
 	#var card_scene = preload(CARD_SCENE_PATH)
-	#shuffle deck initially
-	shuffle(player_deck)
+	#var map_cities = $map
+	#var cities = $map.cities
+	#once the map has loaded, add the cities from the json file to the player and infection decks
+	for i in Map.cities.size():
+		var cityName = Map.cities[i].get_city_name()
+		player_deck.insert(0, cityName)
+		infect_deck.insert(0, cityName)
+		print("Added %s to player deck" % player_deck[0])
+		print("Added %s to infection deck" % infect_deck[0])
 	
-	#initial deck draw
+	#shuffle each deck at the start of the game
+	shuffle(player_deck)
+	shuffle(infect_deck)
+	
+	#initial player deck draw
 	for i in 3:
 		var card_drawn = player_deck[0]
 		player_deck.erase(card_drawn)
@@ -30,10 +43,21 @@ func shuffle(deck):
 		deck[i] = deck[j]
 		deck[j] = temp
 
+func draw_infect_card() -> String:
+	var card_drawn = infect_deck[0]
+	infect_deck.erase(card_drawn)
+	#CURRENTLY infection cards arent instantiated as card entities
+	return card_drawn
+
 func draw_card():
+	if($"../PlayerHand".player_hand.size() == 7):
+		print("player holds the max amount of cards!")
+		print(infect_deck[0])
+		return
 	print("card drawn")
 	var card_drawn = player_deck[0]
 	player_deck.erase(card_drawn)
+	#disables the deck sprite when the deck runs out of cards
 	if player_deck.size() == 0:
 		$Area2D/CollisionShape2D.disabled = true
 		$Sprite2D.visible = false
