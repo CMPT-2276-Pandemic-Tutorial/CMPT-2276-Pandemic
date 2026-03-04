@@ -48,3 +48,19 @@ func treat_cure_action(colour) -> void:
 	if GameManager.check_for_win():
 		GameManager.gameEnd(true)
 	GameManager.actionCount -= 1
+
+
+func _on_button_6_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_7_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_8_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_9_pressed() -> void:
+	pass # Replace with function body.

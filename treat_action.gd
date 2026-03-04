@@ -29,3 +29,19 @@ func treat_disease_action(colour) -> void:
 	var current_city = Map.findCity(player.current_city)
 	current_city.treat_disease(colour, GameManager.cured[colour])
 	GameManager.actionCount -= 1
+
+
+func _on_button_2_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_3_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_4_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_5_pressed() -> void:
+	pass # Replace with function body.
