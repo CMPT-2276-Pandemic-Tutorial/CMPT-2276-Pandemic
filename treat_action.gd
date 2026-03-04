@@ -9,18 +9,6 @@ var players: Array[Node2D] = []
 func _ready() -> void:
 	players = [player1, player2, player3, player4]
 
-func black_treat_button() -> void:
-	treat_disease_action("black")
-
-func blue_treat_button() -> void:
-	treat_disease_action("blue")
-
-func red_treat_button() -> void:
-	treat_disease_action("red")	
-
-func yellow_treat_button() -> void:
-	treat_disease_action("yellow")
-
 func treat_disease_action(colour) -> void:
 	if GameManager.actionCount <= 0:
 		print("No actions remaining!")
@@ -30,18 +18,14 @@ func treat_disease_action(colour) -> void:
 	current_city.treat_disease(colour, GameManager.cured[colour])
 	GameManager.actionCount -= 1
 
-
 func _on_button_2_pressed() -> void:
-	pass # Replace with function body.
-
+	treat_disease_action("black")
 
 func _on_button_3_pressed() -> void:
-	pass # Replace with function body.
-
+	treat_disease_action("blue")
 
 func _on_button_4_pressed() -> void:
-	pass # Replace with function body.
-
+	treat_disease_action("red")	
 
 func _on_button_5_pressed() -> void:
-	pass # Replace with function body.
+	treat_disease_action("yellow")
