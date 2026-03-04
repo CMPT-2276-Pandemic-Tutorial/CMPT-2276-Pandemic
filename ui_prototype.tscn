@@ -19,6 +19,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndaj4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbd0r"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y252u"]
+
 [node name="UI Prototype" type="Node2D" unique_id=790515674]
 script = ExtResource("1_qhc5k")
 
@@ -31,7 +37,7 @@ scale = Vector2(1.6003758, 0.9680561)
 texture = ExtResource("1_2e5bk")
 
 [node name="mapBackdrop" type="Sprite2D" parent="." unique_id=1264458958]
-position = Vector2(-4, -219)
+position = Vector2(-22, -233)
 texture = ExtResource("2_w4lg7")
 
 [node name="Markers" type="Node" parent="." unique_id=1724747024]
@@ -189,6 +195,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="playercard7" type="Panel" parent="." unique_id=273997164]
+visible = false
 custom_minimum_size = Vector2(140, 185)
 offset_left = 450.0
 offset_top = 210.0
@@ -250,33 +257,41 @@ scale = Vector2(1.3, 1.3)
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Player1" type="Node2D" parent="." unique_id=1684015866]
+visible = false
 scale = Vector2(0.1, 0.1)
 script = ExtResource("12_3bd5r")
 
 [node name="PersonIconBlue" type="Sprite2D" parent="Player1" unique_id=1950434960]
+visible = false
 position = Vector2(0, -59.999996)
 texture = ExtResource("12_npjd0")
 
 [node name="Player2" type="Node2D" parent="." unique_id=1519381775]
+visible = false
 script = ExtResource("12_3bd5r")
 
 [node name="PersonIconBrown" type="Sprite2D" parent="Player2" unique_id=37674305]
+visible = false
 position = Vector2(4.7683716e-07, -4)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("14_ndaj4")
 
 [node name="Player3" type="Node2D" parent="." unique_id=1585601267]
+visible = false
 script = ExtResource("12_3bd5r")
 
 [node name="PersonIconGray" type="Sprite2D" parent="Player3" unique_id=1552940937]
+visible = false
 position = Vector2(2.3841858e-07, -2)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("15_sbd0r")
 
 [node name="Player4" type="Node2D" parent="." unique_id=188429927]
+visible = false
 script = ExtResource("12_3bd5r")
 
 [node name="PersonIconRed" type="Sprite2D" parent="Player4" unique_id=285779780]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("16_y252u")
 
@@ -293,6 +308,66 @@ offset_top = -628.0
 offset_right = 576.0
 offset_bottom = -593.0
 text = "Player 1's turn"
+
+[node name="Button2" type="Button" parent="." unique_id=560487138]
+offset_left = 51.0
+offset_top = -3.0
+offset_right = 66.0
+offset_bottom = 20.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ndaj4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_sbd0r")
+text = "2"
+icon = SubResource("CanvasTexture_y252u")
+flat = true
+
+[node name="Button3" type="Button" parent="." unique_id=170781188]
+offset_left = 49.0
+offset_top = 26.0
+offset_right = 67.0
+offset_bottom = 57.0
+text = "3"
+
+[node name="Button4" type="Button" parent="." unique_id=1828756914]
+offset_left = 53.0
+offset_top = 102.0
+offset_right = 71.0
+offset_bottom = 133.0
+text = "4"
+
+[node name="Button5" type="Button" parent="." unique_id=556598004]
+offset_left = 21.0
+offset_top = 67.0
+offset_right = 29.0
+offset_bottom = 75.0
+text = "5"
+
+[node name="Button6" type="Button" parent="." unique_id=1385712277]
+offset_left = 19.0
+offset_top = 30.0
+offset_right = 37.0
+offset_bottom = 61.0
+text = "6"
+
+[node name="Button7" type="Button" parent="." unique_id=1256071548]
+offset_left = 18.0
+offset_top = -9.0
+offset_right = 36.0
+offset_bottom = 22.0
+text = "7"
+
+[node name="Button8" type="Button" parent="." unique_id=1164542030]
+offset_left = 25.0
+offset_top = 104.0
+offset_right = 33.0
+offset_bottom = 112.0
+text = "8"
+
+[node name="Button9" type="Button" parent="." unique_id=1837381825]
+offset_left = 54.0
+offset_top = 69.0
+offset_right = 72.0
+offset_bottom = 100.0
+text = "9"
 
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
