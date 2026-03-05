@@ -32,7 +32,10 @@ func shuffle(deck):
 
 func draw_card():
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 	if($"../PlayerHand".player_hands[GameManager.currentPlayer].size() == 6):
 		print("player holds the max amount of cards!")
 		print(infect_deck[0])
