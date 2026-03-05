@@ -33,7 +33,7 @@ scale = Vector2(1.6003758, 0.9680561)
 texture = ExtResource("1_2e5bk")
 
 [node name="mapBackdrop" type="Sprite2D" parent="." unique_id=1264458958]
-position = Vector2(-22, -233)
+position = Vector2(-4, -220)
 texture = ExtResource("2_w4lg7")
 
 [node name="Markers" type="Node" parent="." unique_id=1724747024]
