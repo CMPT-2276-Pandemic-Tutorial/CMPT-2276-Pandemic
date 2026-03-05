@@ -817,7 +817,6 @@ script = ExtResource("17_y252u")
 [node name="Node2" type="Node" parent="." unique_id=328316387]
 script = ExtResource("18_ummoj")
 
-<<<<<<< HEAD
 [node name="Decks" parent="." unique_id=1881671823 instance=ExtResource("18_y252u")]
 position = Vector2(164.18188, 48.818146)
 
@@ -825,8 +824,6 @@ position = Vector2(164.18188, 48.818146)
 position = Vector2(194, -535)
 scale = Vector2(0.45, 0.45)
 
-[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
-=======
 [node name="CityDescriptionBox" type="Container" parent="." unique_id=1592407733]
 offset_left = -915.0
 offset_top = -540.0
@@ -843,7 +840,6 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [connection signal="input_event" from="cityNodes" to="cityNodes" method="_on_input_event"]
->>>>>>> origin/aidan-UI
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TreatBlack" to="Node" method="_on_treat_black_button_pressed"]
 [connection signal="pressed" from="TreatBlue" to="Node" method="_on_treat_blue_button_pressed"]
