@@ -31,6 +31,13 @@ func shuffle(deck):
 		deck[j] = temp
 
 func draw_card():
+<<<<<<< Updated upstream
+=======
+	if($"../PlayerHand".player_hands[GameManager.currentPlayer].size() == 6):
+		print("player holds the max amount of cards!")
+		print(infect_deck[0])
+		return
+>>>>>>> Stashed changes
 	print("card drawn")
 	var card_drawn = player_deck[0]
 	player_deck.erase(card_drawn)

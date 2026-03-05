@@ -15,6 +15,7 @@ config/name="PandemicTutorial"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

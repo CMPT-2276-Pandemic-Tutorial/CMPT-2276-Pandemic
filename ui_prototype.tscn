@@ -1,0 +1,394 @@
+[gd_scene format=3 uid="uid://cbhulfiaudhi7"]
+
+[ext_resource type="Texture2D" uid="uid://cqwmbeqlbf4q5" path="res://assets/map/background.jpg" id="1_2e5bk"]
+[ext_resource type="Script" uid="uid://bo5mklfhh26s3" path="res://ui_prototype.gd" id="1_qhc5k"]
+[ext_resource type="PackedScene" uid="uid://c6i1xsebmj0m" path="res://Scenes/player_hand_view.tscn" id="2_ummoj"]
+[ext_resource type="Texture2D" uid="uid://b404tol6d0pue" path="res://assets/map/pandemic.jpg" id="2_w4lg7"]
+[ext_resource type="Texture2D" uid="uid://wgk6pkcajuo0" path="res://assets/markers/infectionMarker.png" id="3_byiq6"]
+[ext_resource type="Script" uid="uid://b1g6a4pp2ju45" path="res://Scripts/markers.gd" id="3_uhl5y"]
+[ext_resource type="Texture2D" uid="uid://01knmvffxqwt" path="res://assets/markers/outbreakMarker.png" id="3_w4lg7"]
+[ext_resource type="Texture2D" uid="uid://cas0j7vc4hn0" path="res://assets/markers/cureMarkerRed.png" id="5_7v5yk"]
+[ext_resource type="Texture2D" uid="uid://busrkex1wt2d" path="res://assets/markers/cureMarkerYel.png" id="6_uhl5y"]
+[ext_resource type="Texture2D" uid="uid://qcfqar2nujlk" path="res://assets/markers/cureMarkerBlue.png" id="7_4ar3p"]
+[ext_resource type="Texture2D" uid="uid://eqmb65trpdr7" path="res://assets/markers/cureMarkerPurp.png" id="8_7v5yk"]
+[ext_resource type="Script" uid="uid://bmph5lkvot553" path="res://area_2d.gd" id="11_npjd0"]
+[ext_resource type="Script" uid="uid://dke576880kbfj" path="res://player.gd" id="12_3bd5r"]
+[ext_resource type="Texture2D" uid="uid://c7pag51hxlod" path="res://assets/map/person-icon-blue.png" id="12_npjd0"]
+[ext_resource type="Texture2D" uid="uid://b0cwqmoi0uux8" path="res://assets/map/person-icon-brown.png" id="14_ndaj4"]
+[ext_resource type="Texture2D" uid="uid://bt7vqtyc2l5yy" path="res://assets/map/person-icon-gray.png" id="15_sbd0r"]
+[ext_resource type="Texture2D" uid="uid://2shoxogjih3l" path="res://assets/map/person-icon-red.png" id="16_y252u"]
+[ext_resource type="Script" uid="uid://dnjrqc0bhgjww" path="res://treat_action.gd" id="17_y252u"]
+[ext_resource type="Script" uid="uid://oge5d3b65jkf" path="res://cure_action.gd" id="18_ummoj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
+
+[node name="UI Prototype" type="Node2D" unique_id=790515674]
+script = ExtResource("1_qhc5k")
+
+[node name="PlayerHand" parent="." unique_id=1881671823 instance=ExtResource("2_ummoj")]
+z_index = 1
+position = Vector2(169.70703, 52.17987)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=934114908]
+position = Vector2(-3, -97)
+
+[node name="blankBackdrop" type="Sprite2D" parent="." unique_id=177502841]
+position = Vector2(-3, -54.999992)
+scale = Vector2(1.6003758, 0.9680561)
+texture = ExtResource("1_2e5bk")
+
+[node name="mapBackdrop" type="Sprite2D" parent="." unique_id=1264458958]
+position = Vector2(-4, -220)
+texture = ExtResource("2_w4lg7")
+
+[node name="Markers" type="Node" parent="." unique_id=1724747024]
+script = ExtResource("3_uhl5y")
+
+[node name="InfectionMarker" type="Sprite2D" parent="Markers" unique_id=232925066]
+position = Vector2(165.00002, -448)
+scale = Vector2(1.0399988, 1.08)
+texture = ExtResource("3_byiq6")
+
+[node name="OutbreakMarker" type="Sprite2D" parent="Markers" unique_id=1629541638]
+position = Vector2(-510, -169)
+texture = ExtResource("3_w4lg7")
+
+[node name="CureMarkerRed" type="Sprite2D" parent="Markers" unique_id=945328160]
+position = Vector2(-139, 151)
+texture = ExtResource("5_7v5yk")
+
+[node name="CureMarkerYel" type="Sprite2D" parent="Markers" unique_id=343506668]
+position = Vector2(-195, 151)
+texture = ExtResource("6_uhl5y")
+
+[node name="CureMarkerBlue" type="Sprite2D" parent="Markers" unique_id=1587446173]
+position = Vector2(-84, 151)
+texture = ExtResource("7_4ar3p")
+
+[node name="CureMarkerPurp" type="Sprite2D" parent="Markers" unique_id=778300630]
+position = Vector2(-34, 151)
+texture = ExtResource("8_7v5yk")
+
+[node name="playerclass" type="Panel" parent="." unique_id=1704885419]
+clip_contents = true
+offset_left = -605.0
+offset_top = 210.0
+offset_right = -465.0
+offset_bottom = 395.0
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="playerclass" unique_id=542365104]
+custom_minimum_size = Vector2(140, 185)
+layout_mode = 1
+offset_right = 140.0
+offset_bottom = 185.0
+text = "Player Class"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playercard1" type="Panel" parent="." unique_id=1281117924]
+custom_minimum_size = Vector2(140, 185)
+offset_left = -420.0
+offset_top = 210.0
+offset_right = -280.0
+offset_bottom = 395.0
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="playercard1" unique_id=1256621041]
+custom_minimum_size = Vector2(140, 185)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 186.0
+text = "Card 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playercard2" type="Panel" parent="." unique_id=457924824]
+custom_minimum_size = Vector2(140, 185)
+offset_left = -275.0
+offset_top = 210.0
+offset_right = -135.0
+offset_bottom = 395.0
+
+[node name="Label" type="Label" parent="playercard2" unique_id=1238466698]
+custom_minimum_size = Vector2(140, 185)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 186.0
+text = "Card 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playercard3" type="Panel" parent="." unique_id=2026183432]
+custom_minimum_size = Vector2(140, 185)
+offset_left = -130.0
+offset_top = 210.0
+offset_right = 10.0
+offset_bottom = 395.0
+
+[node name="Label" type="Label" parent="playercard3" unique_id=607292754]
+custom_minimum_size = Vector2(140, 185)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 186.0
+text = "Card 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playercard4" type="Panel" parent="." unique_id=2089479655]
+custom_minimum_size = Vector2(140, 185)
+offset_left = 15.0
+offset_top = 210.0
+offset_right = 155.0
+offset_bottom = 395.0
+
+[node name="Label" type="Label" parent="playercard4" unique_id=2067877189]
+custom_minimum_size = Vector2(140, 185)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 186.0
+text = "Card 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playercard5" type="Panel" parent="." unique_id=1160953973]
+custom_minimum_size = Vector2(140, 185)
+offset_left = 160.0
+offset_top = 210.0
+offset_right = 300.0
+offset_bottom = 395.0
+
+[node name="Label" type="Label" parent="playercard5" unique_id=516366363]
+custom_minimum_size = Vector2(140, 185)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 186.0
+text = "Card 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playercard6" type="Panel" parent="." unique_id=1297274791]
+custom_minimum_size = Vector2(140, 185)
+offset_left = 305.0
+offset_top = 210.0
+offset_right = 445.0
+offset_bottom = 395.0
+
+[node name="Label" type="Label" parent="playercard6" unique_id=1194571768]
+custom_minimum_size = Vector2(140, 185)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 186.0
+text = "Card 6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playercard7" type="Panel" parent="." unique_id=273997164]
+visible = false
+custom_minimum_size = Vector2(140, 185)
+offset_left = 450.0
+offset_top = 210.0
+offset_right = 590.0
+offset_bottom = 395.0
+
+[node name="Label" type="Label" parent="playercard7" unique_id=1063817918]
+custom_minimum_size = Vector2(140, 185)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 139.0
+offset_bottom = 186.0
+text = "Card 7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="infectionDeck" type="Node" parent="." unique_id=1630203481]
+
+[node name="infectionDeckCount" type="Label" parent="infectionDeck" unique_id=937127246]
+offset_left = 199.0
+offset_top = -502.0
+offset_right = 278.0
+offset_bottom = -474.0
+theme_override_font_sizes/font_size = 20
+text = "Deck: X"
+
+[node name="infectionDiscardCount" type="Label" parent="infectionDeck" unique_id=348662380]
+offset_left = 380.0
+offset_top = -500.0
+offset_right = 476.0
+offset_bottom = -472.0
+theme_override_font_sizes/font_size = 20
+text = "Discard: Y"
+
+[node name="playerDeck" type="Node" parent="." unique_id=1439591647]
+
+[node name="playerDeckCount" type="Label" parent="playerDeck" unique_id=605446455]
+offset_left = 158.0
+offset_top = 122.0
+offset_right = 229.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 20
+text = "Deck: X"
+
+[node name="playerDiscardCount" type="Label" parent="playerDeck" unique_id=586210471]
+offset_left = 293.0
+offset_top = 121.0
+offset_right = 389.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 20
+text = "Discard: Y"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1803910068]
+script = ExtResource("11_npjd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=714598306]
+scale = Vector2(1.3, 1.3)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Player1" type="Node2D" parent="." unique_id=1684015866]
+visible = false
+scale = Vector2(0.1, 0.1)
+script = ExtResource("12_3bd5r")
+
+[node name="PersonIconBlue" type="Sprite2D" parent="Player1" unique_id=1950434960]
+visible = false
+position = Vector2(0, -59.999996)
+texture = ExtResource("12_npjd0")
+
+[node name="Player2" type="Node2D" parent="." unique_id=1519381775]
+visible = false
+script = ExtResource("12_3bd5r")
+
+[node name="PersonIconBrown" type="Sprite2D" parent="Player2" unique_id=37674305]
+visible = false
+position = Vector2(4.7683716e-07, -4)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_ndaj4")
+
+[node name="Player3" type="Node2D" parent="." unique_id=1585601267]
+visible = false
+script = ExtResource("12_3bd5r")
+
+[node name="PersonIconGray" type="Sprite2D" parent="Player3" unique_id=1552940937]
+visible = false
+position = Vector2(2.3841858e-07, -2)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_sbd0r")
+
+[node name="Player4" type="Node2D" parent="." unique_id=188429927]
+visible = false
+script = ExtResource("12_3bd5r")
+
+[node name="PersonIconRed" type="Sprite2D" parent="Player4" unique_id=285779780]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_y252u")
+
+[node name="Button" type="Button" parent="." unique_id=1412050117]
+offset_left = -790.0
+offset_top = 134.0
+offset_right = -672.0
+offset_bottom = 191.0
+text = "test char swap"
+
+[node name="TurnLabel" type="Label" parent="." unique_id=220117877]
+offset_left = 430.0
+offset_top = -628.0
+offset_right = 576.0
+offset_bottom = -593.0
+text = "Player 1's turn"
+
+[node name="TreatBlack" type="Button" parent="." unique_id=560487138]
+offset_left = -724.0
+offset_top = -72.0
+offset_right = -624.0
+offset_bottom = -41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+button_mask = 0
+text = "Treat Black"
+
+[node name="TreatBlue" type="Button" parent="." unique_id=170781188]
+offset_left = -715.0
+offset_top = -32.0
+offset_right = -627.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0.15686275, 0.11372549, 0.9490196, 1)
+text = "Treat Blue"
+
+[node name="TreatRed" type="Button" parent="." unique_id=1828756914]
+offset_left = -712.0
+offset_top = 9.0
+offset_right = -629.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.68748975, 0.100465454, 0.2755373, 1)
+text = "Treat Red"
+
+[node name="TreatYellow" type="Button" parent="." unique_id=556598004]
+offset_left = -733.0
+offset_top = 50.0
+offset_right = -629.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0.97626203, 0.87990844, 0.3447454, 1)
+text = "Treat Yellow"
+
+[node name="CureBlack" type="Button" parent="." unique_id=1385712277]
+offset_left = -827.0
+offset_top = -70.0
+offset_right = -736.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0.0031999992, 0.0031999992, 0.04, 1)
+text = "Cure Black"
+
+[node name="CureBlue" type="Button" parent="." unique_id=1256071548]
+offset_left = -821.0
+offset_top = -33.0
+offset_right = -738.0
+offset_bottom = -2.0
+rotation = 0.015281841
+theme_override_colors/font_color = Color(0.02745098, 0.08627451, 0.8745098, 1)
+text = "Cure Blue"
+
+[node name="CureRed" type="Button" parent="." unique_id=1164542030]
+offset_left = -820.0
+offset_top = 8.0
+offset_right = -742.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.87, 0.04350001, 0.04350001, 1)
+text = "Cure Red"
+
+[node name="CureYellow" type="Button" parent="." unique_id=1837381825]
+offset_left = -844.0
+offset_top = 49.0
+offset_right = -744.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.83536, 0.92, 0.07359999, 1)
+text = "Cure Yellow"
+
+[node name="Node" type="Node" parent="." unique_id=81655222]
+script = ExtResource("17_y252u")
+
+[node name="Node2" type="Node" parent="." unique_id=328316387]
+script = ExtResource("18_ummoj")
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TreatBlack" to="Node" method="_on_treat_black_button_pressed"]
+[connection signal="pressed" from="TreatBlue" to="Node" method="_on_treat_blue_button_pressed"]
+[connection signal="pressed" from="TreatRed" to="Node" method="_on_treat_red_button_pressed"]
+[connection signal="pressed" from="TreatYellow" to="Node" method="_on_treat_yellow_button_pressed"]
+[connection signal="pressed" from="CureBlack" to="Node2" method="_on_cure_black_button_pressed"]
+[connection signal="pressed" from="CureBlue" to="Node2" method="_on_cure_blue_button_pressed"]
+[connection signal="pressed" from="CureRed" to="Node2" method="_on_cure_red_button_pressed"]
+[connection signal="pressed" from="CureYellow" to="Node2" method="_on_cure_yellow_button_pressed"]
