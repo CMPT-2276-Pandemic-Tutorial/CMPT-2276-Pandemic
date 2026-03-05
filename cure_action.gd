@@ -1,4 +1,4 @@
-extends Area2D
+extends Node
 
 @onready var player1 = get_node("/root/UI Prototype/Player1")
 @onready var player2 = get_node("/root/UI Prototype/Player2")

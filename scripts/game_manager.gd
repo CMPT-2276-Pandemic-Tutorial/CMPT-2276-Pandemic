@@ -78,9 +78,7 @@ func action_cure_disease() -> void:
 		actionCount -= 1
 
 func check_for_win() -> bool:
-	var allCured = true
-	for i in 4:
-		allCured = allCured && cured[i]
+	var allCured = cured["black"] && cured["blue"] && cured["red"] && cured["yellow"]
 	return allCured
 
 func _on_button_pressed() -> void: #test button

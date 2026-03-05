@@ -21,8 +21,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_y252u"]
-
 [node name="UI Prototype" type="Node2D" unique_id=790515674]
 script = ExtResource("1_qhc5k")
 
@@ -308,15 +306,13 @@ offset_bottom = -593.0
 text = "Player 1's turn"
 
 [node name="TreatBlack" type="Button" parent="." unique_id=560487138]
-modulate = Color(0.05, 0.015000001, 0.048833337, 1)
 offset_left = -724.0
 offset_top = -72.0
 offset_right = -624.0
 offset_bottom = -41.0
-theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 button_mask = 0
 text = "Treat Black"
-icon = SubResource("CanvasTexture_y252u")
 
 [node name="TreatBlue" type="Button" parent="." unique_id=170781188]
 offset_left = -715.0
