@@ -24,8 +24,12 @@ func _process(delta: float) -> void:
 #Functions to handle start/end of turn
 func beginNextTurn() -> void:
 	turnNum += 1
+	for i in range(PlayerHand.player_hand[currentPlayer].size()):
+		PlayerHand.player_hand[currentPlayer][i].visible = false
 	currentPlayer = turnNum % playerCount
 	actionCount = 4
+	
+	PlayerHand.update_hand_positions()
 
 func endTurn() -> void:
 	#Draw two player cards
