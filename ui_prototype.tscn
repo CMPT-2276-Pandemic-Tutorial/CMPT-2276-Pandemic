@@ -385,6 +385,28 @@ position = Vector2(194, -535)
 scale = Vector2(0.45, 0.45)
 
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+[node name="CityDescriptionBox" type="Container" parent="." unique_id=1592407733]
+offset_left = -915.0
+offset_top = -540.0
+offset_right = -915.0
+offset_bottom = -540.0
+
+[node name="panel" type="Panel" parent="CityDescriptionBox" unique_id=585948130]
+layout_mode = 2
+
+[node name="info" type="Label" parent="CityDescriptionBox/panel" unique_id=120674320]
+layout_mode = 0
+offset_right = 23.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[connection signal="input_event" from="cityNodes" to="cityNodes" method="_on_input_event"]
+=======
+>>>>>>> 01627f1d1a70af3d92cd47983a38db8693bb3795
+>>>>>>> Stashed changes
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TreatBlack" to="Node" method="_on_treat_black_button_pressed"]
 [connection signal="pressed" from="TreatBlue" to="Node" method="_on_treat_blue_button_pressed"]
