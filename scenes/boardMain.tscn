@@ -25,7 +25,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ummoj"]
 
-[node name="Board" type="Node2D" unique_id=790515674]
+[node name="Board" type="Node" unique_id=649728087]
 script = ExtResource("1_1kket")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=934114908]
