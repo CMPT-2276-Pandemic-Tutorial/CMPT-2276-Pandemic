@@ -1,7 +1,8 @@
 extends Node
 
 var map
-var input_handler
+@onready var infectionMarker = get_node("/root/UI Prototype/Markers/InfectionMarker")
+@onready var outbreakMarker = get_node("/root/UI Prototype/Markers/OutbreakMarker")
 
 var turnNum = 0
 var playerCount = 4
@@ -53,6 +54,8 @@ func outbreak(cityOutbreaking) -> void:
 		print(cityOutbreaking.get_city_name() + " is outbreaking")
 		cityOutbreaking.set_outbreak(true)
 		outbreakLevel += 1
+		outbreakMarker.move_local_y(40.0)
+		outbreakMarker.move_local_x(pow(-1,outbreakLevel+1)*40)
 		if outbreakLevel >= 8:
 			gameEnd(false)
 		for i in cityOutbreaking.get_num_of_connections():

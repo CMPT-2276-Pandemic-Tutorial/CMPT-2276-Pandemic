@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bo5mklfhh26s3" path="res://ui_prototype.gd" id="1_qhc5k"]
 [ext_resource type="Texture2D" uid="uid://b404tol6d0pue" path="res://assets/map/pandemic.jpg" id="2_w4lg7"]
 [ext_resource type="Texture2D" uid="uid://wgk6pkcajuo0" path="res://assets/markers/infectionMarker.png" id="3_byiq6"]
-[ext_resource type="Script" uid="uid://b1g6a4pp2ju45" path="res://Scripts/markers.gd" id="3_uhl5y"]
 [ext_resource type="Texture2D" uid="uid://01knmvffxqwt" path="res://assets/markers/outbreakMarker.png" id="3_w4lg7"]
 [ext_resource type="Texture2D" uid="uid://cas0j7vc4hn0" path="res://assets/markers/cureMarkerRed.png" id="5_7v5yk"]
 [ext_resource type="Texture2D" uid="uid://busrkex1wt2d" path="res://assets/markers/cureMarkerYel.png" id="6_uhl5y"]
@@ -37,7 +36,6 @@ position = Vector2(-4, -220)
 texture = ExtResource("2_w4lg7")
 
 [node name="Markers" type="Node" parent="." unique_id=1724747024]
-script = ExtResource("3_uhl5y")
 
 [node name="InfectionMarker" type="Sprite2D" parent="Markers" unique_id=232925066]
 position = Vector2(165.00002, -448)
@@ -45,7 +43,7 @@ scale = Vector2(1.0399988, 1.08)
 texture = ExtResource("3_byiq6")
 
 [node name="OutbreakMarker" type="Sprite2D" parent="Markers" unique_id=1629541638]
-position = Vector2(-510, -169)
+position = Vector2(-510, -170)
 texture = ExtResource("3_w4lg7")
 
 [node name="CureMarkerRed" type="Sprite2D" parent="Markers" unique_id=945328160]
