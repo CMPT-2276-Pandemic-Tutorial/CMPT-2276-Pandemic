@@ -7,7 +7,7 @@ var city_data = [] #storing the array from JSON file
 func _ready():
 		load_city_data() #Declaration for loading data from json - AS
 		connect_city_signals() #declaration for connecting signals to buttons (collision shapes) - AS
-		GameManager.set_marker_references() #called to set references when scene is opened
+		GameManager.set_references() #called to set references when scene is opened
 		
 func load_city_data():
 		var file = FileAccess.open("res://map/baseboard.json", FileAccess.READ) #open the json file and give godot read access - AS
@@ -53,5 +53,5 @@ func _on_city_clicked(city_name):
 
 func _on_button_pressed() -> void:
 	GameManager.endTurn()
-	$InfectDeck.draw_infect_card()
+	$cardsAndDecks/InfectDeck.draw_infect_card()
 	$TurnLabel.text = "player " + str(GameManager.currentPlayer + 1) + "'s turn"

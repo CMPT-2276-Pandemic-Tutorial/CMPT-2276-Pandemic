@@ -3,6 +3,7 @@ extends Node
 var map
 var infectionMarker
 var outbreakMarker
+var infectionDeck
 
 var turnNum = 0
 var playerCount = 4
@@ -21,9 +22,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_marker_references()-> void:
+func set_references()-> void:
 	infectionMarker = get_node("/root/UI Prototype/Markers/InfectionMarker")
 	outbreakMarker = get_node("/root/UI Prototype/Markers/OutbreakMarker")
+	infectionDeck = get_node("/root/UI Prototype/cardsAndDecks/InfectDeck")
 
 #Functions to handle start/end of turn
 func beginNextTurn() -> void:
@@ -51,7 +53,7 @@ func gameEnd(won) -> void:
 func infectCities() -> void:
 	var cityToInfect
 	for i in infectionRate[infectionIndex]:
-		cityToInfect = map.findCity("New York") #Replace New York with draw
+		cityToInfect = map.findCity(infectionDeck.draw_infect_card()) #Replace New York with draw
 		if cityToInfect.infect(cityToInfect.get_colour()): #Infects City and checks for outbreak
 			outbreak(cityToInfect)
 			map.resetOutbreaks()
@@ -74,6 +76,3 @@ func outbreak(cityOutbreaking) -> void:
 func check_for_win() -> bool:
 	var allCured = cured["black"] && cured["blue"] && cured["red"] && cured["yellow"]
 	return allCured
-
-func _on_button_pressed() -> void: #test button
-	endTurn()

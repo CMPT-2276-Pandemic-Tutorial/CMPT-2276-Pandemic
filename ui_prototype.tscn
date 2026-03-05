@@ -20,18 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://dgd7d2ac2vuww" path="res://Scenes/main.tscn" id="18_y252u"]
 [ext_resource type="PackedScene" uid="uid://ck6tu3w86f5rp" path="res://Scenes/infect_deck.tscn" id="19_ummoj"]
 
-[sub_resource type="GDScript" id="GDScript_y252u"]
-script/source = "extends Area2D
-
-var city_data = {
-	\"atlanta\": \"test\"
-}
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
 [node name="UI Prototype" type="Node2D" unique_id=790515674]
@@ -76,7 +64,135 @@ texture = ExtResource("7_4ar3p")
 position = Vector2(-34, 151)
 texture = ExtResource("8_7v5yk")
 
-[node name="playerclass" type="Panel" parent="." unique_id=1704885419]
+[node name="ActionControls" type="Node" parent="." unique_id=1615193092]
+
+[node name="ActionButtons" type="Control" parent="ActionControls" unique_id=848514104]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TreatBlack" type="Button" parent="ActionControls/ActionButtons" unique_id=560487138]
+layout_mode = 0
+offset_left = -724.0
+offset_top = -72.0
+offset_right = -624.0
+offset_bottom = -41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+button_mask = 0
+text = "Treat Black"
+
+[node name="TreatBlue" type="Button" parent="ActionControls/ActionButtons" unique_id=170781188]
+layout_mode = 0
+offset_left = -715.0
+offset_top = -32.0
+offset_right = -627.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0.15686275, 0.11372549, 0.9490196, 1)
+text = "Treat Blue"
+
+[node name="TreatRed" type="Button" parent="ActionControls/ActionButtons" unique_id=1828756914]
+layout_mode = 0
+offset_left = -712.0
+offset_top = 9.0
+offset_right = -629.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.68748975, 0.100465454, 0.2755373, 1)
+text = "Treat Red"
+
+[node name="TreatYellow" type="Button" parent="ActionControls/ActionButtons" unique_id=556598004]
+layout_mode = 0
+offset_left = -733.0
+offset_top = 50.0
+offset_right = -629.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0.97626203, 0.87990844, 0.3447454, 1)
+text = "Treat Yellow"
+
+[node name="CureBlack" type="Button" parent="ActionControls/ActionButtons" unique_id=1385712277]
+layout_mode = 0
+offset_left = -827.0
+offset_top = -70.0
+offset_right = -736.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0.0031999992, 0.0031999992, 0.04, 1)
+text = "Cure Black"
+
+[node name="CureBlue" type="Button" parent="ActionControls/ActionButtons" unique_id=1256071548]
+layout_mode = 0
+offset_left = -821.0
+offset_top = -33.0
+offset_right = -738.0
+offset_bottom = -2.0
+rotation = 0.015281841
+theme_override_colors/font_color = Color(0.02745098, 0.08627451, 0.8745098, 1)
+text = "Cure Blue"
+
+[node name="CureRed" type="Button" parent="ActionControls/ActionButtons" unique_id=1164542030]
+layout_mode = 0
+offset_left = -820.0
+offset_top = 8.0
+offset_right = -742.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.87, 0.04350001, 0.04350001, 1)
+text = "Cure Red"
+
+[node name="CureYellow" type="Button" parent="ActionControls/ActionButtons" unique_id=1837381825]
+layout_mode = 0
+offset_left = -844.0
+offset_top = 49.0
+offset_right = -744.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.83536, 0.92, 0.07359999, 1)
+text = "Cure Yellow"
+
+[node name="treatAction" type="Node" parent="ActionControls" unique_id=81655222]
+script = ExtResource("17_y252u")
+
+[node name="cureAction" type="Node" parent="ActionControls" unique_id=328316387]
+script = ExtResource("18_ummoj")
+
+[node name="cardsAndDecks" type="Node" parent="." unique_id=1826354614]
+
+[node name="infectionDeck" type="Node" parent="cardsAndDecks" unique_id=1630203481]
+
+[node name="infectionDeckCount" type="Label" parent="cardsAndDecks/infectionDeck" unique_id=937127246]
+offset_left = 199.0
+offset_top = -502.0
+offset_right = 278.0
+offset_bottom = -474.0
+theme_override_font_sizes/font_size = 20
+text = "Deck: X"
+
+[node name="infectionDiscardCount" type="Label" parent="cardsAndDecks/infectionDeck" unique_id=348662380]
+offset_left = 380.0
+offset_top = -500.0
+offset_right = 476.0
+offset_bottom = -472.0
+theme_override_font_sizes/font_size = 20
+text = "Discard: Y"
+
+[node name="playerDeck" type="Node" parent="cardsAndDecks" unique_id=1439591647]
+
+[node name="playerDeckCount" type="Label" parent="cardsAndDecks/playerDeck" unique_id=605446455]
+offset_left = 158.0
+offset_top = 122.0
+offset_right = 229.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 20
+text = "Deck: X"
+
+[node name="playerDiscardCount" type="Label" parent="cardsAndDecks/playerDeck" unique_id=586210471]
+offset_left = 293.0
+offset_top = 121.0
+offset_right = 389.0
+offset_bottom = 149.0
+theme_override_font_sizes/font_size = 20
+text = "Discard: Y"
+
+[node name="cardSlots" type="Node" parent="cardsAndDecks" unique_id=1270415597]
+
+[node name="playerclass" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1704885419]
 clip_contents = true
 offset_left = -605.0
 offset_top = 210.0
@@ -84,7 +200,7 @@ offset_right = -465.0
 offset_bottom = 395.0
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="playerclass" unique_id=542365104]
+[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playerclass" unique_id=542365104]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 1
 offset_right = 140.0
@@ -93,7 +209,7 @@ text = "Player Class"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="playercard1" type="Panel" parent="." unique_id=1281117924]
+[node name="playercard1" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1281117924]
 custom_minimum_size = Vector2(140, 185)
 offset_left = -420.0
 offset_top = 210.0
@@ -101,7 +217,7 @@ offset_right = -280.0
 offset_bottom = 395.0
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="playercard1" unique_id=1256621041]
+[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard1" unique_id=1256621041]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 0
 offset_left = -1.0
@@ -112,14 +228,14 @@ text = "Card 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="playercard2" type="Panel" parent="." unique_id=457924824]
+[node name="playercard2" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=457924824]
 custom_minimum_size = Vector2(140, 185)
 offset_left = -275.0
 offset_top = 210.0
 offset_right = -135.0
 offset_bottom = 395.0
 
-[node name="Label" type="Label" parent="playercard2" unique_id=1238466698]
+[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard2" unique_id=1238466698]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 0
 offset_left = -1.0
@@ -130,14 +246,14 @@ text = "Card 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="playercard3" type="Panel" parent="." unique_id=2026183432]
+[node name="playercard3" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=2026183432]
 custom_minimum_size = Vector2(140, 185)
 offset_left = -130.0
 offset_top = 210.0
 offset_right = 10.0
 offset_bottom = 395.0
 
-[node name="Label" type="Label" parent="playercard3" unique_id=607292754]
+[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard3" unique_id=607292754]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 0
 offset_left = -1.0
@@ -148,14 +264,14 @@ text = "Card 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="playercard4" type="Panel" parent="." unique_id=2089479655]
+[node name="playercard4" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=2089479655]
 custom_minimum_size = Vector2(140, 185)
 offset_left = 15.0
 offset_top = 210.0
 offset_right = 155.0
 offset_bottom = 395.0
 
-[node name="Label" type="Label" parent="playercard4" unique_id=2067877189]
+[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard4" unique_id=2067877189]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 0
 offset_left = -1.0
@@ -166,14 +282,14 @@ text = "Card 4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="playercard5" type="Panel" parent="." unique_id=1160953973]
+[node name="playercard5" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1160953973]
 custom_minimum_size = Vector2(140, 185)
 offset_left = 160.0
 offset_top = 210.0
 offset_right = 300.0
 offset_bottom = 395.0
 
-[node name="Label" type="Label" parent="playercard5" unique_id=516366363]
+[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard5" unique_id=516366363]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 0
 offset_left = -1.0
@@ -184,14 +300,14 @@ text = "Card 5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="playercard6" type="Panel" parent="." unique_id=1297274791]
+[node name="playercard6" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1297274791]
 custom_minimum_size = Vector2(140, 185)
 offset_left = 305.0
 offset_top = 210.0
 offset_right = 445.0
 offset_bottom = 395.0
 
-[node name="Label" type="Label" parent="playercard6" unique_id=1194571768]
+[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard6" unique_id=1194571768]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 0
 offset_left = -1.0
@@ -202,7 +318,7 @@ text = "Card 6"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="playercard7" type="Panel" parent="." unique_id=273997164]
+[node name="playercard7" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=273997164]
 visible = false
 custom_minimum_size = Vector2(140, 185)
 offset_left = 450.0
@@ -210,7 +326,7 @@ offset_top = 210.0
 offset_right = 590.0
 offset_bottom = 395.0
 
-[node name="Label" type="Label" parent="playercard7" unique_id=1063817918]
+[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard7" unique_id=1063817918]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 0
 offset_left = -1.0
@@ -221,44 +337,55 @@ text = "Card 7"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="infectionDeck" type="Node" parent="." unique_id=1630203481]
+[node name="Decks" parent="cardsAndDecks" unique_id=1881671823 instance=ExtResource("18_y252u")]
+position = Vector2(164.18188, 48.818146)
 
-[node name="infectionDeckCount" type="Label" parent="infectionDeck" unique_id=937127246]
-offset_left = 199.0
-offset_top = -502.0
-offset_right = 278.0
-offset_bottom = -474.0
-theme_override_font_sizes/font_size = 20
-text = "Deck: X"
+[node name="InfectDeck" parent="cardsAndDecks" unique_id=521029900 instance=ExtResource("19_ummoj")]
+position = Vector2(194, -535)
+scale = Vector2(0.45, 0.45)
 
-[node name="infectionDiscardCount" type="Label" parent="infectionDeck" unique_id=348662380]
-offset_left = 380.0
-offset_top = -500.0
-offset_right = 476.0
-offset_bottom = -472.0
-theme_override_font_sizes/font_size = 20
-text = "Discard: Y"
+[node name="players" type="Node" parent="." unique_id=587268843]
 
-[node name="playerDeck" type="Node" parent="." unique_id=1439591647]
+[node name="Player1" type="Node2D" parent="players" unique_id=1684015866]
+visible = false
+scale = Vector2(0.1, 0.1)
+script = ExtResource("12_3bd5r")
 
-[node name="playerDeckCount" type="Label" parent="playerDeck" unique_id=605446455]
-offset_left = 158.0
-offset_top = 122.0
-offset_right = 229.0
-offset_bottom = 150.0
-theme_override_font_sizes/font_size = 20
-text = "Deck: X"
+[node name="PersonIconBlue" type="Sprite2D" parent="players/Player1" unique_id=1950434960]
+visible = false
+position = Vector2(0, -59.999996)
+texture = ExtResource("12_npjd0")
 
-[node name="playerDiscardCount" type="Label" parent="playerDeck" unique_id=586210471]
-offset_left = 293.0
-offset_top = 121.0
-offset_right = 389.0
-offset_bottom = 149.0
-theme_override_font_sizes/font_size = 20
-text = "Discard: Y"
+[node name="Player2" type="Node2D" parent="players" unique_id=1519381775]
+visible = false
+script = ExtResource("12_3bd5r")
 
-[node name="cityNodes" type="Area2D" parent="." unique_id=1803910068]
-script = SubResource("GDScript_y252u")
+[node name="PersonIconBrown" type="Sprite2D" parent="players/Player2" unique_id=37674305]
+visible = false
+position = Vector2(4.7683716e-07, -4)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_ndaj4")
+
+[node name="Player3" type="Node2D" parent="players" unique_id=1585601267]
+visible = false
+script = ExtResource("12_3bd5r")
+
+[node name="PersonIconGray" type="Sprite2D" parent="players/Player3" unique_id=1552940937]
+visible = false
+position = Vector2(2.3841858e-07, -2)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_sbd0r")
+
+[node name="Player4" type="Node2D" parent="players" unique_id=188429927]
+visible = false
+script = ExtResource("12_3bd5r")
+
+[node name="PersonIconRed" type="Sprite2D" parent="players/Player4" unique_id=285779780]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_y252u")
+
+[node name="cityNodes" type="Node" parent="." unique_id=816356429]
 
 [node name="Atlanta" type="Area2D" parent="cityNodes" unique_id=1979203044]
 position = Vector2(-368, -320)
@@ -692,51 +819,12 @@ script = ExtResource("10_sbd0r")
 position = Vector2(13.846176, 66.15388)
 shape = SubResource("CircleShape2D_3bd5r")
 
-[node name="Player1" type="Node2D" parent="." unique_id=1684015866]
-visible = false
-scale = Vector2(0.1, 0.1)
-script = ExtResource("12_3bd5r")
-
-[node name="PersonIconBlue" type="Sprite2D" parent="Player1" unique_id=1950434960]
-visible = false
-position = Vector2(0, -59.999996)
-texture = ExtResource("12_npjd0")
-
-[node name="Player2" type="Node2D" parent="." unique_id=1519381775]
-visible = false
-script = ExtResource("12_3bd5r")
-
-[node name="PersonIconBrown" type="Sprite2D" parent="Player2" unique_id=37674305]
-visible = false
-position = Vector2(4.7683716e-07, -4)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("14_ndaj4")
-
-[node name="Player3" type="Node2D" parent="." unique_id=1585601267]
-visible = false
-script = ExtResource("12_3bd5r")
-
-[node name="PersonIconGray" type="Sprite2D" parent="Player3" unique_id=1552940937]
-visible = false
-position = Vector2(2.3841858e-07, -2)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("15_sbd0r")
-
-[node name="Player4" type="Node2D" parent="." unique_id=188429927]
-visible = false
-script = ExtResource("12_3bd5r")
-
-[node name="PersonIconRed" type="Sprite2D" parent="Player4" unique_id=285779780]
-visible = false
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("16_y252u")
-
-[node name="Button" type="Button" parent="." unique_id=1412050117]
+[node name="endTurnButton" type="Button" parent="." unique_id=1412050117]
 offset_left = -790.0
 offset_top = 134.0
 offset_right = -672.0
 offset_bottom = 191.0
-text = "test char swap"
+text = "End Turn"
 
 [node name="TurnLabel" type="Label" parent="." unique_id=220117877]
 offset_left = 430.0
@@ -745,93 +833,16 @@ offset_right = 576.0
 offset_bottom = -593.0
 text = "Player 1's turn"
 
-[node name="TreatBlack" type="Button" parent="." unique_id=560487138]
-offset_left = -724.0
-offset_top = -72.0
-offset_right = -624.0
-offset_bottom = -41.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-button_mask = 0
-text = "Treat Black"
-
-[node name="TreatBlue" type="Button" parent="." unique_id=170781188]
-offset_left = -715.0
-offset_top = -32.0
-offset_right = -627.0
-offset_bottom = -1.0
-theme_override_colors/font_color = Color(0.15686275, 0.11372549, 0.9490196, 1)
-text = "Treat Blue"
-
-[node name="TreatRed" type="Button" parent="." unique_id=1828756914]
-offset_left = -712.0
-offset_top = 9.0
-offset_right = -629.0
-offset_bottom = 40.0
-theme_override_colors/font_color = Color(0.68748975, 0.100465454, 0.2755373, 1)
-text = "Treat Red"
-
-[node name="TreatYellow" type="Button" parent="." unique_id=556598004]
-offset_left = -733.0
-offset_top = 50.0
-offset_right = -629.0
-offset_bottom = 81.0
-theme_override_colors/font_color = Color(0.97626203, 0.87990844, 0.3447454, 1)
-text = "Treat Yellow"
-
-[node name="CureBlack" type="Button" parent="." unique_id=1385712277]
-offset_left = -827.0
-offset_top = -70.0
-offset_right = -736.0
-offset_bottom = -39.0
-theme_override_colors/font_color = Color(0.0031999992, 0.0031999992, 0.04, 1)
-text = "Cure Black"
-
-[node name="CureBlue" type="Button" parent="." unique_id=1256071548]
-offset_left = -821.0
-offset_top = -33.0
-offset_right = -738.0
-offset_bottom = -2.0
-rotation = 0.015281841
-theme_override_colors/font_color = Color(0.02745098, 0.08627451, 0.8745098, 1)
-text = "Cure Blue"
-
-[node name="CureRed" type="Button" parent="." unique_id=1164542030]
-offset_left = -820.0
-offset_top = 8.0
-offset_right = -742.0
-offset_bottom = 39.0
-theme_override_colors/font_color = Color(0.87, 0.04350001, 0.04350001, 1)
-text = "Cure Red"
-
-[node name="CureYellow" type="Button" parent="." unique_id=1837381825]
-offset_left = -844.0
-offset_top = 49.0
-offset_right = -744.0
-offset_bottom = 80.0
-theme_override_colors/font_color = Color(0.83536, 0.92, 0.07359999, 1)
-text = "Cure Yellow"
-
-[node name="Node" type="Node" parent="." unique_id=81655222]
-script = ExtResource("17_y252u")
-
-[node name="Node2" type="Node" parent="." unique_id=328316387]
-script = ExtResource("18_ummoj")
-
-[node name="Decks" parent="." unique_id=1881671823 instance=ExtResource("18_y252u")]
-position = Vector2(164.18188, 48.818146)
-
-[node name="InfectDeck" parent="." unique_id=521029900 instance=ExtResource("19_ummoj")]
-position = Vector2(194, -535)
-scale = Vector2(0.45, 0.45)
-
-[node name="CityDescriptionBox" type="Container" parent="." unique_id=1592407733]
+[node name="CityDescriptionBox" type="Control" parent="." unique_id=1692830451]
+layout_mode = 3
+anchors_preset = 0
 offset_left = -915.0
 offset_top = -540.0
 offset_right = -915.0
 offset_bottom = -540.0
 
 [node name="panel" type="Panel" parent="CityDescriptionBox" unique_id=585948130]
-layout_mode = 2
+layout_mode = 0
 
 [node name="info" type="Label" parent="CityDescriptionBox/panel" unique_id=120674320]
 layout_mode = 0
@@ -839,13 +850,12 @@ offset_right = 23.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
-[connection signal="input_event" from="cityNodes" to="cityNodes" method="_on_input_event"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="TreatBlack" to="Node" method="_on_treat_black_button_pressed"]
-[connection signal="pressed" from="TreatBlue" to="Node" method="_on_treat_blue_button_pressed"]
-[connection signal="pressed" from="TreatRed" to="Node" method="_on_treat_red_button_pressed"]
-[connection signal="pressed" from="TreatYellow" to="Node" method="_on_treat_yellow_button_pressed"]
-[connection signal="pressed" from="CureBlack" to="Node2" method="_on_cure_black_button_pressed"]
-[connection signal="pressed" from="CureBlue" to="Node2" method="_on_cure_blue_button_pressed"]
-[connection signal="pressed" from="CureRed" to="Node2" method="_on_cure_red_button_pressed"]
-[connection signal="pressed" from="CureYellow" to="Node2" method="_on_cure_yellow_button_pressed"]
+[connection signal="pressed" from="ActionControls/ActionButtons/TreatBlack" to="ActionControls/treatAction" method="_on_treat_black_button_pressed"]
+[connection signal="pressed" from="ActionControls/ActionButtons/TreatBlue" to="ActionControls/treatAction" method="_on_treat_blue_button_pressed"]
+[connection signal="pressed" from="ActionControls/ActionButtons/TreatRed" to="ActionControls/treatAction" method="_on_treat_red_button_pressed"]
+[connection signal="pressed" from="ActionControls/ActionButtons/TreatYellow" to="ActionControls/treatAction" method="_on_treat_yellow_button_pressed"]
+[connection signal="pressed" from="ActionControls/ActionButtons/CureBlack" to="ActionControls/cureAction" method="_on_cure_black_button_pressed"]
+[connection signal="pressed" from="ActionControls/ActionButtons/CureBlue" to="ActionControls/cureAction" method="_on_cure_blue_button_pressed"]
+[connection signal="pressed" from="ActionControls/ActionButtons/CureRed" to="ActionControls/cureAction" method="_on_cure_red_button_pressed"]
+[connection signal="pressed" from="ActionControls/ActionButtons/CureYellow" to="ActionControls/cureAction" method="_on_cure_yellow_button_pressed"]
+[connection signal="pressed" from="endTurnButton" to="." method="_on_button_pressed"]
