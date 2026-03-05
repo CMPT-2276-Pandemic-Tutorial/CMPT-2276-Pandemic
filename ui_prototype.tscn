@@ -21,12 +21,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gafnf"]
-bg_color = Color(0.02, 0.02, 0.02, 1)
-border_color = Color(0.03, 0.03, 0.03, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbd0r"]
-
 [sub_resource type="CanvasTexture" id="CanvasTexture_y252u"]
 
 [node name="UI Prototype" type="Node2D" unique_id=790515674]
@@ -315,66 +309,71 @@ text = "Player 1's turn"
 
 [node name="TreatBlack" type="Button" parent="." unique_id=560487138]
 modulate = Color(0.05, 0.015000001, 0.048833337, 1)
-offset_left = -723.0
-offset_top = -51.0
-offset_right = -631.0
-offset_bottom = -28.0
-theme_override_colors/font_color = Color(0.8424083, 0.89160115, 0.8381618, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_gafnf")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_sbd0r")
+offset_left = -724.0
+offset_top = -72.0
+offset_right = -624.0
+offset_bottom = -41.0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 button_mask = 0
 text = "Treat Black"
 icon = SubResource("CanvasTexture_y252u")
-flat = true
 
 [node name="TreatBlue" type="Button" parent="." unique_id=170781188]
-offset_left = 69.0
-offset_top = 64.0
-offset_right = 87.0
-offset_bottom = 95.0
-text = "3"
+offset_left = -715.0
+offset_top = -32.0
+offset_right = -627.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0.15686275, 0.11372549, 0.9490196, 1)
+text = "Treat Blue"
 
 [node name="TreatRed" type="Button" parent="." unique_id=1828756914]
-offset_left = 53.0
-offset_top = 102.0
-offset_right = 71.0
-offset_bottom = 133.0
-text = "4"
+offset_left = -712.0
+offset_top = 9.0
+offset_right = -629.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.68748975, 0.100465454, 0.2755373, 1)
+text = "Treat Red"
 
 [node name="TreatYellow" type="Button" parent="." unique_id=556598004]
-offset_left = 21.0
-offset_top = 67.0
-offset_right = 29.0
-offset_bottom = 75.0
-text = "5"
+offset_left = -733.0
+offset_top = 50.0
+offset_right = -629.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0.97626203, 0.87990844, 0.3447454, 1)
+text = "Treat Yellow"
 
 [node name="CureBlack" type="Button" parent="." unique_id=1385712277]
-offset_left = 19.0
-offset_top = 30.0
-offset_right = 37.0
-offset_bottom = 61.0
-text = "6"
+offset_left = -827.0
+offset_top = -70.0
+offset_right = -736.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0.0031999992, 0.0031999992, 0.04, 1)
+text = "Cure Black"
 
 [node name="CureBlue" type="Button" parent="." unique_id=1256071548]
-offset_left = 18.0
-offset_top = -9.0
-offset_right = 36.0
-offset_bottom = 22.0
-text = "7"
+offset_left = -821.0
+offset_top = -33.0
+offset_right = -738.0
+offset_bottom = -2.0
+rotation = 0.015281841
+theme_override_colors/font_color = Color(0.02745098, 0.08627451, 0.8745098, 1)
+text = "Cure Blue"
 
 [node name="CureRed" type="Button" parent="." unique_id=1164542030]
-offset_left = 25.0
-offset_top = 104.0
-offset_right = 33.0
-offset_bottom = 112.0
-text = "8"
+offset_left = -820.0
+offset_top = 8.0
+offset_right = -742.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.87, 0.04350001, 0.04350001, 1)
+text = "Cure Red"
 
 [node name="CureYellow" type="Button" parent="." unique_id=1837381825]
-offset_left = 54.0
-offset_top = 69.0
-offset_right = 72.0
-offset_bottom = 100.0
-text = "9"
+offset_left = -844.0
+offset_top = 49.0
+offset_right = -744.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.83536, 0.92, 0.07359999, 1)
+text = "Cure Yellow"
 
 [node name="Node" type="Node" parent="." unique_id=81655222]
 script = ExtResource("17_y252u")
