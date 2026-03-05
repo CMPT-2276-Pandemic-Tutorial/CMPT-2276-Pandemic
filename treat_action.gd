@@ -18,14 +18,14 @@ func treat_disease_action(colour) -> void:
 	current_city.treat_disease(colour, GameManager.cured[colour])
 	GameManager.actionCount -= 1
 
-func _on_button_2_pressed() -> void:
+func _on_treat_black_button_pressed() -> void:
 	treat_disease_action("black")
 
-func _on_button_3_pressed() -> void:
+func _on_treat_blue_button_pressed() -> void:
 	treat_disease_action("blue")
 
-func _on_button_4_pressed() -> void:
+func _on_treat_red_button_pressed() -> void:
 	treat_disease_action("red")	
 
-func _on_button_5_pressed() -> void:
+func _on_treat_yellow_button_pressed() -> void:
 	treat_disease_action("yellow")

@@ -37,14 +37,14 @@ func treat_cure_action(colour) -> void:
 		GameManager.gameEnd(true)
 	GameManager.actionCount -= 1
 
-func _on_button_6_pressed() -> void:
+func _on_cure_black_button_pressed() -> void:
 	treat_cure_action("black")
 
-func _on_button_7_pressed() -> void:
+func _on_cure_blue_button_pressed() -> void:
 	treat_cure_action("blue")
 
-func _on_button_8_pressed() -> void:
+func _on_cure_red_button_pressed() -> void:
 	treat_cure_action("red")	
 
-func _on_button_9_pressed() -> void:
+func _on_cure_yellow_button_pressed() -> void:
 	treat_cure_action("yellow")
