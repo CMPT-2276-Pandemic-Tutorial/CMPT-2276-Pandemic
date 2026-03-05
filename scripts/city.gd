@@ -10,7 +10,6 @@ var red_cubes
 var yellow_cubes
 var station
 var outbreak = false
-var selector
 
 func _init(city_info) -> void:
 	city_name = city_info["name"]
@@ -41,35 +40,42 @@ func should_outbreak() -> bool:
 	return !outbreak
 
 func infect(c) -> bool:
+	print("Infecting " + city_name + " with " + c)
 	match c:
 		"black":
 			if black_cubes == 3:
+				print(city_name + " is at " + str(black_cubes) + " black")
 				return true
 			else: 
 				black_cubes += 1
+				print(city_name + " is at " + str(black_cubes) + " black")
 				return false
 		"blue":
 			if blue_cubes == 3:
-				print(city_name + " is at 3")
+				print(city_name + " is at " + str(blue_cubes) + " blue")
 				return true
 			else: 
-				print(city_name + " is <3")
+				print(city_name + " is at " + str(blue_cubes) + " blue")
 				blue_cubes += 1
 				return false
 		"red":
 			if red_cubes == 3:
+				print(city_name + " is at " + str(red_cubes) + " red")
 				return true
 			else: 
 				red_cubes += 1
+				print(city_name + " is at " + str(red_cubes) + " red")
 				return false
 		"yellow":
 			if yellow_cubes == 3:
+				print(city_name + " is at " + str(yellow_cubes) + " yellow")
 				return true
 			else: 
 				yellow_cubes += 1
+				print(city_name + " is at " + str(yellow_cubes) + " yellow")
 				return false
 	return false
-	
+
 func treat_disease(c, cured) -> void:
 	match c:
 		"black":

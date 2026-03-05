@@ -19,8 +19,11 @@
 [ext_resource type="Script" uid="uid://oge5d3b65jkf" path="res://cure_action.gd" id="18_ummoj"]
 [ext_resource type="PackedScene" uid="uid://dgd7d2ac2vuww" path="res://Scenes/main.tscn" id="18_y252u"]
 [ext_resource type="PackedScene" uid="uid://ck6tu3w86f5rp" path="res://Scenes/infect_deck.tscn" id="19_ummoj"]
+[ext_resource type="Script" uid="uid://bmph5lkvot553" path="res://move_action.gd" id="20_gafnf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ummoj"]
 
 [node name="UI Prototype" type="Node2D" unique_id=790515674]
 script = ExtResource("1_qhc5k")
@@ -849,6 +852,12 @@ layout_mode = 0
 offset_right = 23.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=121457599]
+script = ExtResource("20_gafnf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2133207286]
+shape = SubResource("RectangleShape2D_ummoj")
 
 [connection signal="pressed" from="ActionControls/ActionButtons/TreatBlack" to="ActionControls/treatAction" method="_on_treat_black_button_pressed"]
 [connection signal="pressed" from="ActionControls/ActionButtons/TreatBlue" to="ActionControls/treatAction" method="_on_treat_blue_button_pressed"]

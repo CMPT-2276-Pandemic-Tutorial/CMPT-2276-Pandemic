@@ -53,7 +53,9 @@ func gameEnd(won) -> void:
 func infectCities() -> void:
 	var cityToInfect
 	for i in infectionRate[infectionIndex]:
-		cityToInfect = map.findCity(infectionDeck.draw_infect_card()) #Replace New York with draw
+		var cityToInfectString = infectionDeck.draw_infect_card()
+		cityToInfect = map.findCity(cityToInfectString) #Replace New York with draw
+		print("Infected city is " + cityToInfectString)
 		if cityToInfect.infect(cityToInfect.get_colour()): #Infects City and checks for outbreak
 			outbreak(cityToInfect)
 			map.resetOutbreaks()
