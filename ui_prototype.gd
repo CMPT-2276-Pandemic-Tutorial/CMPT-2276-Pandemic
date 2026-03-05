@@ -13,4 +13,5 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	GameManager.endTurn()
+	$InfectDeck.draw_infect_card()
 	$TurnLabel.text = "player " + str(GameManager.currentPlayer + 1) + "'s turn"

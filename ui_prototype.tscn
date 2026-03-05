@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://2shoxogjih3l" path="res://assets/map/person-icon-red.png" id="16_y252u"]
 [ext_resource type="Script" uid="uid://dnjrqc0bhgjww" path="res://treat_action.gd" id="17_y252u"]
 [ext_resource type="Script" uid="uid://oge5d3b65jkf" path="res://cure_action.gd" id="18_ummoj"]
+[ext_resource type="PackedScene" uid="uid://dgd7d2ac2vuww" path="res://Scenes/main.tscn" id="18_y252u"]
+[ext_resource type="PackedScene" uid="uid://ck6tu3w86f5rp" path="res://Scenes/infect_deck.tscn" id="19_ummoj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
@@ -374,6 +376,13 @@ script = ExtResource("17_y252u")
 
 [node name="Node2" type="Node" parent="." unique_id=328316387]
 script = ExtResource("18_ummoj")
+
+[node name="Decks" parent="." unique_id=1881671823 instance=ExtResource("18_y252u")]
+position = Vector2(164.18188, 48.818146)
+
+[node name="InfectDeck" parent="." unique_id=521029900 instance=ExtResource("19_ummoj")]
+position = Vector2(194, -535)
+scale = Vector2(0.45, 0.45)
 
 [connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
