@@ -1,10 +1,10 @@
 extends Area2D
 
-@onready var ui = get_node("/root/UI Prototype")
-@onready var player1 = get_node("/root/UI Prototype/players/Player1")
-@onready var player2 = get_node("/root/UI Prototype/players/Player2")
-@onready var player3 = get_node("/root/UI Prototype/players/Player3")
-@onready var player4 = get_node("/root/UI Prototype/players/Player4")
+@onready var ui = $".."
+@onready var player1 = $"../../players/Player1"
+@onready var player2 = $"../../players/Player2"
+@onready var player3 = $"../../players/Player3"
+@onready var player4 = $"../../players/Player4"
 var players: Array[Node2D] = []
 
 func _ready() -> void:

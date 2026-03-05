@@ -55,8 +55,8 @@ func infect(c) -> bool:
 				print(city_name + " is at " + str(blue_cubes) + " blue")
 				return true
 			else: 
-				print(city_name + " is at " + str(blue_cubes) + " blue")
 				blue_cubes += 1
+				print(city_name + " is at " + str(blue_cubes) + " blue")
 				return false
 		"red":
 			if red_cubes == 3:

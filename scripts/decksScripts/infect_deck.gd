@@ -3,14 +3,14 @@ extends Node2D
 const INFECT_CARD_SCENE_PATH = "res://scenes/deckScenes/infect_card.tscn"
 
 var infect_deck = []
-
+var discard_pile = []
 
 func _ready() -> void:
+	GameManager.infectionDeck = self
 	for i in Map.cities.size():
 		var cityName = Map.cities[i].get_city_name()
 		infect_deck.insert(0, cityName)
 		print("Added %s to infection deck" % infect_deck[0])
-		
 	shuffle(infect_deck)
 	
 #Fisher-Yates shuffle
@@ -22,10 +22,21 @@ func shuffle(deck):
 		deck[i] = deck[j]
 		deck[j] = temp
 
+func reshuffle():
+	print("Deck Reshuffled")
+	shuffle(discard_pile)
+	for i in discard_pile.size():
+		var card = discard_pile[0]
+		infect_deck.insert(0,card)
+		discard_pile.erase(card)
 
 func draw_infect_card() -> String:
+	print(infect_deck.size())
+	if !infect_deck:
+		reshuffle()
 	var card_drawn = infect_deck[0]
 	infect_deck.erase(card_drawn)
+	discard_pile.insert(0, card_drawn)
 	var card_scene = preload(INFECT_CARD_SCENE_PATH)
 	var new_card = card_scene.instantiate()
 	new_card.name = card_drawn

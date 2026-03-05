@@ -1,9 +1,9 @@
 extends Node
 
-@onready var player1 = get_node("/root/UI Prototype/Player1")
-@onready var player2 = get_node("/root/UI Prototype/Player2")
-@onready var player3 = get_node("/root/UI Prototype/Player3")
-@onready var player4 = get_node("/root/UI Prototype/Player4")
+@onready var player1 = $"../../players/Player1"
+@onready var player2 = $"../../players/Player2"
+@onready var player3 = $"../../players/Player3"
+@onready var player4 = $"../../players/Player4"
 var players: Array[Node2D] = []
 
 func _ready() -> void:

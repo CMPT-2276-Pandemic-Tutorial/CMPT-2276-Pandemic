@@ -1,13 +1,13 @@
 extends Node
 
-@onready var player1 = get_node("/root/UI Prototype/Player1")
-@onready var player2 = get_node("/root/UI Prototype/Player2")
-@onready var player3 = get_node("/root/UI Prototype/Player3")
-@onready var player4 = get_node("/root/UI Prototype/Player4")
-@onready var cureMarkerBlack = get_node("/root/UI Prototype/Markers/CureMarkerPurp")
-@onready var cureMarkerBlue = get_node("/root/UI Prototype/Markers/CureMarkerBlue")
-@onready var cureMarkerRed = get_node("/root/UI Prototype/Markers/CureMarkerRed")
-@onready var cureMarkerYel = get_node("/root/UI Prototype/Markers/CureMarkerYel")
+@onready var player1 = $"../../players/Player1"
+@onready var player2 = $"../../players/Player2"
+@onready var player3 = $"../../players/Player3"
+@onready var player4 = $"../../players/Player4"
+@onready var cureMarkerBlack = $"../../Markers/CureMarkerPurp"
+@onready var cureMarkerBlue = $"../../Markers/CureMarkerBlue"
+@onready var cureMarkerRed = $"../../Markers/CureMarkerRed"
+@onready var cureMarkerYel = $"../../Markers/CureMarkerYel"
 var players: Array[Node2D] = []
 var cureMarkers
 

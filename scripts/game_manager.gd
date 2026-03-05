@@ -1,9 +1,9 @@
 extends Node
 
 var map
-var infectionMarker
-var outbreakMarker
-var infectionDeck
+var infectionMarker: Node
+var outbreakMarker: Node
+var infectionDeck: Node
 
 var turnNum = 0
 var playerCount = 4
@@ -22,11 +22,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_references()-> void:
-	infectionMarker = get_node("/root/UI Prototype/Markers/InfectionMarker")
-	outbreakMarker = get_node("/root/UI Prototype/Markers/OutbreakMarker")
-	infectionDeck = get_node("/root/UI Prototype/cardsAndDecks/InfectDeck")
-
 #Functions to handle start/end of turn
 func beginNextTurn() -> void:
 	turnNum += 1
@@ -34,7 +29,6 @@ func beginNextTurn() -> void:
 		PlayerHand.player_hand[currentPlayer][i].visible = false
 	currentPlayer = turnNum % playerCount
 	actionCount = 4
-	
 	PlayerHand.update_hand_positions()
 
 func endTurn() -> void:
@@ -47,7 +41,6 @@ func gameEnd(won) -> void:
 		print("game won")
 	else:
 		print("game lost")
-
 
 #Functions for handling infecting cities and outbreaks
 func infectCities() -> void:
