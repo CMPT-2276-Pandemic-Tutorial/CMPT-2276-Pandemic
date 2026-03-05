@@ -7,8 +7,13 @@
 size = Vector2(374, 532)
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [node name="Card" type="Node2D"]
 scale = Vector2(0.5, 0.5)
+=======
+[node name="Card" type="Node2D" unique_id=1272394201]
+scale = Vector2(0.7, 0.7)
+>>>>>>> Stashed changes
 =======
 [node name="Card" type="Node2D" unique_id=1272394201]
 scale = Vector2(0.7, 0.7)
