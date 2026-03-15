@@ -21,12 +21,12 @@ func _ready() -> void:
 	shuffle(player_deck)
 	
 	#initial player deck draw
-	for i in 4:
-		GameManager.currentPlayer = i
-		for j in 3:
-			draw_card()
-	GameManager.currentPlayer = 0
-	PlayerHand.update_hand_positions()
+	#for i in 4:
+		#GameManager.currentPlayer = i
+		#for j in 3:
+			#draw_card()
+	#GameManager.currentPlayer = 0
+	#PlayerHand.update_hand_positions()
 
 
 #Fisher-Yates shuffle
