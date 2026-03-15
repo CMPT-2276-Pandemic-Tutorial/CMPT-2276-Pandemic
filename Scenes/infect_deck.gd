@@ -9,7 +9,7 @@ func _ready() -> void:
 	for i in Map.cities.size():
 		var cityName = Map.cities[i].get_city_name()
 		infect_deck.insert(0, cityName)
-		print("Added %s to infection deck" % infect_deck[0])
+		#print("Added %s to infection deck" % infect_deck[0])
 		
 	shuffle(infect_deck)
 	

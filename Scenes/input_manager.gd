@@ -15,7 +15,11 @@ func _input(event: InputEvent) -> void:
 			#draws card when clicking on the deck
 			if card:
 				if card.name == "Deck":
+					if GameManager.actionCount <= 0:
+						print("No actions remaining!")
+						return
 					$"../Deck".draw_card()
+					GameManager.actionCount -= 1
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.double_click:
 		if event.pressed:
 			var player_hand_ref = get_tree().get_first_node_in_group("player_hand")
