@@ -13,7 +13,7 @@ func _ready() -> void:
 	#center_screen_x = 
 	add_to_group("player_hand")
 	
-		
+
 func add_card_to_hand(card):
 	player_hand[curr_player].insert(0, card)
 	update_hand_positions()
@@ -21,11 +21,14 @@ func add_card_to_hand(card):
 func update_hand_positions():
 	curr_player = GameManager.currentPlayer
 	print("Current player is player  %d" % curr_player)
+	print("Current turn:",GameManager.turnNum)
+	
 	for i in range(player_hand[curr_player].size()):
 		#retrieves new card position based on current number of cards in the player hand and index of mouse
 		var new_position = Vector2(calculate_card_positions(i) -1100, HAND_Y_POSITION)
 		var card = player_hand[curr_player][i]
 		animate_card_to_position(card, new_position)
+
 
 func calculate_card_positions(index):
 	var total_width = (player_hand[curr_player].size() - 1) * CARD_WIDTH

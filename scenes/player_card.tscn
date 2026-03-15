@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cla4nrckfp0co"]
+[gd_scene format=3 uid="uid://v7xucg1gaabp"]
 
-[ext_resource type="Texture2D" uid="uid://b5tshviqxr772" path="res://assets/cardAssets/player-yellow.PNG" id="1_4w3uk"]
-[ext_resource type="Script" uid="uid://rq1tuc85d6u5" path="res://Scripts/decksScripts/card.gd" id="1_g7nas"]
+[ext_resource type="Texture2D" path="res://assets/player-yellow.PNG" id="1_4w3uk"]
+[ext_resource type="Script" path="res://Scripts/card.gd" id="1_g7nas"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j8do3"]
 font_size = 40
