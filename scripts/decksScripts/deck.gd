@@ -1,14 +1,14 @@
 extends Node2D
 
 const CARD_SCENE_PATH = "res://scenes/deckScenes/player_card.tscn"
-
+const MAP_JSON_PATH = "res://boardInformation.json"
 
 
 var player_deck = []
 
 func _ready() -> void:
 	#loads and stores the json map data
-	var file_text = FileAccess.get_file_as_string("res://map/baseboard.json")
+	var file_text = FileAccess.get_file_as_string(MAP_JSON_PATH)
 	var city_data = JSON.parse_string(file_text)
 	var city_list = city_data["cities"]
 	
