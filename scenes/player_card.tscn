@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://v7xucg1gaabp"]
+
+[ext_resource type="Texture2D" path="res://assets/player-yellow.PNG" id="1_4w3uk"]
+[ext_resource type="Script" path="res://Scripts/card.gd" id="1_g7nas"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8do3"]
+font_size = 40
+outline_size = 44
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(374, 532)
+
+[node name="Card" type="Node2D" unique_id=1272394201]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_g7nas")
+
+[node name="CardBG" type="Sprite2D" parent="." unique_id=890277759]
+texture = ExtResource("1_4w3uk")
+
+[node name="CardName" type="Label" parent="." unique_id=79994385]
+offset_left = -171.66666
+offset_top = -228.33333
+offset_right = 56.666687
+offset_bottom = -173.33333
+label_settings = SubResource("LabelSettings_j8do3")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=755649134]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=966226112]
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
