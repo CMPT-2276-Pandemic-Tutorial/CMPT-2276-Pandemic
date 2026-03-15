@@ -1,8 +1,9 @@
 extends Node
 
 var map
-@onready var infectionMarker = get_node("/root/UI Prototype/Markers/InfectionMarker")
-@onready var outbreakMarker = get_node("/root/UI Prototype/Markers/OutbreakMarker")
+var infectionMarker: Node
+var outbreakMarker: Node
+var infectionDeck: Node
 
 var turnNum = 0
 var playerCount = 4
@@ -28,7 +29,6 @@ func beginNextTurn() -> void:
 		PlayerHand.player_hand[currentPlayer][i].visible = false
 	currentPlayer = turnNum % playerCount
 	actionCount = 4
-	
 	PlayerHand.update_hand_positions()
 
 func endTurn() -> void:
@@ -42,12 +42,13 @@ func gameEnd(won) -> void:
 	else:
 		print("game lost")
 
-
 #Functions for handling infecting cities and outbreaks
 func infectCities() -> void:
 	var cityToInfect
 	for i in infectionRate[infectionIndex]:
-		cityToInfect = map.findCity("New York") #Replace New York with draw
+		var cityToInfectString = infectionDeck.draw_infect_card()
+		cityToInfect = map.findCity(cityToInfectString) #Replace New York with draw
+		print("Infected city is " + cityToInfectString)
 		if cityToInfect.infect(cityToInfect.get_colour()): #Infects City and checks for outbreak
 			outbreak(cityToInfect)
 			map.resetOutbreaks()
@@ -67,26 +68,6 @@ func outbreak(cityOutbreaking) -> void:
 			if chain: 
 				outbreak(map.findCity(cityOutbreaking.get_connection_name(i)))
 
-
-#Action functions
-var selected_cards #array of selected cards
-var selected_city
-var selected_player
-var selected_colour
-
-func action_cure_disease() -> void:
-	if !cured[selected_colour]:
-		for i in selected_cards.length():
-			if !selected_colour: #check that selected_cards[i]'s colour matches selected_colour
-				return
-		cured[selected_colour] = true
-		if check_for_win():
-			gameEnd(true)
-		actionCount -= 1
-
 func check_for_win() -> bool:
 	var allCured = cured["black"] && cured["blue"] && cured["red"] && cured["yellow"]
 	return allCured
-
-func _on_button_pressed() -> void: #test button
-	endTurn()
