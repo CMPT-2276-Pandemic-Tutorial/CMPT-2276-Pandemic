@@ -7,6 +7,8 @@ var discard_pile = []
 
 func _ready() -> void:
 	GameManager.infectionDeck = self
+	set_meta("tooltip_name", "Infection Deck")
+	set_meta("tooltip_desc", "Cards drawn from here will spread infection cubes on cities!")
 	for i in Map.cities.size():
 		var cityName = Map.cities[i].get_city_name()
 		infect_deck.insert(0, cityName)

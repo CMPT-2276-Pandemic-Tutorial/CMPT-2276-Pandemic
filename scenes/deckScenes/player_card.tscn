@@ -14,7 +14,7 @@ shadow_color = Color(0, 0, 0, 1)
 size = Vector2(374, 532)
 
 [node name="Card" type="Node2D" unique_id=1272394201]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_g7nas")
 
 [node name="CardBG" type="Sprite2D" parent="." unique_id=890277759]

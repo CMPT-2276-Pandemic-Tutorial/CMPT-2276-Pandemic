@@ -3,10 +3,11 @@ extends Node2D
 const CARD_SCENE_PATH = "res://scenes/deckScenes/player_card.tscn"
 const MAP_JSON_PATH = "res://boardInformation.json"
 
-
+var card_manager_ref
 var player_deck = []
 
 func _ready() -> void:
+	card_manager_ref = $"../CardManager"
 	#loads and stores the json map data
 	var file_text = FileAccess.get_file_as_string(MAP_JSON_PATH)
 	var city_data = JSON.parse_string(file_text)
@@ -15,18 +16,10 @@ func _ready() -> void:
 	#adds each entry (city data) in the json file into the player deck
 	for i in city_list:
 		player_deck.append(i)
-		#print("Added %s to player deck" % player_deck[0])
-	
+	set_meta("tooltip_name", "Player Deck")
+	set_meta("tooltip_desc", "Draw a city card from the player deck by clicking on it.")
 	#shuffle each deck at the start of the game
 	shuffle(player_deck)
-	
-	#initial player deck draw
-	#for i in 4:
-		#GameManager.currentPlayer = i
-		#for j in 3:
-			#draw_card()
-	#GameManager.currentPlayer = 0
-	#PlayerHand.update_hand_positions()
 
 
 #Fisher-Yates shuffle
@@ -41,10 +34,10 @@ func shuffle(deck):
 
 
 func draw_card():
-	if(PlayerHand.player_hand[GameManager.currentPlayer].size() == 6):
+	if(PlayerHand.player_hand[GameManager.currentPlayer].size() == 7):
 		print("player holds the max amount of cards!")
 		return
-	
+	GameManager.actionCount -= 1
 	var card_drawn = player_deck[0]
 	print("card drawn %s" % card_drawn["name"])
 	print("card drawn data", card_drawn)
@@ -58,7 +51,10 @@ func draw_card():
 	#ref the card manager to add the new card to the player hand as a child
 	var card_scene = preload(CARD_SCENE_PATH)
 	var new_card = card_scene.instantiate()
-	$"../CardManager".add_child(new_card)
+	card_manager_ref.add_child(new_card)
 	new_card.setup(card_drawn)
 	new_card.name = card_drawn["name"]
+	new_card.z_index = 10
+	new_card.set_meta("tooltip_name", card_drawn["name"])
+	new_card.set_meta("tooltip_desc", "City card used for travel and curing diseases.")
 	PlayerHand.add_card_to_hand(new_card)

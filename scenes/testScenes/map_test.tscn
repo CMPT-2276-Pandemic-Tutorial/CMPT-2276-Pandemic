@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cj7tg23gwysge"]
 
-[ext_resource type="Script" uid="uid://qxyis2q65ouy" path="res://scripts/game_manager.gd" id="1_x5nem"]
-[ext_resource type="Script" uid="uid://c653pcf40nxla" path="res://scripts/mapScripts/map.gd" id="1_y150f"]
+[ext_resource type="Script" uid="uid://qxyis2q65ouy" path="res://Scripts/game_manager.gd" id="1_x5nem"]
+[ext_resource type="Script" uid="uid://c653pcf40nxla" path="res://Scripts/mapScripts/map.gd" id="1_y150f"]
 
 [node name="GameManagerTest" type="Node" unique_id=532217544]
 script = ExtResource("1_x5nem")

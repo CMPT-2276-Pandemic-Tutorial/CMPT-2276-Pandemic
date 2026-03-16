@@ -10,7 +10,7 @@ var card_data
 
 func _ready() -> void:
 	#all cards need to be children of card manager
-	get_parent().connect_card_signals(self)
+	#get_parent().connect_card_signals(self)
 	$CardName.text = "TEST"
 
 func setup(data: Dictionary) -> void:

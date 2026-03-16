@@ -1,11 +1,22 @@
 extends Node2D
 
-#var card_dragged
+var tooltip_ref
+var last_hovered = null
 
-#func _process(delta: float) -> void:
-	#if card_dragged:
-		#var mouse_pos = get_global_mouse_position()
-		#card_dragged.position = mouse_pos
+func _ready():
+	tooltip_ref = get_tree().get_root().get_node("/root/Board/Tooltip") # adjust path
+
+func _process(delta):
+	var hovered = raycast_at_cursor()
+	if hovered and hovered.has_meta("tooltip_name") and hovered.has_meta("tooltip_desc"):
+		var tooltip_text = hovered.get_meta("tooltip_name") + "\n" + hovered.get_meta("tooltip_desc")
+		tooltip_ref.display(tooltip_text, get_viewport().get_mouse_position())
+	else:
+		tooltip_ref.hide_tooltip()
+	if hovered != last_hovered:
+		last_hovered = hovered
+		if hovered:
+			print("Hovering over: ", hovered.name)
 
 #detects clicking
 func _input(event: InputEvent) -> void:
@@ -13,13 +24,11 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			var card = raycast_at_cursor()
 			#draws card when clicking on the deck
-			if card:
-				if card.name == "Deck":
-					if GameManager.actionCount <= 0:
-						print("No actions remaining!")
-						return
-					$"../Deck".draw_card()
-					GameManager.actionCount -= 1
+			if card and card.name == "Deck":
+				if GameManager.actionCount <= 0:
+					print("No actions remaining!")
+					return
+				$"../Deck".draw_card()
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.double_click:
 		if event.pressed:
 			var player_hand_ref = get_tree().get_first_node_in_group("player_hand")
@@ -36,6 +45,5 @@ func raycast_at_cursor():
 	var result = space_state.intersect_point(parameters)
 	#check if card is valid
 	if result.size() > 0:
-		print(result[0].collider.get_parent())
 		return result[0].collider.get_parent()
 	return null
