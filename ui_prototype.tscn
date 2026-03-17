@@ -1,21 +1,36 @@
-[gd_scene format=3 uid="uid://cbhulfiaudhi7"]
+[gd_scene format=3 uid="uid://bed47sls2q2i"]
 
-[ext_resource type="Texture2D" uid="uid://cqwmbeqlbf4q5" path="res://assets/map/background.jpg" id="1_2e5bk"]
-[ext_resource type="Script" uid="uid://bo5mklfhh26s3" path="res://ui_prototype.gd" id="1_qhc5k"]
-[ext_resource type="Texture2D" uid="uid://b404tol6d0pue" path="res://assets/map/pandemic.jpg" id="2_w4lg7"]
-[ext_resource type="Texture2D" uid="uid://wgk6pkcajuo0" path="res://assets/markers/infectionMarker.png" id="3_byiq6"]
-[ext_resource type="Script" uid="uid://b1g6a4pp2ju45" path="res://Scripts/markers.gd" id="3_uhl5y"]
-[ext_resource type="Texture2D" uid="uid://01knmvffxqwt" path="res://assets/markers/outbreakMarker.png" id="3_w4lg7"]
-[ext_resource type="Texture2D" uid="uid://cas0j7vc4hn0" path="res://assets/markers/cureMarkerRed.png" id="5_7v5yk"]
-[ext_resource type="Texture2D" uid="uid://busrkex1wt2d" path="res://assets/markers/cureMarkerYel.png" id="6_uhl5y"]
-[ext_resource type="Texture2D" uid="uid://qcfqar2nujlk" path="res://assets/markers/cureMarkerBlue.png" id="7_4ar3p"]
-[ext_resource type="Texture2D" uid="uid://eqmb65trpdr7" path="res://assets/markers/cureMarkerPurp.png" id="8_7v5yk"]
-[ext_resource type="Script" uid="uid://bmph5lkvot553" path="res://area_2d.gd" id="11_npjd0"]
-[ext_resource type="Script" uid="uid://dke576880kbfj" path="res://player.gd" id="12_3bd5r"]
-[ext_resource type="Texture2D" uid="uid://c7pag51hxlod" path="res://assets/map/person-icon-blue.png" id="12_npjd0"]
-[ext_resource type="Texture2D" uid="uid://b0cwqmoi0uux8" path="res://assets/map/person-icon-brown.png" id="14_ndaj4"]
-[ext_resource type="Texture2D" uid="uid://bt7vqtyc2l5yy" path="res://assets/map/person-icon-gray.png" id="15_sbd0r"]
-[ext_resource type="Texture2D" uid="uid://2shoxogjih3l" path="res://assets/map/person-icon-red.png" id="16_y252u"]
+[ext_resource type="Texture2D" path="res://assets/map/background.jpg" id="1_2e5bk"]
+[ext_resource type="Script" path="res://ui_prototype.gd" id="1_qhc5k"]
+[ext_resource type="Texture2D" path="res://assets/map/pandemic.jpg" id="2_w4lg7"]
+[ext_resource type="Texture2D" path="res://assets/markers/infectionMarker.png" id="3_byiq6"]
+[ext_resource type="Texture2D" path="res://assets/markers/outbreakMarker.png" id="3_w4lg7"]
+[ext_resource type="Texture2D" path="res://assets/markers/cureMarkerRed.png" id="5_7v5yk"]
+[ext_resource type="Texture2D" path="res://assets/markers/cureMarkerYel.png" id="6_uhl5y"]
+[ext_resource type="Texture2D" path="res://assets/markers/cureMarkerBlue.png" id="7_4ar3p"]
+[ext_resource type="Texture2D" path="res://assets/markers/cureMarkerPurp.png" id="8_7v5yk"]
+[ext_resource type="Script" path="res://Scripts/cityScripts/test.gd" id="10_sbd0r"]
+[ext_resource type="Script" path="res://player.gd" id="12_3bd5r"]
+[ext_resource type="Texture2D" path="res://assets/map/person-icon-blue.png" id="12_npjd0"]
+[ext_resource type="Texture2D" path="res://assets/map/person-icon-brown.png" id="14_ndaj4"]
+[ext_resource type="Texture2D" path="res://assets/map/person-icon-gray.png" id="15_sbd0r"]
+[ext_resource type="Texture2D" path="res://assets/map/person-icon-red.png" id="16_y252u"]
+[ext_resource type="Script" path="res://treat_action.gd" id="17_y252u"]
+[ext_resource type="Script" path="res://cure_action.gd" id="18_ummoj"]
+[ext_resource type="PackedScene" uid="uid://x6ixjlrmj1es" path="res://Scenes/main.tscn" id="18_y252u"]
+[ext_resource type="PackedScene" uid="uid://dphi527xl1p0w" path="res://Scenes/infect_deck.tscn" id="19_ummoj"]
+
+[sub_resource type="GDScript" id="GDScript_y252u"]
+script/source = "extends Area2D
+
+var city_data = {
+	\"atlanta\": \"test\"
+}
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
@@ -31,11 +46,10 @@ scale = Vector2(1.6003758, 0.9680561)
 texture = ExtResource("1_2e5bk")
 
 [node name="mapBackdrop" type="Sprite2D" parent="." unique_id=1264458958]
-position = Vector2(-4, -219)
+position = Vector2(-4, -220)
 texture = ExtResource("2_w4lg7")
 
 [node name="Markers" type="Node" parent="." unique_id=1724747024]
-script = ExtResource("3_uhl5y")
 
 [node name="InfectionMarker" type="Sprite2D" parent="Markers" unique_id=232925066]
 position = Vector2(165.00002, -448)
@@ -43,7 +57,7 @@ scale = Vector2(1.0399988, 1.08)
 texture = ExtResource("3_byiq6")
 
 [node name="OutbreakMarker" type="Sprite2D" parent="Markers" unique_id=1629541638]
-position = Vector2(-510, -169)
+position = Vector2(-510, -170)
 texture = ExtResource("3_w4lg7")
 
 [node name="CureMarkerRed" type="Sprite2D" parent="Markers" unique_id=945328160]
@@ -189,6 +203,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="playercard7" type="Panel" parent="." unique_id=273997164]
+visible = false
 custom_minimum_size = Vector2(140, 185)
 offset_left = 450.0
 offset_top = 210.0
@@ -242,41 +257,477 @@ offset_bottom = 149.0
 theme_override_font_sizes/font_size = 20
 text = "Discard: Y"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1803910068]
-script = ExtResource("11_npjd0")
+[node name="cityNodes" type="Area2D" parent="." unique_id=1803910068]
+script = SubResource("GDScript_y252u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=714598306]
+[node name="Atlanta" type="Area2D" parent="cityNodes" unique_id=1979203044]
+position = Vector2(-368, -320)
 scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="AtlantaCollision" type="CollisionShape2D" parent="cityNodes/Atlanta" unique_id=68753893]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Chicago" type="Area2D" parent="cityNodes" unique_id=312972800]
+position = Vector2(-399.00003, -380.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="ChicagoCollision" type="CollisionShape2D" parent="cityNodes/Chicago" unique_id=787267120]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Montreal" type="Area2D" parent="cityNodes" unique_id=1982918023]
+position = Vector2(-315.00003, -385.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="MontrealCollision" type="CollisionShape2D" parent="cityNodes/Montreal" unique_id=625262802]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Washington" type="Area2D" parent="cityNodes" unique_id=96492920]
+position = Vector2(-279.00003, -325.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="WashingtonCollision" type="CollisionShape2D" parent="cityNodes/Washington" unique_id=645296470]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="New York" type="Area2D" parent="cityNodes" unique_id=2005624855]
+position = Vector2(-251.00003, -376.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="NYCollision" type="CollisionShape2D" parent="cityNodes/New York" unique_id=22342377]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="London" type="Area2D" parent="cityNodes" unique_id=1576732841]
+position = Vector2(-99.00003, -424.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="LondonCollision" type="CollisionShape2D" parent="cityNodes/London" unique_id=48463857]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Madrid" type="Area2D" parent="cityNodes" unique_id=265189720]
+position = Vector2(-110.00003, -344.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="MadridCollision" type="CollisionShape2D" parent="cityNodes/Madrid" unique_id=2077158653]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Paris" type="Area2D" parent="cityNodes" unique_id=1334346246]
+position = Vector2(-38.00003, -385.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="ParisCollision" type="CollisionShape2D" parent="cityNodes/Paris" unique_id=1272752589]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Essen" type="Area2D" parent="cityNodes" unique_id=662831871]
+position = Vector2(-16.00003, -440.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="EssenCollision" type="CollisionShape2D" parent="cityNodes/Essen" unique_id=1450452354]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Milan" type="Area2D" parent="cityNodes" unique_id=1188875131]
+position = Vector2(19.99997, -400.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="MilanCollision" type="CollisionShape2D" parent="cityNodes/Milan" unique_id=32755029]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="San Francisco" type="Area2D" parent="cityNodes" unique_id=2086899507]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="SanFranciscoCollision" type="CollisionShape2D" parent="cityNodes/San Francisco" unique_id=1917721827]
+position = Vector2(0.7692642, 1.5384789)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="St Petersburg" type="Area2D" parent="cityNodes" unique_id=277526675]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="StPetersburgCollision" type="CollisionShape2D" parent="cityNodes/St Petersburg" unique_id=329540186]
+position = Vector2(446.1539, -79.999985)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Moscow" type="Area2D" parent="cityNodes" unique_id=779873573]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="MoscowCollision" type="CollisionShape2D" parent="cityNodes/Moscow" unique_id=896333609]
+position = Vector2(481.53848, -36.153828)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Istanbul" type="Area2D" parent="cityNodes" unique_id=509698139]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="IstanbulCollision" type="CollisionShape2D" parent="cityNodes/Istanbul" unique_id=46646988]
+position = Vector2(429.2308, 2.3077126)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Algiers" type="Area2D" parent="cityNodes" unique_id=501064790]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="AlgiersCollision" type="CollisionShape2D" parent="cityNodes/Algiers" unique_id=430219969]
+position = Vector2(373.8462, 43.84618)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Cairo" type="Area2D" parent="cityNodes" unique_id=87675906]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="CairoCollision" type="CollisionShape2D" parent="cityNodes/Cairo" unique_id=1970883317]
+position = Vector2(420.7693, 56.923103)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Baghdad" type="Area2D" parent="cityNodes" unique_id=1615493547]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="BaghdadCollision" type="CollisionShape2D" parent="cityNodes/Baghdad" unique_id=716812744]
+position = Vector2(475.38464, 34.61541)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Tehran" type="Area2D" parent="cityNodes" unique_id=2013530254]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="TehranCollision" type="CollisionShape2D" parent="cityNodes/Tehran" unique_id=898604889]
+position = Vector2(524.6154, -4.615364)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Riyadh" type="Area2D" parent="cityNodes" unique_id=6668689]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="RiyadhCollision" type="CollisionShape2D" parent="cityNodes/Riyadh" unique_id=2033797454]
+position = Vector2(483.07697, 90.769264)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Karachi" type="Area2D" parent="cityNodes" unique_id=403464826]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="KarachiCollision" type="CollisionShape2D" parent="cityNodes/Karachi" unique_id=323768349]
+position = Vector2(536.9231, 54.615414)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Mumbai" type="Area2D" parent="cityNodes" unique_id=1505191628]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="MumbaiCollision" type="CollisionShape2D" parent="cityNodes/Mumbai" unique_id=306800083]
+position = Vector2(543.07697, 102.307724)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Dehli" type="Area2D" parent="cityNodes" unique_id=185237326]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="DehliCollision" type="CollisionShape2D" parent="cityNodes/Dehli" unique_id=2079680426]
+position = Vector2(583.07697, 36.923103)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Kolkata" type="Area2D" parent="cityNodes" unique_id=1451950684]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="KolkataCollision" type="CollisionShape2D" parent="cityNodes/Kolkata" unique_id=135913659]
+position = Vector2(627.6924, 52.30772)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Chennai" type="Area2D" parent="cityNodes" unique_id=1255226294]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="ChennaiCollision" type="CollisionShape2D" parent="cityNodes/Chennai" unique_id=350234391]
+position = Vector2(592.30774, 136.92311)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Bangkok" type="Area2D" parent="cityNodes" unique_id=751588124]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="BangkokCollision" type="CollisionShape2D" parent="cityNodes/Bangkok" unique_id=1391597686]
+position = Vector2(638.46155, 106.15388)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="HongKong" type="Area2D" parent="cityNodes" unique_id=164885225]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="HongKongCollision" type="CollisionShape2D" parent="cityNodes/HongKong" unique_id=1734486058]
+position = Vector2(674.6154, 79.2308)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Shanghai" type="Area2D" parent="cityNodes" unique_id=1261089925]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="ShanghaiCollision" type="CollisionShape2D" parent="cityNodes/Shanghai" unique_id=339611750]
+position = Vector2(668.4616, 25.384636)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Beijing" type="Area2D" parent="cityNodes" unique_id=1887564393]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="BeijingCollision" type="CollisionShape2D" parent="cityNodes/Beijing" unique_id=1956125202]
+position = Vector2(664.6154, -18.461521)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Seoul" type="Area2D" parent="cityNodes" unique_id=579020629]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="SeoulCollision" type="CollisionShape2D" parent="cityNodes/Seoul" unique_id=525122790]
+position = Vector2(721.5385, -22.307674)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Tokyo" type="Area2D" parent="cityNodes" unique_id=1485165374]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="TokyoCollision" type="CollisionShape2D" parent="cityNodes/Tokyo" unique_id=574082676]
+position = Vector2(765.38464, 3.0769424)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Osaka" type="Area2D" parent="cityNodes" unique_id=332827062]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="OsakaCollision" type="CollisionShape2D" parent="cityNodes/Osaka" unique_id=133805535]
+position = Vector2(770.7693, 51.538486)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Taipei" type="Area2D" parent="cityNodes" unique_id=1546274661]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="TaipeiCollision" type="CollisionShape2D" parent="cityNodes/Taipei" unique_id=1064738285]
+position = Vector2(724.6154, 69.2308)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Hochiminh" type="Area2D" parent="cityNodes" unique_id=1202275098]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="HochiCollision" type="CollisionShape2D" parent="cityNodes/Hochiminh" unique_id=1038580771]
+position = Vector2(675.38464, 151.5385)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Jakarta" type="Area2D" parent="cityNodes" unique_id=1810236182]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="JakartaCollision" type="CollisionShape2D" parent="cityNodes/Jakarta" unique_id=991150182]
+position = Vector2(636.9231, 192.30772)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Manila" type="Area2D" parent="cityNodes" unique_id=1094021729]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="ManilaCollision" type="CollisionShape2D" parent="cityNodes/Manila" unique_id=60069946]
+position = Vector2(739.23083, 148.46156)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Sydney" type="Area2D" parent="cityNodes" unique_id=1515351163]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="SydneyCollision" type="CollisionShape2D" parent="cityNodes/Sydney" unique_id=94770959]
+position = Vector2(775.38464, 279.2308)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Khartoum" type="Area2D" parent="cityNodes" unique_id=909697046]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="KhartoumCollision" type="CollisionShape2D" parent="cityNodes/Khartoum" unique_id=1267936413]
+position = Vector2(434.61542, 118.46156)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Lagos" type="Area2D" parent="cityNodes" unique_id=1489840072]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="LagosCollision" type="CollisionShape2D" parent="cityNodes/Lagos" unique_id=306439021]
+position = Vector2(352.30774, 130.00003)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Kinshasa" type="Area2D" parent="cityNodes" unique_id=1405623836]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="KinshasaCollision" type="CollisionShape2D" parent="cityNodes/Kinshasa" unique_id=229726560]
+position = Vector2(394.61545, 176.15388)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Johannesburg" type="Area2D" parent="cityNodes" unique_id=1677781203]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="JohannesburgCollision" type="CollisionShape2D" parent="cityNodes/Johannesburg" unique_id=998638665]
+position = Vector2(429.2308, 240.76926)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Sao Paolo" type="Area2D" parent="cityNodes" unique_id=437043548]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="SaoPaoloCollision" type="CollisionShape2D" parent="cityNodes/Sao Paolo" unique_id=766634928]
+position = Vector2(229.2308, 221.53848)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Buenos Aires" type="Area2D" parent="cityNodes" unique_id=1694295945]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="BuenosAiresCollision" type="CollisionShape2D" parent="cityNodes/Buenos Aires" unique_id=853318638]
+position = Vector2(190.76926, 269.2308)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Santiago" type="Area2D" parent="cityNodes" unique_id=1089052411]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="SantiagoCollision" type="CollisionShape2D" parent="cityNodes/Santiago" unique_id=212882224]
+position = Vector2(125.384636, 281.5385)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Lima" type="Area2D" parent="cityNodes" unique_id=2011930207]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="LimaCollision" type="CollisionShape2D" parent="cityNodes/Lima" unique_id=1777579701]
+position = Vector2(117.69233, 210.76926)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Bogota" type="Area2D" parent="cityNodes" unique_id=1962392969]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="BogotaCollision" type="CollisionShape2D" parent="cityNodes/Bogota" unique_id=1391253873]
+position = Vector2(140.00003, 142.30771)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Mexico City" type="Area2D" parent="cityNodes" unique_id=1184182126]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="MexicoCityCollision" type="CollisionShape2D" parent="cityNodes/Mexico City" unique_id=757908924]
+position = Vector2(70.76925, 88.461555)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Miami" type="Area2D" parent="cityNodes" unique_id=32034634]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="MiamiCollision" type="CollisionShape2D" parent="cityNodes/Miami" unique_id=1922811793]
+position = Vector2(145.38464, 77.69234)
+shape = SubResource("CircleShape2D_3bd5r")
+
+[node name="Los Angeles" type="Area2D" parent="cityNodes" unique_id=1761364456]
+position = Vector2(-504.00003, -352.00003)
+scale = Vector2(1.3, 1.3)
+script = ExtResource("10_sbd0r")
+
+[node name="LACollision" type="CollisionShape2D" parent="cityNodes/Los Angeles" unique_id=540399256]
+position = Vector2(13.846176, 66.15388)
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Player1" type="Node2D" parent="." unique_id=1684015866]
+visible = false
 scale = Vector2(0.1, 0.1)
 script = ExtResource("12_3bd5r")
 
 [node name="PersonIconBlue" type="Sprite2D" parent="Player1" unique_id=1950434960]
+visible = false
 position = Vector2(0, -59.999996)
 texture = ExtResource("12_npjd0")
 
 [node name="Player2" type="Node2D" parent="." unique_id=1519381775]
+visible = false
 script = ExtResource("12_3bd5r")
 
 [node name="PersonIconBrown" type="Sprite2D" parent="Player2" unique_id=37674305]
+visible = false
 position = Vector2(4.7683716e-07, -4)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("14_ndaj4")
 
 [node name="Player3" type="Node2D" parent="." unique_id=1585601267]
+visible = false
 script = ExtResource("12_3bd5r")
 
 [node name="PersonIconGray" type="Sprite2D" parent="Player3" unique_id=1552940937]
+visible = false
 position = Vector2(2.3841858e-07, -2)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("15_sbd0r")
 
 [node name="Player4" type="Node2D" parent="." unique_id=188429927]
+visible = false
 script = ExtResource("12_3bd5r")
 
 [node name="PersonIconRed" type="Sprite2D" parent="Player4" unique_id=285779780]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("16_y252u")
 
@@ -294,5 +745,107 @@ offset_right = 576.0
 offset_bottom = -593.0
 text = "Player 1's turn"
 
-[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+[node name="TreatBlack" type="Button" parent="." unique_id=560487138]
+offset_left = -724.0
+offset_top = -72.0
+offset_right = -624.0
+offset_bottom = -41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+button_mask = 0
+text = "Treat Black"
+
+[node name="TreatBlue" type="Button" parent="." unique_id=170781188]
+offset_left = -715.0
+offset_top = -32.0
+offset_right = -627.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0.15686275, 0.11372549, 0.9490196, 1)
+text = "Treat Blue"
+
+[node name="TreatRed" type="Button" parent="." unique_id=1828756914]
+offset_left = -712.0
+offset_top = 9.0
+offset_right = -629.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.68748975, 0.100465454, 0.2755373, 1)
+text = "Treat Red"
+
+[node name="TreatYellow" type="Button" parent="." unique_id=556598004]
+offset_left = -733.0
+offset_top = 50.0
+offset_right = -629.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(0.97626203, 0.87990844, 0.3447454, 1)
+text = "Treat Yellow"
+
+[node name="CureBlack" type="Button" parent="." unique_id=1385712277]
+offset_left = -827.0
+offset_top = -70.0
+offset_right = -736.0
+offset_bottom = -39.0
+theme_override_colors/font_color = Color(0.0031999992, 0.0031999992, 0.04, 1)
+text = "Cure Black"
+
+[node name="CureBlue" type="Button" parent="." unique_id=1256071548]
+offset_left = -821.0
+offset_top = -33.0
+offset_right = -738.0
+offset_bottom = -2.0
+rotation = 0.015281841
+theme_override_colors/font_color = Color(0.02745098, 0.08627451, 0.8745098, 1)
+text = "Cure Blue"
+
+[node name="CureRed" type="Button" parent="." unique_id=1164542030]
+offset_left = -820.0
+offset_top = 8.0
+offset_right = -742.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.87, 0.04350001, 0.04350001, 1)
+text = "Cure Red"
+
+[node name="CureYellow" type="Button" parent="." unique_id=1837381825]
+offset_left = -844.0
+offset_top = 49.0
+offset_right = -744.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.83536, 0.92, 0.07359999, 1)
+text = "Cure Yellow"
+
+[node name="Node" type="Node" parent="." unique_id=81655222]
+script = ExtResource("17_y252u")
+
+[node name="Node2" type="Node" parent="." unique_id=328316387]
+script = ExtResource("18_ummoj")
+
+[node name="Decks" parent="." unique_id=1881671823 instance=ExtResource("18_y252u")]
+position = Vector2(164.18188, 48.818146)
+
+[node name="InfectDeck" parent="." unique_id=521029900 instance=ExtResource("19_ummoj")]
+position = Vector2(194, -535)
+scale = Vector2(0.45, 0.45)
+
+[node name="CityDescriptionBox" type="Container" parent="." unique_id=1592407733]
+offset_left = -915.0
+offset_top = -540.0
+offset_right = -915.0
+offset_bottom = -540.0
+
+[node name="panel" type="Panel" parent="CityDescriptionBox" unique_id=585948130]
+layout_mode = 2
+
+[node name="info" type="Label" parent="CityDescriptionBox/panel" unique_id=120674320]
+layout_mode = 0
+offset_right = 23.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[connection signal="input_event" from="cityNodes" to="cityNodes" method="_on_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TreatBlack" to="Node" method="_on_treat_black_button_pressed"]
+[connection signal="pressed" from="TreatBlue" to="Node" method="_on_treat_blue_button_pressed"]
+[connection signal="pressed" from="TreatRed" to="Node" method="_on_treat_red_button_pressed"]
+[connection signal="pressed" from="TreatYellow" to="Node" method="_on_treat_yellow_button_pressed"]
+[connection signal="pressed" from="CureBlack" to="Node2" method="_on_cure_black_button_pressed"]
+[connection signal="pressed" from="CureBlue" to="Node2" method="_on_cure_blue_button_pressed"]
+[connection signal="pressed" from="CureRed" to="Node2" method="_on_cure_red_button_pressed"]
+[connection signal="pressed" from="CureYellow" to="Node2" method="_on_cure_yellow_button_pressed"]

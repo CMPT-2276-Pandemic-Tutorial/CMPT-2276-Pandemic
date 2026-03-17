@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://fxphn4vyyigl"]
+[gd_scene format=3 uid="uid://b471o0iju7kt2"]
 
-[ext_resource type="Texture2D" uid="uid://bxn37j24mfjfg" path="res://assets/Pandemic.jpg" id="1_7vrkn"]
-[ext_resource type="Script" path="res://button.gd" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://bxn37j24mfjfg" path="res://assets/Pandemic.jpg" id="1_tmw1y"]
+[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://Scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
 
 [node name="MainMenu" type="Control" unique_id=518224251]
 layout_mode = 3
@@ -14,7 +14,7 @@ grow_vertical = 2
 [node name="Pandemic" type="Sprite2D" parent="." unique_id=712827567]
 position = Vector2(993.0001, 388)
 scale = Vector2(5.433333, 3.7138886)
-texture = ExtResource("1_7vrkn")
+texture = ExtResource("1_tmw1y")
 
 [node name="Button" type="Button" parent="." unique_id=1617829656]
 layout_mode = 0
@@ -23,6 +23,6 @@ offset_top = 740.0
 offset_right = 1183.0
 offset_bottom = 962.0
 text = "start"
-script = ExtResource("2_fu7sn")
+script = ExtResource("2_r2vvo")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

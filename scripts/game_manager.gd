@@ -1,7 +1,9 @@
 extends Node
 
 var map
-var input_handler
+var infectionMarker: Node
+var outbreakMarker: Node
+var infectionDeck: Node
 
 var turnNum = 0
 var playerCount = 4
@@ -15,7 +17,6 @@ var cured = {"black": false, "blue": false, "red": false, "yellow": false}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	map = Map
-	input_handler = get_node("")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,8 +25,11 @@ func _process(delta: float) -> void:
 #Functions to handle start/end of turn
 func beginNextTurn() -> void:
 	turnNum += 1
+	for i in range(PlayerHand.player_hand[currentPlayer].size()):
+		PlayerHand.player_hand[currentPlayer][i].visible = false
 	currentPlayer = turnNum % playerCount
 	actionCount = 4
+	PlayerHand.update_hand_positions()
 
 func endTurn() -> void:
 	#Draw two player cards
@@ -38,12 +42,13 @@ func gameEnd(won) -> void:
 	else:
 		print("game lost")
 
-
 #Functions for handling infecting cities and outbreaks
 func infectCities() -> void:
 	var cityToInfect
 	for i in infectionRate[infectionIndex]:
-		cityToInfect = map.findCity("New York") #Replace New York with draw
+		var cityToInfectString = infectionDeck.draw_infect_card()
+		cityToInfect = map.findCity(cityToInfectString) #Replace New York with draw
+		print("Infected city is " + cityToInfectString)
 		if cityToInfect.infect(cityToInfect.get_colour()): #Infects City and checks for outbreak
 			outbreak(cityToInfect)
 			map.resetOutbreaks()
@@ -54,6 +59,8 @@ func outbreak(cityOutbreaking) -> void:
 		print(cityOutbreaking.get_city_name() + " is outbreaking")
 		cityOutbreaking.set_outbreak(true)
 		outbreakLevel += 1
+		outbreakMarker.move_local_y(40.0)
+		outbreakMarker.move_local_x(pow(-1,outbreakLevel+1)*40)
 		if outbreakLevel >= 8:
 			gameEnd(false)
 		for i in cityOutbreaking.get_num_of_connections():
@@ -61,74 +68,6 @@ func outbreak(cityOutbreaking) -> void:
 			if chain: 
 				outbreak(map.findCity(cityOutbreaking.get_connection_name(i)))
 
-
-#Action functions
-var action
-var instructions_tooltip
-var selected_cards #array of selected cards
-var selected_city
-var selected_player
-var selected_colour
-
-func action_move_drive() -> void:
-	action = "drive"
-	instructions_tooltip = "Select a city connected to the city you are on to move to that location."
-
-func action_move_direct() -> void:
-	action = "direct"
-	instructions_tooltip = "Select a city card to move to that location."
-
-func action_move_charter() -> void:
-	action = "charter"
-	instructions_tooltip = "Select a city card and player to move them to that location."
-
-func action_move_shuttle() -> void:
-	action = "shuttle"
-	instructions_tooltip = "Select a city card with a research station to move to that location."
-
-func action_treat_disease() -> void:
-	action = "treat"
-	instructions_tooltip = "Select a colour to treat the disease of that colour from your location."
-
-func action_cure_disease() -> void:
-	action = "cure"
-	instructions_tooltip = "Select a colour and five city cards of that colour to cure that disease."
-
-func action_confirm() -> void:
-	if action >= 1:
-		match action:
-			"drive":
-				if selected_city: #check for connection to player's current city
-					#set player location to new city
-					action -= 1
-			"direct":
-				#set player location to selected_cards[i]
-				action -= 1
-			"charter":
-				#set selected_player location to selected_cards[i]
-				action -= 1
-			"shuttle":
-				if selected_city: #check for station AND check current city for station 
-					#set player location to new city
-					action -= 1
-			"treat":
-				#call treat disease on player's location. city.treat_diease(selected_colour, cured[selected_colour])
-				action -= 1
-			"cure":
-				if !cured[selected_colour]:
-					for i in selected_cards.length():
-						if !selected_colour: #check that selected_cards[i]'s colour matches selected_colour
-							return
-					cured[selected_colour] = true
-					if check_for_win():
-						gameEnd(true)
-					action -= 1
-
 func check_for_win() -> bool:
-	var allCured = true
-	for i in 4:
-		allCured = allCured && cured[i]
+	var allCured = cured["black"] && cured["blue"] && cured["red"] && cured["yellow"]
 	return allCured
-
-func _on_button_pressed() -> void: #test button
-	endTurn()
