@@ -38,6 +38,7 @@ func beginNextTurn() -> void:
 func endTurn() -> void:
 	#Draw 2 cards
 	infectCities()
+	beginNextTurn()
 
 #Game end function, parameter is bool - true means won, false means lost
 func gameEnd(won) -> void:
@@ -56,7 +57,6 @@ func infectCities() -> void:
 		if cityToInfect.infect(cityToInfect.get_colour()): #Infects City and checks for outbreak
 			outbreak(cityToInfect)
 			map.resetOutbreaks()
-	beginNextTurn()
 
 func epidemic() -> void:
 	if infectionIndex < 6: 
