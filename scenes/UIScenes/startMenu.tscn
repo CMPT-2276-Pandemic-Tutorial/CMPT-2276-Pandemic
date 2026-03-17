@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b471o0iju7kt2"]
 
 [ext_resource type="Texture2D" uid="uid://bxn37j24mfjfg" path="res://assets/Pandemic.jpg" id="1_tmw1y"]
-[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
+[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://Scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
 
 [node name="MainMenu" type="Control" unique_id=518224251]
 layout_mode = 3

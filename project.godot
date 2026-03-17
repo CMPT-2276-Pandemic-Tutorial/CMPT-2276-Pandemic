@@ -21,6 +21,7 @@ Map="*uid://c653pcf40nxla"
 GameManager="*uid://qxyis2q65ouy"
 PlayerHand="*uid://drrolphc7nhg5"
 CardManager="*uid://m0c52u8tvaa6"
+MoveAction="*uid://bmph5lkvot553"
 
 [display]
 
