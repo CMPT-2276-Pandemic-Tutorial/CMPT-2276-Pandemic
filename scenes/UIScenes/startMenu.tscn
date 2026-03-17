@@ -25,4 +25,13 @@ offset_bottom = 962.0
 text = "start"
 script = ExtResource("2_r2vvo")
 
+[node name="TutorialSelect" type="Button" parent="." unique_id=185771552]
+layout_mode = 0
+offset_left = 1322.7153
+offset_top = 769.9315
+offset_right = 1549.0
+offset_bottom = 951.0
+text = "Tutorial"
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="TutorialSelect" to="Button" method="_on_tutorial_select_pressed"]

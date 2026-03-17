@@ -1,0 +1,482 @@
+[gd_scene format=3 uid="uid://eqfmqgb4rcvl"]
+
+[ext_resource type="Script" uid="uid://cxy65esjkxr6k" path="res://Scripts/tutorialScripts/tutorial_menu.gd" id="1_n4abv"]
+[ext_resource type="Texture2D" uid="uid://b1yq5p0yj1gw3" path="res://assets/tutorialAssets/cures.PNG" id="2_55kae"]
+[ext_resource type="Texture2D" uid="uid://lru5gebuohri" path="res://assets/tutorialAssets/diseases.PNG" id="3_1jg5c"]
+[ext_resource type="Texture2D" uid="uid://duj8wnujb4kod" path="res://assets/tutorialAssets/outbreak meter.PNG" id="4_1jg5c"]
+[ext_resource type="Texture2D" uid="uid://bduajf0w4migt" path="res://assets/tutorialAssets/role card example.PNG" id="4_3fxw1"]
+[ext_resource type="Texture2D" uid="uid://djh1a058owhr6" path="res://assets/tutorialAssets/disease cubes.PNG" id="4_wrfvc"]
+[ext_resource type="Texture2D" uid="uid://06g4qq2k7bkx" path="res://assets/tutorialAssets/out of cards.PNG" id="5_4cecf"]
+[ext_resource type="Texture2D" uid="uid://xllkea2bqvx2" path="res://assets/tutorialAssets/player icon.PNG" id="8_obln6"]
+[ext_resource type="Texture2D" uid="uid://byk4p5o8mq0cf" path="res://assets/tutorialAssets/move actions icons.PNG" id="9_y3uyy"]
+[ext_resource type="Texture2D" uid="uid://jj0oathfprji" path="res://assets/tutorialAssets/drive.PNG" id="10_obln6"]
+[ext_resource type="Texture2D" uid="uid://c0h8gjilpqgbi" path="res://assets/tutorialAssets/cure icon.PNG" id="11_s6syi"]
+[ext_resource type="Texture2D" uid="uid://sttdjfjwvvw3" path="res://assets/tutorialAssets/sharing icon.PNG" id="12_phvh1"]
+[ext_resource type="Texture2D" uid="uid://x814wpd3er5b" path="res://assets/tutorialAssets/treatment icon.PNG" id="13_28n6x"]
+[ext_resource type="Texture2D" uid="uid://cvxps64g5ul65" path="res://assets/tutorialAssets/research station icon.PNG" id="14_fod6h"]
+[ext_resource type="Texture2D" uid="uid://d1m1ofjqj1l4a" path="res://assets/tutorialAssets/cure buttons.PNG" id="15_28n6x"]
+[ext_resource type="Texture2D" uid="uid://cycpdc75ribrh" path="res://assets/tutorialAssets/infection deck n discard.PNG" id="15_u7kkf"]
+[ext_resource type="Texture2D" uid="uid://d37y6as68cr6r" path="res://assets/tutorialAssets/infection rate.PNG" id="16_5i0hg"]
+[ext_resource type="Texture2D" uid="uid://10m3pf35fhd1" path="res://assets/tutorialAssets/treat icons.PNG" id="16_fod6h"]
+[ext_resource type="Texture2D" uid="uid://35lv50sgli2n" path="res://assets/tutorialAssets/event card.PNG" id="17_21mau"]
+[ext_resource type="Texture2D" uid="uid://b4xxxnq2a2prf" path="res://assets/tutorialAssets/epidemic card.PNG" id="18_a7pfm"]
+[ext_resource type="Texture2D" uid="uid://bjqumv06x8a5l" path="res://assets/tutorialAssets/infection cards.PNG" id="19_d6qoo"]
+
+[node name="TutorialMenu" type="Control" unique_id=1002011405]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n4abv")
+
+[node name="Panel" type="Panel" parent="." unique_id=141270118]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1081.0
+
+[node name="TutorialSlides" type="TabContainer" parent="." unique_id=1153195747]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.18800001
+anchor_right = 0.074
+anchor_bottom = 0.18800001
+offset_left = -142.08
+offset_top = -203.04001
+offset_right = 1778.92
+offset_bottom = 974.95996
+current_tab = 4
+
+[node name="Overview" type="VBoxContainer" parent="TutorialSlides" unique_id=1886746734]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Title" type="Label" parent="TutorialSlides/Overview" unique_id=1258261573]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.993859, 0.56463444, 0.6906912, 1)
+theme_override_colors/font_shadow_color = Color(0.07065063, 0.25560194, 0.4469474, 0.85490197)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "PANDEMIC: Overview"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="TutorialSlides/Overview" unique_id=1008872979]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="TutorialSlides/Overview/Control" unique_id=665191650]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 50.0
+offset_right = 1017.0
+offset_bottom = 935.0
+theme_override_font_sizes/normal_font_size = 28
+text = "In Pandemic, you and your fellow players are members of a disease control team. 
+
+You must work together to develop cures and prevent disease outbreaks, before 4 deadly diseases (Blue, Yellow, Black, and Red) contaminate humanity.
+
+
+
+
+
+
+
+
+
+
+Pandemic is a cooperative game. The players all win or lose together.
+The goal is to discover cures for all 4 diseases. "
+autowrap_mode = 2
+
+[node name="Description2" type="RichTextLabel" parent="TutorialSlides/Overview/Control" unique_id=1849709703]
+layout_mode = 0
+offset_left = 1048.0
+offset_top = 33.0
+offset_right = 1684.0
+offset_bottom = 953.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Each player has a specific role with special abilities to improve the team’s chances. (IN DEVELOPMENT)
+
+
+
+
+
+
+
+
+
+
+
+
+Each player turn is divided into 3 parts:
+
+1. Player performs up to 4 actions
+
+2. Two cards are drawn to the player hand after ending the turn
+
+3. Some cities are infected"
+autowrap_mode = 2
+
+[node name="Cures" type="Sprite2D" parent="TutorialSlides/Overview/Control" unique_id=944980782]
+position = Vector2(535, 864)
+texture = ExtResource("2_55kae")
+
+[node name="Diseases" type="Sprite2D" parent="TutorialSlides/Overview/Control" unique_id=293917469]
+position = Vector2(449, 442)
+rotation = -1.5707964
+texture = ExtResource("3_1jg5c")
+
+[node name="RoleCardExample" type="Sprite2D" parent="TutorialSlides/Overview/Control" unique_id=2016335035]
+position = Vector2(1291, 361)
+scale = Vector2(1.5140187, 1.4075342)
+texture = ExtResource("4_3fxw1")
+
+[node name="Lose Conditions" type="VBoxContainer" parent="TutorialSlides" unique_id=608813141]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Title" type="Label" parent="TutorialSlides/Lose Conditions" unique_id=1712022860]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.993859, 0.56463444, 0.6906912, 1)
+theme_override_colors/font_shadow_color = Color(0.07065063, 0.25560194, 0.4469474, 0.85490197)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "PANDEMIC: Lose Conditions"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="TutorialSlides/Lose Conditions" unique_id=856593037]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="TutorialSlides/Lose Conditions/Control" unique_id=636321383]
+layout_mode = 0
+offset_left = 886.0
+offset_top = 72.0
+offset_right = 1839.0
+offset_bottom = 957.0
+theme_override_font_sizes/normal_font_size = 28
+text = "• not enough disease cubes are left when needed (a disease spreads too much without treatment)"
+autowrap_mode = 2
+
+[node name="Description2" type="RichTextLabel" parent="TutorialSlides/Lose Conditions/Control" unique_id=602445512]
+layout_mode = 0
+offset_left = 65.0
+offset_top = -11.0
+offset_right = 741.0
+offset_bottom = 869.0
+theme_override_font_sizes/normal_font_size = 28
+text = "The players lose if:
+
+• 8 outbreaks occur (a worldwide panic happens),
+
+
+
+
+
+
+
+
+
+
+
+
+• The player deck is empty at the start of a players turn; Out of cards, out of time :( "
+autowrap_mode = 2
+
+[node name="OutbreakMeter" type="Sprite2D" parent="TutorialSlides/Lose Conditions/Control" unique_id=1598524868]
+position = Vector2(360, 338)
+scale = Vector2(2.2245772, 1.5144068)
+texture = ExtResource("4_1jg5c")
+
+[node name="OutOfCards" type="Sprite2D" parent="TutorialSlides/Lose Conditions/Control" unique_id=970666174]
+position = Vector2(473, 822.00006)
+scale = Vector2(1.535928, 1.4216591)
+texture = ExtResource("5_4cecf")
+
+[node name="DiseaseCubes" type="Sprite2D" parent="TutorialSlides/Lose Conditions/Control" unique_id=541936141]
+position = Vector2(1325, 448)
+scale = Vector2(1.0625, 1.0711423)
+texture = ExtResource("4_wrfvc")
+
+[node name="Player Actions" type="VBoxContainer" parent="TutorialSlides" unique_id=1987989611]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Title" type="Label" parent="TutorialSlides/Player Actions" unique_id=492982251]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.993859, 0.56463444, 0.6906912, 1)
+theme_override_colors/font_shadow_color = Color(0.07065063, 0.25560194, 0.4469474, 0.85490197)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "PANDEMIC: Player Actions"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="TutorialSlides/Player Actions" unique_id=1267825712]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="TutorialSlides/Player Actions/Control" unique_id=239860890]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 21.0
+offset_right = 1044.0
+offset_bottom = 906.0
+theme_override_font_sizes/normal_font_size = 28
+text = "
+Each player has a colored marker:
+
+
+A player may do up to 4 actions each turn:
+
+
+Drive / Ferry
+Move to an adjacent city by clicking on the node
+
+Direct Flight
+Double-click a city card in your hand to move to it's location, discarding the card in the process
+
+Charter Flight
+If the city card you've discarded matches the city you're in then you may move to ANY city node
+
+Shuttle Flight
+If you are in a city that has a research station then you may move to any other city that has a research station"
+autowrap_mode = 2
+
+[node name="Description2" type="RichTextLabel" parent="TutorialSlides/Player Actions/Control" unique_id=1944776250]
+layout_mode = 0
+offset_left = 1177.0
+offset_top = 98.0
+offset_right = 1789.0
+offset_bottom = 978.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Build a Research Station
+(IN DEVELOPMENT) Builds a research station on the city you are in, only 6 can be built!
+
+Treat Disease
+Clicking the Removes 1 disease cube of the respective color from the city you are in.
+
+- If the disease is \"cured\" and no other disease cube of its color is on the board then it is \"eradicated\" and will no longer spawn in
+
+Share Knowledge
+(IN DEVELOPMENT, Maybe?)
+
+
+
+Discover Cure
+At ANY research station you can \"cure\" a disease if you have 5 city cards of the same color in your hand"
+autowrap_mode = 2
+
+[node name="PlayerIcon" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=1888751597]
+position = Vector2(709.00006, 78)
+scale = Vector2(1.5327868, 1.4402986)
+texture = ExtResource("8_obln6")
+
+[node name="MoveActionsIcons" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=385854380]
+position = Vector2(100, 566.25006)
+scale = Vector2(1, 1.1381578)
+texture = ExtResource("9_y3uyy")
+
+[node name="Drive" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=130635382]
+position = Vector2(909.25, 327.5)
+scale = Vector2(1.2032967, 1.0887097)
+texture = ExtResource("10_obln6")
+
+[node name="CureIcon" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=149201234]
+position = Vector2(1094, 839)
+texture = ExtResource("11_s6syi")
+
+[node name="SharingIcon" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=92863002]
+position = Vector2(1098, 628)
+texture = ExtResource("12_phvh1")
+
+[node name="TreatmentIcon" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=216498843]
+position = Vector2(1098, 320)
+texture = ExtResource("13_28n6x")
+
+[node name="ResearchStationIcon" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=1011603793]
+position = Vector2(1106, 145)
+texture = ExtResource("14_fod6h")
+
+[node name="CureButtons" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=1742372967]
+position = Vector2(1836.0001, 796)
+scale = Vector2(1.1612903, 1.0885714)
+texture = ExtResource("15_28n6x")
+
+[node name="TreatIcons" type="Sprite2D" parent="TutorialSlides/Player Actions/Control" unique_id=1756210429]
+position = Vector2(1832.0001, 339.00003)
+scale = Vector2(1.2391304, 1.2177914)
+texture = ExtResource("16_fod6h")
+
+[node name="Card Types" type="VBoxContainer" parent="TutorialSlides" unique_id=696650897]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Title" type="Label" parent="TutorialSlides/Card Types" unique_id=1243205723]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.993859, 0.56463444, 0.6906912, 1)
+theme_override_colors/font_shadow_color = Color(0.07065063, 0.25560194, 0.4469474, 0.85490197)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "PANDEMIC: Card Types"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="TutorialSlides/Card Types" unique_id=1630180969]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="TutorialSlides/Card Types/Control" unique_id=366452882]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 50.0
+offset_right = 1017.0
+offset_bottom = 935.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Infection Cards
+X infection cards are drawn from the infection deck which will place a disease cube on the corresponding city
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The amount of cards drawn  is based on the current infection rate "
+autowrap_mode = 2
+
+[node name="Description2" type="RichTextLabel" parent="TutorialSlides/Card Types/Control" unique_id=2081049220]
+layout_mode = 0
+offset_left = 1052.0
+offset_top = 41.0
+offset_right = 1504.0
+offset_bottom = 921.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Epidemic Cards
+When drawn from the player deck it does 3 things:
+
+1. Increases the infection rate by one space
+2. Draws from the infection deck and puts 3 disease cubes on that city
+3. Shuffles the cards in the infection discard pile and puts them on TOP of the infection deck
+
+
+
+Event Cards
+These are player cards that each have there own unique abilities! Hover over them to see what they do!"
+autowrap_mode = 2
+
+[node name="InfectionDeckNDiscard" type="Sprite2D" parent="TutorialSlides/Card Types/Control" unique_id=792706027]
+position = Vector2(318.00003, 284.25)
+scale = Vector2(1.3969069, 1.552817)
+texture = ExtResource("15_u7kkf")
+
+[node name="InfectionRate" type="Sprite2D" parent="TutorialSlides/Card Types/Control" unique_id=1810329760]
+position = Vector2(281, 805)
+scale = Vector2(1.668, 1.8877552)
+texture = ExtResource("16_5i0hg")
+
+[node name="EventCard" type="Sprite2D" parent="TutorialSlides/Card Types/Control" unique_id=387479363]
+position = Vector2(1672, 718)
+scale = Vector2(1.9210526, 1.7762431)
+texture = ExtResource("17_21mau")
+
+[node name="EpidemicCard" type="Sprite2D" parent="TutorialSlides/Card Types/Control" unique_id=1170504802]
+position = Vector2(1675.0001, 321)
+scale = Vector2(1.3691589, 1.423588)
+texture = ExtResource("18_a7pfm")
+
+[node name="InfectionCards" type="Sprite2D" parent="TutorialSlides/Card Types/Control" unique_id=1672943550]
+position = Vector2(462, 531)
+scale = Vector2(1.2618321, 1.5608108)
+texture = ExtResource("19_d6qoo")
+
+[node name="Tips" type="VBoxContainer" parent="TutorialSlides" unique_id=798854597]
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Title" type="Label" parent="TutorialSlides/Tips" unique_id=1545760269]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.993859, 0.56463444, 0.6906912, 1)
+theme_override_colors/font_shadow_color = Color(0.07065063, 0.25560194, 0.4469474, 0.85490197)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "PANDEMIC: Tips and Strategy"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="TutorialSlides/Tips" unique_id=1507310840]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="TutorialSlides/Tips/Control" unique_id=262337585]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 50.0
+offset_right = 1663.0
+offset_bottom = 935.0
+theme_override_font_sizes/normal_font_size = 28
+text = "- Each player should go to different areas on the board to manage the spread of disease
+
+- Balance your actions between treating and curing disease
+
+- Don't let the game drag on too long, once the infection rate gets higher the situation gets more desperate :(
+
+- You can hover over many markers and icons on the board for descriptions and useful tips!
+
+- Designate a player whose focus will be on curing diseases while the rest treat them
+
+- Once an Epidemic card is drawn try to stay in areas where disease previously broke out as they will be hit soon by another wave of infections!
+
+- Use city cards to quickly travel around the map!
+
+- Spread out research stations across the map for convenient travel and disease curing!
+
+- Have fun :)
+"
+autowrap_mode = 2
+
+[node name="BackButton" type="Button" parent="." unique_id=1703133230]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 995.0
+offset_right = 187.0
+offset_bottom = 1058.0
+theme_override_font_sizes/font_size = 20
+text = "Previous"
+
+[node name="NextButton" type="Button" parent="." unique_id=714886720]
+layout_mode = 0
+offset_left = 1734.0
+offset_top = 989.0
+offset_right = 1870.9677
+offset_bottom = 1057.5228
+theme_override_font_sizes/font_size = 20
+text = "Next"
+
+[node name="CloseButton" type="Button" parent="." unique_id=1795459890]
+layout_mode = 0
+offset_left = 1702.0
+offset_top = 29.0
+offset_right = 1917.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 28
+text = "End Tutorial"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
