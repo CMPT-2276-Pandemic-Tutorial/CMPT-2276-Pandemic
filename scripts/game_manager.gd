@@ -8,6 +8,8 @@ var infectionDeck: Node
 var turnNum = 0
 var playerCount = 4
 var currentPlayer = 0
+#Just hard coding the roles for right now
+var playerRole = ["Generalist", "Scientist", "Researcher", "Quarantine Specialist"]
 var actionCount = 4
 var infectionIndex = 0
 var infectionRate = [2,2,2,3,3,4,4]
@@ -27,11 +29,14 @@ func beginNextTurn() -> void:
 	turnNum += 1
 	#Start the next players turn
 	currentPlayer = turnNum % playerCount
-	actionCount = 4
+	if playerRole[currentPlayer] == "Generalist":
+		actionCount = 5
+	else: 
+		actionCount = 4
 	CardManager.show_player_hand(currentPlayer)
 
 func endTurn() -> void:
-	#Draw two player cards
+	#Draw 2 cards
 	infectCities()
 
 #Game end function, parameter is bool - true means won, false means lost
@@ -52,6 +57,18 @@ func infectCities() -> void:
 			outbreak(cityToInfect)
 			map.resetOutbreaks()
 	beginNextTurn()
+
+func epidemic() -> void:
+	if infectionIndex < 6: 
+		infectionIndex += 1
+		infectionMarker.move_local_x(40.0)
+	var cityToInfectString = infectionDeck.draw_infect_card_bottom()
+	var cityToInfect = map.findCity(cityToInfectString)
+	print("Epidemic city is " + cityToInfectString)
+	if cityToInfect.infect_epidemic(): #Infects City and checks for outbreak
+		outbreak(cityToInfect)
+		map.resetOutbreaks()
+	infectionDeck.reshuffle()
 
 func outbreak(cityOutbreaking) -> void:
 	if cityOutbreaking.should_outbreak():

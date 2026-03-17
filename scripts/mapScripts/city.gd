@@ -10,6 +10,7 @@ var red_cubes
 var yellow_cubes
 var station
 var outbreak = false
+var protected = false
 
 func _init(city_info) -> void:
 	city_name = city_info["name"]
@@ -33,6 +34,9 @@ func get_num_of_connections() -> float:
 func get_connection_name(index) -> String:
 	return connections[index]
 
+func set_protection(p) -> void:
+	protected = p
+	
 func set_outbreak(o) -> void:
 	outbreak = o
 
@@ -40,6 +44,8 @@ func should_outbreak() -> bool:
 	return !outbreak
 
 func infect(c) -> bool:
+	if protected:
+		return false
 	print("Infecting " + city_name + " with " + c)
 	match c:
 		"black":
@@ -75,6 +81,33 @@ func infect(c) -> bool:
 				print(city_name + " is at " + str(yellow_cubes) + " yellow")
 				return false
 	return false
+
+func infect_epidemic() -> bool:
+	if protected:
+		return false
+	var ob = true
+	match colour:
+		"black":
+			print(black_cubes)
+			if black_cubes == 0:
+				ob = false
+			black_cubes = 3
+		"blue":
+			print(blue_cubes)
+			if blue_cubes == 0:
+				ob = false
+			blue_cubes = 3
+		"red":
+			print(red_cubes)
+			if red_cubes == 0:
+				ob = false
+			red_cubes = 3
+		"yellow":
+			print(yellow_cubes)
+			if yellow_cubes == 0:
+				ob = false
+			yellow_cubes = 3
+	return ob
 
 func treat_disease(c, cured) -> void:
 	match c:

@@ -47,6 +47,16 @@ func draw_infect_card() -> String:
 	#CURRENTLY infection cards arent instantiated as card entities
 	return card_drawn
 
+func draw_infect_card_bottom() -> String:
+	if !infect_deck:
+		reshuffle()
+	var card_drawn = infect_deck[infect_deck.size() - 1]
+	infect_deck.erase(card_drawn)
+	discard_pile.insert(0, card_drawn)
+	return card_drawn;
+	
+
+
 func animate_card_to_position(card):
 	var tween = get_tree().create_tween()
 	tween.tween_property(card, "position", $InfectSlot.position, 0.1)

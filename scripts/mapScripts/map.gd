@@ -91,3 +91,7 @@ func findCity(cityName) -> City:
 func resetOutbreaks() -> void:
 	for i in num_of_cities:
 		cities[i].set_outbreak(false)
+
+func resetProtection() -> void:
+	for i in num_of_cities:
+		cities[i].set_protection(false)

@@ -16,6 +16,8 @@ func _ready() -> void:
 	#adds each entry (city data) in the json file into the player deck
 	for i in city_list:
 		player_deck.append(i)
+	for i in 4:
+		player_deck.append("Epidemic")
 	set_meta("tooltip_name", "Player Deck")
 	set_meta("tooltip_desc", "Draw a city card from the player deck by clicking on it.")
 	#shuffle each deck at the start of the game
@@ -37,11 +39,18 @@ func draw_card():
 	if(PlayerHand.player_hand[GameManager.currentPlayer].size() == 7):
 		print("player holds the max amount of cards!")
 		return
-	GameManager.actionCount -= 1
+	#GameManager.actionCount -= 1
 	var card_drawn = player_deck[0]
-	print("card drawn %s" % card_drawn["name"])
-	print("card drawn data", card_drawn)
 	player_deck.erase(card_drawn)
+	
+	#checks if card drawn is a string
+	if typeof(card_drawn) == 4:
+		print("Epidemic!")
+		GameManager.epidemic()
+		return
+	
+	print("card drawn %s" % card_drawn["name"])
+	#print("card drawn data", card_drawn)
 	
 	#disables the deck sprite when the deck runs out of cards
 	if player_deck.size() == 0:

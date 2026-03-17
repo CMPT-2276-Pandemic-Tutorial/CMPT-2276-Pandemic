@@ -38,7 +38,7 @@ func cure_disease_action(colour) -> void:
 	if GameManager.cured[colour]:
 		print("Colour already cured")
 		return
-	for i in 8: #Check player's hand for 5 cards of the right colour
+	for i in 7: #Check player's hand for 5 cards of the right colour
 		pass
 	for i in 5: #Remove cards from player's hand
 		pass

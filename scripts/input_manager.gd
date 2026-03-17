@@ -25,9 +25,9 @@ func _input(event: InputEvent) -> void:
 			var card = raycast_at_cursor()
 			#draws card when clicking on the deck
 			if card and card.name == "Deck":
-				if GameManager.actionCount <= 0:
-					print("No actions remaining!")
-					return
+				#if GameManager.actionCount <= 0:
+				#	print("No actions remaining!")
+				#	return
 				$"../Deck".draw_card()
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.double_click:
 		if event.pressed:
