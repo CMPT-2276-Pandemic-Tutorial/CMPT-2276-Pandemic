@@ -27,7 +27,7 @@ func move(viewport: Node, event: InputEvent, shape_idx: int, player, name) -> vo
 			player.global_position = position.global_position
 			print(position.global_position)
 			player.current_city = name
-			if GameManager.playerRole[GameManager.currentPlayer == "Quarantine Specialist"]:
+			if GameManager.playerRole[GameManager.currentPlayer] == "Quarantine Specialist":
 				Map.resetProtection()
 				current_city.set_protection(true)
 				for i in current_city.get_num_of_connections():

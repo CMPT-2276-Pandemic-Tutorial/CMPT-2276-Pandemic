@@ -45,6 +45,7 @@ func should_outbreak() -> bool:
 
 func infect(c) -> bool:
 	if protected:
+		print("protected")
 		return false
 	print("Infecting " + city_name + " with " + c)
 	match c:
@@ -84,6 +85,7 @@ func infect(c) -> bool:
 
 func infect_epidemic() -> bool:
 	if protected:
+		print("protected")
 		return false
 	var ob = true
 	match colour:

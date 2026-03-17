@@ -74,10 +74,16 @@ func _ready() -> void:
 		num_of_cities = data_received["num_of_cities"]
 		for i : int in num_of_cities:
 			cities.append(City.new(data_received["cities"][i])) 
+		var atlanta = findCity("Atlanta")
+		atlanta.set_protection(true)
+		for i in atlanta.get_num_of_connections():
+			findCity(atlanta.get_connection_name(i)).set_protection(true)
 		for i : int in num_of_cities:
-			print(cities[i].name)
+			print(cities[i].city_name)
+			print(cities[i].protected)
 	else:
 		print("JSON Parse Error")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
