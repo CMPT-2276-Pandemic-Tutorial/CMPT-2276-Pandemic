@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbhulfiaudhi7"]
 
-[ext_resource type="Script" path="res://scripts/boardMain.gd" id="1_1kket"]
+[ext_resource type="Script" uid="uid://bo5mklfhh26s3" path="res://scripts/boardMain.gd" id="1_1kket"]
 [ext_resource type="PackedScene" uid="uid://b30bds5n8qfw" path="res://scenes/tooltip.tscn" id="2_sw1xg"]
 [ext_resource type="Texture2D" uid="uid://cqwmbeqlbf4q5" path="res://assets/mapAssets/background.jpg" id="2_ywhfr"]
 [ext_resource type="Texture2D" uid="uid://b404tol6d0pue" path="res://assets/mapAssets/pandemic.jpg" id="3_sw1xg"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://bt7vqtyc2l5yy" path="res://assets/mapAssets/person-icon-gray.png" id="17_pnibc"]
 [ext_resource type="Texture2D" uid="uid://2shoxogjih3l" path="res://assets/mapAssets/person-icon-red.png" id="18_fyuxr"]
 [ext_resource type="Script" uid="uid://cr7h05hqbnycw" path="res://Scripts/mapScripts/cityClicked.gd" id="19_rr5bt"]
+[ext_resource type="PackedScene" uid="uid://d3e73xxrater6" path="res://scenes/UIScenes/tutorial_overlay.tscn" id="24_adlb6"]
+[ext_resource type="Script" uid="uid://dvs1b4eooj48g" path="res://Scripts/tutorialScripts/ingame-tutorial_button.gd" id="25_p3sgo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
@@ -824,6 +826,14 @@ offset_right = -672.0
 offset_bottom = 191.0
 text = "End Turn"
 
+[node name="tutorialButton" type="Button" parent="." unique_id=1974261360]
+offset_left = 722.0
+offset_top = -510.0
+offset_right = 872.04724
+offset_bottom = -445.99188
+text = "Start Tutorial"
+script = ExtResource("25_p3sgo")
+
 [node name="TurnLabel" type="Label" parent="." unique_id=220117877]
 offset_left = 430.0
 offset_top = -628.0
@@ -850,4 +860,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Tooltip" parent="." unique_id=2034921970 instance=ExtResource("2_sw1xg")]
 
+[node name="TutorialOverlay" parent="." unique_id=1681641802 instance=ExtResource("24_adlb6")]
+
 [connection signal="pressed" from="endTurnButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="tutorialButton" to="tutorialButton" method="_on_pressed"]

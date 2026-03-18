@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d3e73xxrater6"]
+
+[ext_resource type="Script" uid="uid://cffx0phgnw78s" path="res://Scripts/tutorial_overlay.gd" id="1_53mka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgxtg"]
+bg_color = Color(15.30028, 15.30028, 15.30028, 0.05882353)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.99167436, 0.88663405, 0.26992399, 0.655)
+border_blend = true
+
+[node name="TutorialOverlay" type="CanvasLayer" unique_id=1681641802]
+script = ExtResource("1_53mka")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1591513221]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.007843138, 0, 0.05882353, 0.61960787)
+
+[node name="Highlight" type="Panel" parent="." unique_id=1405422737]
+offset_left = 68.0
+offset_top = 100.0
+offset_right = 292.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgxtg")
+
+[node name="Label" type="Label" parent="Highlight" unique_id=1651946448]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 6.0
+offset_right = 769.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 22
+autowrap_mode = 2
