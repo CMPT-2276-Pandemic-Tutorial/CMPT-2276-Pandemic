@@ -59,8 +59,13 @@ func treat_disease_action(colour) -> void:
 		return
 	var player = players[GameManager.currentPlayer]
 	var current_city = Map.findCity(player.current_city)
-	current_city.treat_disease(colour, GameManager.cured[colour])
-	GameManager.actionCount -= 1
+	var did_treat
+	if GameManager.cured[colour] or GameManager.playerRole[GameManager.currentPlayer] == "Medic":
+		did_treat = current_city.treat_disease(colour, true)
+	else:
+		did_treat = current_city.treat_disease(colour, false)
+	if did_treat:
+		GameManager.actionCount -= 1
 
 func build_research_station_action() -> void:
 	if GameManager.actionCount <= 0:

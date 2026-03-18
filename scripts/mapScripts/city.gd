@@ -38,13 +38,13 @@ func get_connection_name(index) -> String:
 func get_cubes_string(colour) -> String:
 	match colour:
 		"black":
-			return str(black_cubes)
+			return str(int(black_cubes))
 		"blue":
-			return str(blue_cubes)
+			return str(int(blue_cubes))
 		"red":
-			return str(red_cubes)
+			return str(int(red_cubes))
 		"yellow":
-			return str(yellow_cubes)
+			return str(int(yellow_cubes))
 	return "error"
 
 func get_station() -> bool:
@@ -67,40 +67,44 @@ func infect(c) -> bool:
 		print("protected")
 		return false
 	print("Infecting " + city_name + " with " + c)
+	var ob
 	match c:
 		"black":
 			if black_cubes == 3:
 				print(city_name + " is at " + str(black_cubes) + " black")
-				return true
+				ob = true
 			else: 
 				black_cubes += 1
 				print(city_name + " is at " + str(black_cubes) + " black")
-				return false
+				ob = false
 		"blue":
 			if blue_cubes == 3:
 				print(city_name + " is at " + str(blue_cubes) + " blue")
-				return true
+				ob = true
 			else: 
 				blue_cubes += 1
 				print(city_name + " is at " + str(blue_cubes) + " blue")
-				return false
+				ob = false
 		"red":
 			if red_cubes == 3:
 				print(city_name + " is at " + str(red_cubes) + " red")
-				return true
+				ob = true
 			else: 
 				red_cubes += 1
 				print(city_name + " is at " + str(red_cubes) + " red")
-				return false
+				ob = false
 		"yellow":
 			if yellow_cubes == 3:
 				print(city_name + " is at " + str(yellow_cubes) + " yellow")
-				return true
+				ob = true
 			else: 
 				yellow_cubes += 1
 				print(city_name + " is at " + str(yellow_cubes) + " yellow")
-				return false
-	return false
+				ob = false
+	if InfoPanel.current_city and InfoPanel.current_city.get_city_name() == get_city_name():
+		InfoPanel.update_text(null)
+		print("Updating label")
+	return ob
 
 func infect_epidemic() -> bool:
 	if protected:
@@ -128,27 +132,44 @@ func infect_epidemic() -> bool:
 			if yellow_cubes == 0:
 				ob = false
 			yellow_cubes = 3
+	if InfoPanel.current_city and InfoPanel.current_city.get_city_name() == get_city_name():
+		InfoPanel.update_text(null)
+		print("Updating label")
 	return ob
 
-func treat_disease(c, cured) -> void:
+func treat_disease(c, cured) -> bool:
+	print("Treating " + c)
+	var treated = true
 	match c:
 		"black":
-			if cured:
+			if black_cubes == 0:
+				treated = false
+			elif cured:
 				black_cubes = 0
 			else:
 				black_cubes -= 1
 		"blue":
-			if cured:
+			if blue_cubes == 0:
+				treated = false
+			elif cured:
 				blue_cubes = 0
 			else:
 				blue_cubes -= 1
 		"red":
-			if cured:
+			if red_cubes == 0:
+				treated = false
+			elif cured:
 				red_cubes = 0
 			else:
 				red_cubes -= 1
 		"yellow":
-			if cured:
+			if yellow_cubes:
+				treated = false
+			elif cured:
 				yellow_cubes = 0
 			else:
 				yellow_cubes -= 1
+	if treated and InfoPanel.current_city and InfoPanel.current_city.get_city_name() == get_city_name():
+		InfoPanel.update_text(null)
+		print("Updating label")
+	return treated
