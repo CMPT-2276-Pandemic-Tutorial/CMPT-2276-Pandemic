@@ -212,7 +212,7 @@ func add_cube(c:String) -> void:
 	var cube = cube_scene.instantiate()
 	city_node.add_child(cube)
 	cube.colour = c
-	cube.global_position = city_node.global_position + Vector2(randf_range(-10,10),randf_range(-10,10))
+	cube.global_position = city_node.global_position + Vector2(randf_range(-15,15),randf_range(-10,10))
 	match c:
 		"blue":cube.modulate = Color(0.2,0.4,1)
 		"red":cube.modulate = Color(1, 0.2, 0.2)
