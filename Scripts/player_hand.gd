@@ -8,6 +8,7 @@ const HAND_Y_POSITION = 300
 var player_hand = {0:[],1:[],2:[],3:[]}
 var center_screen_x
 
+
 func _ready() -> void:
 	#center_screen_x = 
 	add_to_group("player_hand")
@@ -72,8 +73,10 @@ func can_cure(cure_colour):
 		print("Cannot cure ", cure_colour)
 		return false
 
-
-	
+#returns an array nodes of every card in a players hand
+#data from cards can be retrieved via get_cards_from_hand(player_index)[cardNum].card_data.get("attribute")
+func get_cards_from_hand(player_index):
+	return player_hand[player_index]
 
 #takes in the card node
 func remove_card_from_hand(card):

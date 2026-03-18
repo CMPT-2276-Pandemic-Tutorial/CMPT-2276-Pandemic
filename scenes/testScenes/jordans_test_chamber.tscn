@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bqudw4s01ryvd"]
+
+[ext_resource type="PackedScene" uid="uid://mc7mk5akim51" path="res://scenes/deckScenes/player_deck.tscn" id="1_5tn50"]
+[ext_resource type="Script" uid="uid://blgj5wrwpb2uv" path="res://Scripts/tutorialScripts/get_cards_test.gd" id="1_khhja"]
+
+[node name="Testing" type="Node2D" unique_id=1898832528]
+position = Vector2(35.454086, 24.110718)
+
+[node name="Deck" parent="." unique_id=42821703 instance=ExtResource("1_5tn50")]
+
+[node name="Panel" type="Panel" parent="." unique_id=1038450824]
+offset_left = -26.454086
+offset_top = -21.110718
+offset_right = 515.5459
+offset_bottom = 243.88928
+
+[node name="Button" type="Button" parent="Panel" unique_id=1213401685]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03874539
+anchor_top = 0.064150944
+anchor_right = 0.34317344
+anchor_bottom = 0.16792452
+offset_right = 8.0
+offset_bottom = 8.0
+text = "get_cards_from_hand"
+script = ExtResource("1_khhja")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/Button" to="Panel/Button" method="_on_pressed"]

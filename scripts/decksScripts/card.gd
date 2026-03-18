@@ -6,15 +6,16 @@ signal hovering_off
 @onready var card_label: Label = $CardName
 @onready var card_bg: Sprite2D = $CardBG
 
-var card_data
+var card_data : Dictionary
 
 func _ready() -> void:
 	#all cards need to be children of card manager
 	#get_parent().connect_card_signals(self)
 	$CardName.text = "TEST"
+	print("Card data on ready: ", card_data)
 
 func setup(data: Dictionary) -> void:
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	card_data = data
 	card_label.text = card_data["name"]
 	match card_data["colour"]:
