@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://bk7l6lkjojriu"]
-
-[ext_resource type="Texture2D" uid="uid://dqwjcwxar5lb0" path="res://assets/markerAssets/Square-white.svg.png" id="1_7ufek"]
-[ext_resource type="Script" uid="uid://dpp8riehjyfgu" path="res://scripts/utilityScripts/cube.gd" id="1_8viuf"]
-
-[node name="Sprite2D" type="Sprite2D" unique_id=265476768]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_7ufek")
-script = ExtResource("1_8viuf")

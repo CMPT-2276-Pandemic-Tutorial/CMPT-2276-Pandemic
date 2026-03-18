@@ -40,11 +40,6 @@ func move(viewport: Node, event: InputEvent, shape_idx: int, player, destination
 				current_city.set_protection(true)
 				for i in current_city.get_num_of_connections():
 					Map.findCity(current_city.get_connection_name(i)).set_protection(true)
-			if GameManager.playerRole[GameManager.currentPlayer] == "Medic":
-				var colours = ["black", "blue", "red", "yellow"]
-				for i in GameManager.cured.size():
-					if GameManager.cured[colours[i]]:
-						Map.findCity(destination).treat_disease(colours[i], true)
 			GameManager.actionCount -= 1
 			return
 		

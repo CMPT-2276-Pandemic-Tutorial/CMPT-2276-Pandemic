@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://xbk4mit4k00r"]
-
-[ext_resource type="Texture2D" uid="uid://cvxps64g5ul65" path="res://assets/tutorialAssets/research station icon.PNG" id="1_xjeg7"]
-
-[node name="Sprite2D" type="Sprite2D" unique_id=2056822190]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_xjeg7")

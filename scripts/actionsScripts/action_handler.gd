@@ -11,7 +11,6 @@ extends Node
 @export var cureMarkerRed: Node
 @export var cureMarkerYellow: Node
 
-var research_station_scene = preload("res://scenes/research_station.tscn")
 var players: Array[Node2D] = []
 var cureMarkers
 
@@ -60,13 +59,8 @@ func treat_disease_action(colour) -> void:
 		return
 	var player = players[GameManager.currentPlayer]
 	var current_city = Map.findCity(player.current_city)
-	var did_treat
-	if GameManager.cured[colour] or GameManager.playerRole[GameManager.currentPlayer] == "Medic":
-		did_treat = current_city.treat_disease(colour, true)
-	else:
-		did_treat = current_city.treat_disease(colour, false)
-	if did_treat:
-		GameManager.actionCount -= 1
+	current_city.treat_disease(colour, GameManager.cured[colour])
+	GameManager.actionCount -= 1
 
 func build_research_station_action() -> void:
 	if GameManager.actionCount <= 0:
@@ -82,9 +76,6 @@ func build_research_station_action() -> void:
 		var data = player_hand[card].card_data
 		if typeof(data) == TYPE_DICTIONARY and data.get("name") == player.current_city:
 			Map.findCity(player.current_city).add_station()
-			var station_icon = research_station_scene.instantiate()
-			Map.findCity(player.current_city).get_city_node().add_child(station_icon)
-			station_icon.global_position = Map.findCity(player.current_city).get_city_node().global_position
 			PlayerHand.remove_card_from_hand(player_hand[card])
 			GameManager.actionCount -= 1
 			print("Station built")
