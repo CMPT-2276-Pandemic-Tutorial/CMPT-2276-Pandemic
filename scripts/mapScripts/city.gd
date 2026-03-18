@@ -21,6 +21,7 @@ func _init(city_info) -> void:
 	blue_cubes = city_info["blue"]
 	red_cubes = city_info["red"]
 	yellow_cubes = city_info["yellow"]
+	station = city_info["station"]
 
 func get_city_name() -> String:
 	return city_name
@@ -33,6 +34,12 @@ func get_num_of_connections() -> float:
 
 func get_connection_name(index) -> String:
 	return connections[index]
+
+func get_station() -> bool:
+	return station
+
+func add_station() -> void:
+	station = true
 
 func set_protection(p) -> void:
 	protected = p

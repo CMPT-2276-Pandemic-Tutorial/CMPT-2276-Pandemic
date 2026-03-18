@@ -34,14 +34,16 @@ func cure_disease_action(colour) -> void:
 	if GameManager.actionCount <= 0:
 		print("No actions remaining!")
 		return
-	var player = players[GameManager.currentPlayer]
 	if GameManager.cured[colour]:
 		print("Colour already cured")
 		return
-	for i in 7: #Check player's hand for 5 cards of the right colour
-		pass
-	for i in 5: #Remove cards from player's hand
-		pass
+	if !PlayerHand.can_cure(colour):
+		print("Not enough cards to cure")
+		return 
+	var player = players[GameManager.currentPlayer]
+	if !Map.findCity(player.current_city).get_station():
+		print("City does not have station")
+		return
 	GameManager.cured[colour] = true
 	cureMarkers[colour].visible = true
 	if GameManager.check_for_win():
