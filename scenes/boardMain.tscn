@@ -32,45 +32,42 @@
 [node name="Board" type="Node" unique_id=649728087]
 script = ExtResource("1_1kket")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=934114908]
-position = Vector2(-3, -97)
-
 [node name="blankBackdrop" type="Sprite2D" parent="." unique_id=177502841]
-position = Vector2(-3, -54.999992)
-scale = Vector2(1.6003758, 0.9680561)
+position = Vector2(964, 534.00006)
+scale = Vector2(1.6, 0.9)
 texture = ExtResource("2_ywhfr")
 
 [node name="mapBackdrop" type="Sprite2D" parent="." unique_id=1264458958]
-position = Vector2(-4, -220)
+position = Vector2(959, 422.5)
 texture = ExtResource("3_sw1xg")
 
 [node name="Markers" type="Node" parent="." unique_id=1724747024]
 
 [node name="InfectionMarker" type="Sprite2D" parent="Markers" unique_id=232925066]
-position = Vector2(165.00002, -448)
+position = Vector2(1128, 194.5)
 scale = Vector2(1.0399988, 1.08)
 texture = ExtResource("4_gqyq5")
 script = ExtResource("5_ywhfr")
 
 [node name="OutbreakMarker" type="Sprite2D" parent="Markers" unique_id=1629541638]
-position = Vector2(-510, -170)
+position = Vector2(453, 472.5)
 texture = ExtResource("5_adlb6")
 script = ExtResource("7_sw1xg")
 
 [node name="CureMarkerRed" type="Sprite2D" parent="Markers" unique_id=945328160]
-position = Vector2(-139, 151)
+position = Vector2(824, 793.5)
 texture = ExtResource("6_p3sgo")
 
 [node name="CureMarkerYel" type="Sprite2D" parent="Markers" unique_id=343506668]
-position = Vector2(-195, 151)
+position = Vector2(768, 793.5)
 texture = ExtResource("7_4hyc3")
 
 [node name="CureMarkerBlue" type="Sprite2D" parent="Markers" unique_id=1587446173]
-position = Vector2(-84, 151)
+position = Vector2(879, 793.5)
 texture = ExtResource("8_kdxtn")
 
 [node name="CureMarkerPurp" type="Sprite2D" parent="Markers" unique_id=778300630]
-position = Vector2(-34, 151)
+position = Vector2(929, 793.5)
 texture = ExtResource("9_i10u0")
 
 [node name="ActionHandler" type="Node" parent="." unique_id=1615193092 node_paths=PackedStringArray("player1", "player2", "player3", "player4", "cureMarkerBlack", "cureMarkerBlue", "cureMarkerRed", "cureMarkerYellow")]
@@ -87,8 +84,10 @@ cureMarkerYellow = NodePath("../Markers/CureMarkerYel")
 [node name="ActionButtons" type="Control" parent="ActionHandler" unique_id=848514104]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 963.0
+offset_top = 642.5
+offset_right = 1003.0
+offset_bottom = 682.5
 
 [node name="TreatBlack" type="Button" parent="ActionHandler/ActionButtons" unique_id=560487138 node_paths=PackedStringArray("action_handler")]
 layout_mode = 0
@@ -211,47 +210,47 @@ action = "cure"
 [node name="infectionDeck" type="Node" parent="cardsAndDecks" unique_id=1630203481]
 
 [node name="InfectDeck" parent="cardsAndDecks/infectionDeck" unique_id=521029900 instance=ExtResource("13_7urr1")]
-position = Vector2(194, -535)
+position = Vector2(1157, 107.5)
 scale = Vector2(0.45, 0.45)
 
 [node name="infectionDeckCount" type="Label" parent="cardsAndDecks/infectionDeck" unique_id=937127246]
-offset_left = 199.0
-offset_top = -502.0
-offset_right = 278.0
-offset_bottom = -474.0
+offset_left = 1162.0
+offset_top = 140.5
+offset_right = 1241.0
+offset_bottom = 168.5
 theme_override_font_sizes/font_size = 20
 text = "Deck: X"
 
 [node name="infectionDiscardCount" type="Label" parent="cardsAndDecks/infectionDeck" unique_id=348662380]
-offset_left = 380.0
-offset_top = -500.0
-offset_right = 476.0
-offset_bottom = -472.0
+offset_left = 1343.0
+offset_top = 142.5
+offset_right = 1439.0
+offset_bottom = 170.5
 theme_override_font_sizes/font_size = 20
 text = "Discard: Y"
 
 [node name="playerDeck" type="Node" parent="cardsAndDecks" unique_id=1439591647]
 
 [node name="DeckManager" parent="cardsAndDecks/playerDeck" unique_id=1881671823 instance=ExtResource("12_x2t2u")]
-position = Vector2(164.18188, 48.818146)
+position = Vector2(1127.1819, 691.3181)
 
 [node name="Deck" parent="cardsAndDecks/playerDeck" unique_id=42821703 instance=ExtResource("16_gqyq5")]
-position = Vector2(176.13603, 62.518154)
+position = Vector2(1139.136, 705.01807)
 scale = Vector2(0.35, 0.35)
 
 [node name="playerDeckCount" type="Label" parent="cardsAndDecks/playerDeck" unique_id=605446455]
-offset_left = 158.0
-offset_top = 122.0
-offset_right = 229.0
-offset_bottom = 150.0
+offset_left = 1121.0
+offset_top = 764.5
+offset_right = 1192.0
+offset_bottom = 792.5
 theme_override_font_sizes/font_size = 20
 text = "Deck: X"
 
 [node name="playerDiscardCount" type="Label" parent="cardsAndDecks/playerDeck" unique_id=586210471]
-offset_left = 293.0
-offset_top = 121.0
-offset_right = 389.0
-offset_bottom = 149.0
+offset_left = 1256.0
+offset_top = 763.5
+offset_right = 1352.0
+offset_bottom = 791.5
 theme_override_font_sizes/font_size = 20
 text = "Discard: Y"
 
@@ -259,10 +258,10 @@ text = "Discard: Y"
 
 [node name="playerclass" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1704885419]
 clip_contents = true
-offset_left = -605.0
-offset_top = 210.0
-offset_right = -465.0
-offset_bottom = 395.0
+offset_left = 358.0
+offset_top = 852.5
+offset_right = 498.0
+offset_bottom = 1037.5
 size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playerclass" unique_id=542365104]
@@ -276,10 +275,10 @@ vertical_alignment = 1
 
 [node name="playercard1" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1281117924]
 custom_minimum_size = Vector2(140, 185)
-offset_left = -420.0
-offset_top = 210.0
-offset_right = -280.0
-offset_bottom = 395.0
+offset_left = 543.0
+offset_top = 852.5
+offset_right = 683.0
+offset_bottom = 1037.5
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard1" unique_id=1256621041]
@@ -295,10 +294,10 @@ vertical_alignment = 1
 
 [node name="playercard2" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=457924824]
 custom_minimum_size = Vector2(140, 185)
-offset_left = -275.0
-offset_top = 210.0
-offset_right = -135.0
-offset_bottom = 395.0
+offset_left = 688.0
+offset_top = 852.5
+offset_right = 828.0
+offset_bottom = 1037.5
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard2" unique_id=1238466698]
 custom_minimum_size = Vector2(140, 185)
@@ -313,10 +312,10 @@ vertical_alignment = 1
 
 [node name="playercard3" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=2026183432]
 custom_minimum_size = Vector2(140, 185)
-offset_left = -130.0
-offset_top = 210.0
-offset_right = 10.0
-offset_bottom = 395.0
+offset_left = 833.0
+offset_top = 852.5
+offset_right = 973.0
+offset_bottom = 1037.5
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard3" unique_id=607292754]
 custom_minimum_size = Vector2(140, 185)
@@ -331,10 +330,10 @@ vertical_alignment = 1
 
 [node name="playercard4" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=2089479655]
 custom_minimum_size = Vector2(140, 185)
-offset_left = 15.0
-offset_top = 210.0
-offset_right = 155.0
-offset_bottom = 395.0
+offset_left = 978.0
+offset_top = 852.5
+offset_right = 1118.0
+offset_bottom = 1037.5
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard4" unique_id=2067877189]
 custom_minimum_size = Vector2(140, 185)
@@ -349,10 +348,10 @@ vertical_alignment = 1
 
 [node name="playercard5" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1160953973]
 custom_minimum_size = Vector2(140, 185)
-offset_left = 160.0
-offset_top = 210.0
-offset_right = 300.0
-offset_bottom = 395.0
+offset_left = 1123.0
+offset_top = 852.5
+offset_right = 1263.0
+offset_bottom = 1037.5
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard5" unique_id=516366363]
 custom_minimum_size = Vector2(140, 185)
@@ -367,10 +366,10 @@ vertical_alignment = 1
 
 [node name="playercard6" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1297274791]
 custom_minimum_size = Vector2(140, 185)
-offset_left = 305.0
-offset_top = 210.0
-offset_right = 445.0
-offset_bottom = 395.0
+offset_left = 1268.0
+offset_top = 852.5
+offset_right = 1408.0
+offset_bottom = 1037.5
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard6" unique_id=1194571768]
 custom_minimum_size = Vector2(140, 185)
@@ -385,10 +384,10 @@ vertical_alignment = 1
 
 [node name="playercard7" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=273997164]
 custom_minimum_size = Vector2(140, 185)
-offset_left = 450.0
-offset_top = 210.0
-offset_right = 590.0
-offset_bottom = 395.0
+offset_left = 1413.0
+offset_top = 852.5
+offset_right = 1553.0
+offset_bottom = 1037.5
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard7" unique_id=1063817918]
 custom_minimum_size = Vector2(140, 185)
@@ -405,7 +404,7 @@ vertical_alignment = 1
 script = ExtResource("22_p3sgo")
 
 [node name="Atlanta" type="Area2D" parent="cityNodes" unique_id=1979203044]
-position = Vector2(-367, -317)
+position = Vector2(596, 325.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -415,7 +414,7 @@ shape = SubResource("CircleShape2D_3bd5r")
 [node name="Sprite2D" parent="cityNodes/Atlanta" unique_id=2056822190 instance=ExtResource("19_4hyc3")]
 
 [node name="Chicago" type="Area2D" parent="cityNodes" unique_id=312972800]
-position = Vector2(-398, -378)
+position = Vector2(565, 264.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -423,7 +422,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Montréal" type="Area2D" parent="cityNodes" unique_id=1982918023]
-position = Vector2(-315, -381)
+position = Vector2(648, 261.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -431,7 +430,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Washington" type="Area2D" parent="cityNodes" unique_id=96492920]
-position = Vector2(-279, -322)
+position = Vector2(684, 320.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -439,7 +438,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="New York" type="Area2D" parent="cityNodes" unique_id=2005624855]
-position = Vector2(-251, -372)
+position = Vector2(712, 270.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -447,7 +446,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="London" type="Area2D" parent="cityNodes" unique_id=1576732841]
-position = Vector2(-98, -421)
+position = Vector2(865, 221.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -455,7 +454,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Madrid" type="Area2D" parent="cityNodes" unique_id=265189720]
-position = Vector2(-109, -341)
+position = Vector2(854, 301.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -463,7 +462,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Paris" type="Area2D" parent="cityNodes" unique_id=1334346246]
-position = Vector2(-36, -380)
+position = Vector2(927, 262.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -471,7 +470,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Essen" type="Area2D" parent="cityNodes" unique_id=662831871]
-position = Vector2(-16, -437)
+position = Vector2(947, 205.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -479,7 +478,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Milan" type="Area2D" parent="cityNodes" unique_id=1188875131]
-position = Vector2(19, -396)
+position = Vector2(982, 246.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -487,7 +486,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="San Francisco" type="Area2D" parent="cityNodes" unique_id=2086899507]
-position = Vector2(-503, -348)
+position = Vector2(460, 294.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -495,7 +494,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="St Petersburg" type="Area2D" parent="cityNodes" unique_id=277526675]
-position = Vector2(76, -453)
+position = Vector2(1039, 189.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -503,7 +502,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Moscow" type="Area2D" parent="cityNodes" unique_id=779873573]
-position = Vector2(121, -397)
+position = Vector2(1084, 245.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -511,7 +510,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Istanbul" type="Area2D" parent="cityNodes" unique_id=509698139]
-position = Vector2(56, -349)
+position = Vector2(1019, 293.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -519,7 +518,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Algiers" type="Area2D" parent="cityNodes" unique_id=501064790]
-position = Vector2(-18, -294)
+position = Vector2(945, 348.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -527,7 +526,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Cairo" type="Area2D" parent="cityNodes" unique_id=87675906]
-position = Vector2(44, -278)
+position = Vector2(1007, 364.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -535,7 +534,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Baghdad" type="Area2D" parent="cityNodes" unique_id=1615493547]
-position = Vector2(115, -305)
+position = Vector2(1078, 337.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -543,7 +542,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Tehran" type="Area2D" parent="cityNodes" unique_id=2013530254]
-position = Vector2(178, -356)
+position = Vector2(1141, 286.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -551,7 +550,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Riyadh" type="Area2D" parent="cityNodes" unique_id=6668689]
-position = Vector2(125, -231)
+position = Vector2(1088, 411.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -559,7 +558,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Karachi" type="Area2D" parent="cityNodes" unique_id=403464826]
-position = Vector2(193, -279)
+position = Vector2(1156, 363.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -567,7 +566,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Mumbai" type="Area2D" parent="cityNodes" unique_id=1505191628]
-position = Vector2(202, -218)
+position = Vector2(1165, 424.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -575,7 +574,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Delhi" type="Area2D" parent="cityNodes" unique_id=185237326]
-position = Vector2(255, -302)
+position = Vector2(1218, 340.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -583,7 +582,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Kolkata" type="Area2D" parent="cityNodes" unique_id=1451950684]
-position = Vector2(312, -282)
+position = Vector2(1275, 360.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -591,7 +590,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Chennai" type="Area2D" parent="cityNodes" unique_id=1255226294]
-position = Vector2(266, -173)
+position = Vector2(1229, 469.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -599,7 +598,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Bangkok" type="Area2D" parent="cityNodes" unique_id=751588124]
-position = Vector2(324, -212)
+position = Vector2(1287, 430.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -607,7 +606,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Hong Kong" type="Area2D" parent="cityNodes" unique_id=164885225]
-position = Vector2(372, -249)
+position = Vector2(1335, 393.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -615,7 +614,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Shanghai" type="Area2D" parent="cityNodes" unique_id=1261089925]
-position = Vector2(364, -319)
+position = Vector2(1327, 323.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -623,7 +622,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Beijing" type="Area2D" parent="cityNodes" unique_id=1887564393]
-position = Vector2(360, -377)
+position = Vector2(1323, 265.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -631,7 +630,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Seoul" type="Area2D" parent="cityNodes" unique_id=579020629]
-position = Vector2(433, -381)
+position = Vector2(1396, 261.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -639,7 +638,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Tokyo" type="Area2D" parent="cityNodes" unique_id=1485165374]
-position = Vector2(491, -348)
+position = Vector2(1454, 294.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -647,7 +646,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Osaka" type="Area2D" parent="cityNodes" unique_id=332827062]
-position = Vector2(498, -285)
+position = Vector2(1461, 357.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -655,7 +654,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Taipei" type="Area2D" parent="cityNodes" unique_id=1546274661]
-position = Vector2(438, -261)
+position = Vector2(1401, 381.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -663,7 +662,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Ho Chi Minh City" type="Area2D" parent="cityNodes" unique_id=1202275098]
-position = Vector2(376, -153)
+position = Vector2(1339, 489.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -671,7 +670,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Jakarta" type="Area2D" parent="cityNodes" unique_id=1810236182]
-position = Vector2(324, -102)
+position = Vector2(1287, 540.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -679,7 +678,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Manila" type="Area2D" parent="cityNodes" unique_id=1094021729]
-position = Vector2(456, -158)
+position = Vector2(1419, 484.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -687,7 +686,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Sydney" type="Area2D" parent="cityNodes" unique_id=1515351163]
-position = Vector2(504, 12)
+position = Vector2(1467, 654.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -695,7 +694,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Khartoum" type="Area2D" parent="cityNodes" unique_id=909697046]
-position = Vector2(62, -196)
+position = Vector2(1025, 446.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -703,7 +702,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Lagos" type="Area2D" parent="cityNodes" unique_id=1489840072]
-position = Vector2(-44, -182)
+position = Vector2(919, 460.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -711,7 +710,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Kinshasa" type="Area2D" parent="cityNodes" unique_id=1405623836]
-position = Vector2(8, -123)
+position = Vector2(971, 519.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -719,7 +718,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Johannesburg" type="Area2D" parent="cityNodes" unique_id=1677781203]
-position = Vector2(55, -40)
+position = Vector2(1018, 602.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -727,7 +726,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="São Paulo" type="Area2D" parent="cityNodes" unique_id=437043548]
-position = Vector2(-205, -64)
+position = Vector2(758, 578.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -735,7 +734,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Buenos Aires" type="Area2D" parent="cityNodes" unique_id=1694295945]
-position = Vector2(-254, -2)
+position = Vector2(709, 640.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -743,7 +742,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Santiago" type="Area2D" parent="cityNodes" unique_id=1089052411]
-position = Vector2(-340, 15)
+position = Vector2(623, 657.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -751,7 +750,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Lima" type="Area2D" parent="cityNodes" unique_id=2011930207]
-position = Vector2(-351, -77)
+position = Vector2(612, 565.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -759,7 +758,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Bogotá" type="Area2D" parent="cityNodes" unique_id=1962392969]
-position = Vector2(-322, -166)
+position = Vector2(641, 476.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -767,7 +766,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Mexico City" type="Area2D" parent="cityNodes" unique_id=1184182126]
-position = Vector2(-409, -237)
+position = Vector2(554, 405.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -775,7 +774,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Miami" type="Area2D" parent="cityNodes" unique_id=32034634]
-position = Vector2(-315, -250)
+position = Vector2(648, 392.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -783,7 +782,7 @@ script = ExtResource("19_rr5bt")
 shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Los Angeles" type="Area2D" parent="cityNodes" unique_id=1761364456]
-position = Vector2(-487, -265)
+position = Vector2(476, 377.5)
 scale = Vector2(1.3, 1.3)
 script = ExtResource("19_rr5bt")
 
@@ -794,6 +793,7 @@ shape = SubResource("CircleShape2D_3bd5r")
 
 [node name="Player1" type="Node2D" parent="players" unique_id=1684015866]
 top_level = true
+position = Vector2(962.99994, 642.49994)
 scale = Vector2(0.1, 0.1)
 script = ExtResource("14_hvsgc")
 
@@ -803,6 +803,7 @@ texture = ExtResource("15_il6y1")
 
 [node name="Player2" type="Node2D" parent="players" unique_id=1519381775]
 top_level = true
+position = Vector2(963, 642.5)
 script = ExtResource("14_hvsgc")
 
 [node name="PersonIconBrown" type="Sprite2D" parent="players/Player2" unique_id=37674305]
@@ -812,6 +813,7 @@ texture = ExtResource("16_xpti6")
 
 [node name="Player3" type="Node2D" parent="players" unique_id=1585601267]
 top_level = true
+position = Vector2(963, 642.5)
 script = ExtResource("14_hvsgc")
 
 [node name="PersonIconGray" type="Sprite2D" parent="players/Player3" unique_id=1552940937]
@@ -821,6 +823,7 @@ texture = ExtResource("17_pnibc")
 
 [node name="Player4" type="Node2D" parent="players" unique_id=188429927]
 top_level = true
+position = Vector2(963, 642.5)
 script = ExtResource("14_hvsgc")
 
 [node name="PersonIconRed" type="Sprite2D" parent="players/Player4" unique_id=285779780]
@@ -828,17 +831,17 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("18_fyuxr")
 
 [node name="endTurnButton" type="Button" parent="." unique_id=1412050117]
-offset_left = -790.0
-offset_top = 134.0
-offset_right = -672.0
-offset_bottom = 191.0
+offset_left = 173.0
+offset_top = 776.5
+offset_right = 291.0
+offset_bottom = 833.5
 text = "End Turn"
 
 [node name="TurnLabel" type="Label" parent="." unique_id=220117877]
-offset_left = 430.0
-offset_top = -628.0
-offset_right = 576.0
-offset_bottom = -593.0
+offset_left = 1393.0
+offset_top = 14.5
+offset_right = 1539.0
+offset_bottom = 49.5
 text = "Player 1's turn"
 
 [node name="CityDescriptionBox" type="Control" parent="." unique_id=1692830451]

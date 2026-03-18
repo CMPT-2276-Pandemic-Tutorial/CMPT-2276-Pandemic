@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b471o0iju7kt2"]
 
 [ext_resource type="Texture2D" uid="uid://bxn37j24mfjfg" path="res://assets/Pandemic.jpg" id="1_tmw1y"]
-[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://Scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
+[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
 
 [node name="MainMenu" type="Control" unique_id=518224251]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,25 +13,29 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Pandemic" type="Sprite2D" parent="." unique_id=712827567]
-position = Vector2(993.0001, 388)
-scale = Vector2(5.433333, 3.7138886)
+position = Vector2(950.99994, 288.99997)
+scale = Vector2(11, 11)
 texture = ExtResource("1_tmw1y")
 
 [node name="Button" type="Button" parent="." unique_id=1617829656]
 layout_mode = 0
-offset_left = 785.0
-offset_top = 740.0
-offset_right = 1183.0
-offset_bottom = 962.0
-text = "start"
+offset_left = 400.0
+offset_top = 650.0
+offset_right = 880.0
+offset_bottom = 890.0
+theme_override_colors/font_color = Color(0.9843137, 0.1254902, 0.050980393, 1)
+theme_override_font_sizes/font_size = 48
+text = "Start Game"
 script = ExtResource("2_r2vvo")
 
 [node name="TutorialSelect" type="Button" parent="." unique_id=185771552]
 layout_mode = 0
-offset_left = 1322.7153
-offset_top = 769.9315
-offset_right = 1549.0
-offset_bottom = 951.0
+offset_left = 1100.0
+offset_top = 650.0
+offset_right = 1580.0
+offset_bottom = 890.0
+theme_override_colors/font_color = Color(0.9843137, 0.1254902, 0.050980393, 1)
+theme_override_font_sizes/font_size = 48
 text = "Tutorial"
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
