@@ -20,6 +20,9 @@ func move(viewport: Node, event: InputEvent, shape_idx: int, player, destination
 		if GameManager.actionCount <= 0:
 			print("No actions remaining!")
 			return
+		if player.current_city == destination:
+			print("Already there")
+			return
 		var current_city = Map.findCity(player.current_city)
 		#print(player.current_city)
 		print(destination)
