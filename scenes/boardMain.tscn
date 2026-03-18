@@ -100,6 +100,17 @@ action_handler = NodePath("../..")
 colour = "black"
 action = "treat"
 
+[node name="BuildStation" type="Button" parent="ActionHandler/ActionButtons" unique_id=1022544132 node_paths=PackedStringArray("action_handler")]
+layout_mode = 0
+offset_left = -820.0
+offset_top = -120.0
+offset_right = -638.0
+offset_bottom = -89.0
+text = "Build Research Station"
+script = ExtResource("13_adlb6")
+action_handler = NodePath("../..")
+action = "station"
+
 [node name="TreatBlue" type="Button" parent="ActionHandler/ActionButtons" unique_id=170781188 node_paths=PackedStringArray("action_handler")]
 layout_mode = 0
 offset_left = -715.0

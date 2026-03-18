@@ -29,10 +29,17 @@ func run_action(a, c):
 	elif a == "treat":
 		print("Running Treat")
 		treat_disease_action(c)
+	elif a == "station":
+		print("Running Build Station")
+		build_research_station_action()
 
 func cure_disease_action(colour) -> void:
 	if GameManager.actionCount <= 0:
 		print("No actions remaining!")
+		return
+	var player = players[GameManager.currentPlayer]
+	if !Map.findCity(player.current_city).get_station():
+		print("City does not have station")
 		return
 	if GameManager.cured[colour]:
 		print("Colour already cured")
@@ -40,10 +47,6 @@ func cure_disease_action(colour) -> void:
 	if !PlayerHand.can_cure(colour):
 		print("Not enough cards to cure")
 		return 
-	var player = players[GameManager.currentPlayer]
-	if !Map.findCity(player.current_city).get_station():
-		print("City does not have station")
-		return
 	GameManager.cured[colour] = true
 	cureMarkers[colour].visible = true
 	if GameManager.check_for_win():
@@ -58,3 +61,23 @@ func treat_disease_action(colour) -> void:
 	var current_city = Map.findCity(player.current_city)
 	current_city.treat_disease(colour, GameManager.cured[colour])
 	GameManager.actionCount -= 1
+
+func build_research_station_action() -> void:
+	if GameManager.actionCount <= 0:
+		print("No actions remaining!")
+		return
+	var player = players[GameManager.currentPlayer]
+	var current_city = Map.findCity(player.current_city)
+	if current_city.get_station():
+		print("Station already built")
+		return
+	var player_hand = PlayerHand.player_hand[GameManager.currentPlayer]
+	for card in player_hand.size():
+		var data = player_hand[card].card_data
+		if typeof(data) == TYPE_DICTIONARY and data.get("name") == player.current_city:
+			Map.findCity(player.current_city).add_station()
+			PlayerHand.remove_card_from_hand(player_hand[card])
+			GameManager.actionCount -= 1
+			print("Station built")
+			return
+	print("Do not have city card to build station")
