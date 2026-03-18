@@ -9,4 +9,5 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	print("Sending Action")
-	action_handler.run_action(action,colour)
+	if PlayerHand.can_cure(colour):
+		action_handler.run_action(action,colour)

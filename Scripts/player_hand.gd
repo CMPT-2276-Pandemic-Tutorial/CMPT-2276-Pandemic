@@ -42,19 +42,49 @@ func calculate_card_positions(index, player_index):
 
 
 func animate_card_to_position(card, new_position):
+	if card.has_meta("tween"):
+		var old_tween = card.get_meta("tween")
+		if old_tween:
+			old_tween.kill()
+	
 	var tween = get_tree().create_tween()
+	card.set_meta("tween", tween)
+	
 	tween.tween_property(card, "position", new_position, 0.1)
 
+#takes in the string colour name and determines if a cure can be made
+func can_cure(cure_colour):
+	var player = GameManager.currentPlayer
+	var current_hand = player_hand[player]
+	var cure_cards = []
+	for card in range(current_hand.size()):
+		#load the card data
+		var data = current_hand[card].card_data
+		if typeof(data) == TYPE_DICTIONARY and data.get("colour") == cure_colour:
+			cure_cards.append(current_hand[card])
+	#if the 
+	if cure_cards.size() >= 5 or GameManager.playerRole[GameManager.currentPlayer] == "Scientist" and cure_cards.size() >= 4:
+		print("Cured %s disease!" % cure_colour)
+		for card in range(5):
+			remove_card_from_hand(cure_cards[card])
+		return true
+	else:
+		print("Cannot cure ", cure_colour)
+		return false
 
+
+	
+
+#takes in the card node
 func remove_card_from_hand(card):
 	var curr_player = GameManager.currentPlayer
 	if card in player_hand[curr_player]:
 		player_hand[curr_player].erase(card)
-		print("erased")
-		print(card)
+		print("erased ", card)
 		# reset card transform
 		card.position = Vector2(340, 60)
 		card.get_node("Area2D/CollisionShape2D").disabled = true
+		await get_tree().create_timer(0.05).timeout
 		update_hand_positions(curr_player)
 	else:
 		print("card not found")
