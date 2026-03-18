@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bt7vqtyc2l5yy" path="res://assets/mapAssets/person-icon-gray.png" id="17_pnibc"]
 [ext_resource type="Texture2D" uid="uid://2shoxogjih3l" path="res://assets/mapAssets/person-icon-red.png" id="18_fyuxr"]
 [ext_resource type="Script" uid="uid://cr7h05hqbnycw" path="res://scripts/mapScripts/cityClicked.gd" id="19_rr5bt"]
+[ext_resource type="Script" uid="uid://cqva8aa6fypne" path="res://scripts/utilityScripts/city_nodes.gd" id="22_p3sgo"]
 [ext_resource type="Script" uid="uid://nbnchmehur5g" path="res://scripts/utilityScripts/info_panel_label.gd" id="23_adlb6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
@@ -433,6 +434,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("18_fyuxr")
 
 [node name="cityNodes" type="Node" parent="." unique_id=816356429]
+script = ExtResource("22_p3sgo")
 
 [node name="Atlanta" type="Area2D" parent="cityNodes" unique_id=1979203044]
 position = Vector2(-367, -317)
