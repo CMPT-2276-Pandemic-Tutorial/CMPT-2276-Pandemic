@@ -35,6 +35,18 @@ func get_num_of_connections() -> float:
 func get_connection_name(index) -> String:
 	return connections[index]
 
+func get_cubes_string(colour) -> String:
+	match colour:
+		"black":
+			return str(black_cubes)
+		"blue":
+			return str(blue_cubes)
+		"red":
+			return str(red_cubes)
+		"yellow":
+			return str(yellow_cubes)
+	return "error"
+
 func get_station() -> bool:
 	return station
 
