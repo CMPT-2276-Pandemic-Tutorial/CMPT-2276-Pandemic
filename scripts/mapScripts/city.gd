@@ -214,10 +214,10 @@ func add_cube(c:String) -> void:
 	cube.colour = c
 	cube.global_position = city_node.global_position + Vector2(randf_range(-10,10),randf_range(-10,10))
 	match c:
-		"blue":cube.get_child(0).modulate = Color(0.2,0.4,1)
-		"red":cube.get_child(0).modulate = Color(1, 0.2, 0.2)
-		"yellow":cube.get_child(0).modulate = Color(1,1,0.2)
-		"black":cube.get_child(0).modulate = Color(0.1,0.1,0.1)
+		"blue":cube.modulate = Color(0.2,0.4,1)
+		"red":cube.modulate = Color(1, 0.2, 0.2)
+		"yellow":cube.modulate = Color(1,1,0.2)
+		"black":cube.modulate = Color(0.1,0.1,0.1)
 	cubes.append(cube)
 
 func remove_cube(c:String) -> void:
