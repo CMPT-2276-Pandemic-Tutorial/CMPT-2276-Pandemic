@@ -49,7 +49,3 @@ func _on_city_clicked(city_name):
 func _on_button_pressed() -> void:
 	GameManager.endTurn()
 	$TurnLabel.text = "player " + str(GameManager.currentPlayer + 1) + "'s turn"
-
-
-func _on_tutorial_button_pressed() -> void:
-	pass # Replace with function body.
