@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://d3e73xxrater6"]
+
+[ext_resource type="Script" uid="uid://cffx0phgnw78s" path="res://Scripts/tutorial_overlay.gd" id="1_53mka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgxtg"]
+bg_color = Color(15.30028, 15.30028, 15.30028, 0.05882353)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.99167436, 0.88663405, 0.26992399, 0.655)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_y1cd7"]
+line_spacing = 2.0
+font_size = 24
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 0.8901961)
+stacked_outline_count = 1
+stacked_outline_0/size = 3
+stacked_outline_0/color = Color(0.20799999, 0.32, 0.24720001, 0.8784314)
+
+[node name="TutorialOverlay" type="CanvasLayer" unique_id=1681641802]
+script = ExtResource("1_53mka")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1591513221]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.007843138, 0, 0.05882353, 0.61960787)
+
+[node name="Highlight" type="Panel" parent="." unique_id=1405422737]
+offset_left = 68.0
+offset_top = 100.0
+offset_right = 292.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgxtg")
+
+[node name="Label" type="Label" parent="Highlight" unique_id=1651946448]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 6.0
+offset_right = 769.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 22
+label_settings = SubResource("LabelSettings_y1cd7")
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="." unique_id=747230099]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Previous" type="Button" parent="Control" unique_id=1515499958]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 889.0
+offset_right = 313.0
+offset_bottom = 999.9374
+text = "Previous"
+
+[node name="EndTutorial" type="Button" parent="Control" unique_id=802767403]
+layout_mode = 0
+offset_left = 1603.0
+offset_top = 229.0
+offset_right = 1785.0
+offset_bottom = 312.0
+text = "End Tutorial"
+
+[node name="Next" type="Button" parent="Control" unique_id=735931080]
+layout_mode = 0
+offset_left = 1585.0
+offset_top = 884.0
+offset_right = 1785.0
+offset_bottom = 999.9374
+text = "Next"
+
+[connection signal="pressed" from="Control/Previous" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Control/EndTutorial" to="." method="_on_end_tutorial_pressed"]
+[connection signal="pressed" from="Control/Next" to="." method="_on_next_pressed"]
