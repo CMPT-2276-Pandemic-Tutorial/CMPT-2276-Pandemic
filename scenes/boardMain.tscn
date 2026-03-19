@@ -24,8 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://2shoxogjih3l" path="res://assets/mapAssets/person-icon-red.png" id="18_fyuxr"]
 [ext_resource type="PackedScene" uid="uid://xbk4mit4k00r" path="res://scenes/research_station.tscn" id="19_4hyc3"]
 [ext_resource type="Script" uid="uid://cr7h05hqbnycw" path="res://scripts/mapScripts/cityClicked.gd" id="19_rr5bt"]
-[ext_resource type="Script" path="res://scripts/utilityScripts/city_nodes.gd" id="22_p3sgo"]
-[ext_resource type="Script" path="res://scripts/utilityScripts/info_panel_label.gd" id="23_adlb6"]
+[ext_resource type="Script" uid="uid://cqva8aa6fypne" path="res://scripts/utilityScripts/city_nodes.gd" id="22_p3sgo"]
+[ext_resource type="Script" uid="uid://nbnchmehur5g" path="res://scripts/utilityScripts/info_panel_label.gd" id="23_adlb6"]
 [ext_resource type="PackedScene" path="res://scenes/UIScenes/tutorial_overlay.tscn" id="24_adlb6"]
 [ext_resource type="Script" path="res://Scripts/tutorialScripts/ingame-tutorial_button.gd" id="25_p3sgo"]
 
@@ -850,10 +850,10 @@ text = "Player 1's turn"
 [node name="CityDescriptionBox" type="Control" parent="." unique_id=1692830451]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -915.0
-offset_top = -540.0
-offset_right = -915.0
-offset_bottom = -540.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [node name="panel" type="Panel" parent="CityDescriptionBox" unique_id=585948130]
 layout_mode = 0
