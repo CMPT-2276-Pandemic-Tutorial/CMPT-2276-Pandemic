@@ -29,21 +29,10 @@ func _on_city_clicked(city_name):
 	var city_info = null #start click off at nothing
 	print("DEBUG TEST - Clicked city name ", city_name)
 	city_info = Map.findCity(city_name)
-	#for x in city_data:
-	#	if x["name"] == city_name:
-	#		city_info = x
-	#		break
 	if city_info == null:
 		print("City not found in JSON: ", city_name)
 		return
-			
-	$CityDescriptionBox/panel/info.text = "Name: " + city_info.get_city_name() \
-	+ "\nBlack Cubes: " + city_info.get_cubes_string("black") \
-	+ "\nBlue Cubes: " + city_info.get_cubes_string("blue") \
-	+ "\nRed Cubes: " + city_info.get_cubes_string("red") \
-	+ "\nYellow Cubes: " + city_info.get_cubes_string("yellow") \
-	+ "\nStation: " + str(city_info.get_station())
-	#$CityDescriptionBox/panel/info.text = "Name: " + city_info["name"] + "\nBlack Cubes: " + str(city_info["black"]) + "\nRed Cubes: " + str(city_info["red"]) + "\nYellow Cubes: " + str(city_info["yellow"]) + "\nBlue Cubes: " + str(city_info["blue"])+ "\nStation: " + str(city_info["station"])  
+	InfoPanel.update_text(city_info)
 	
 	
 		

@@ -9,7 +9,7 @@ var turnNum = 0
 var playerCount = 4
 var currentPlayer = 0
 #Just hard coding the roles for right now
-var playerRole = ["Generalist", "Scientist", "Researcher", "Quarantine Specialist"]
+var playerRole = ["Generalist", "Scientist", "Medic", "Quarantine Specialist"]
 var actionCount = 5
 var infectionIndex = 0
 var infectionRate = [2,2,2,3,3,4,4]

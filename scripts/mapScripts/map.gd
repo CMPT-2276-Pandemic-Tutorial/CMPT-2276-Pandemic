@@ -84,10 +84,6 @@ func _ready() -> void:
 	else:
 		print("JSON Parse Error")
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func findCity(cityName) -> City:
 	for i in num_of_cities:
 		if cities[i].get_city_name() == cityName:
