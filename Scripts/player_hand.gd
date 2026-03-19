@@ -63,12 +63,22 @@ func can_cure(cure_colour):
 		var data = current_hand[card].card_data
 		if typeof(data) == TYPE_DICTIONARY and data.get("colour") == cure_colour:
 			cure_cards.append(current_hand[card])
-	#if the 
-	if cure_cards.size() >= 5 or GameManager.playerRole[GameManager.currentPlayer] == "Scientist" and cure_cards.size() >= 4:
+	
+	#if the player is the scientist then they only need 4 cards to cure
+	if GameManager.playerRole[player] == "Scientist" and cure_cards.size() >= 4:
+		print("Cured %s disease!" % cure_colour)
+		for card in range(4):
+			remove_card_from_hand(cure_cards[card])
+		return true
+		
+	#if the player has five cards of the same color they can cure
+	if cure_cards.size() >= 5:
 		print("Cured %s disease!" % cure_colour)
 		for card in range(5):
 			remove_card_from_hand(cure_cards[card])
 		return true
+		
+	#returns that the player cannot cure
 	else:
 		print("Cannot cure ", cure_colour)
 		return false

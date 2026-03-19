@@ -38,6 +38,7 @@ func draw_card():
 		print("player holds the max amount of cards!")
 		return
 	#GameManager.actionCount -= 1
+	#condition to check if the deck has run out of cards will go here, LOSE CONDITION
 	var card_drawn = player_deck[0]
 	player_deck.erase(card_drawn)
 	

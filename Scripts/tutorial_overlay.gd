@@ -95,6 +95,16 @@ func next_stage():
 		show_stage()
 
 
+func previous_stage():
+	print("Current tutorial stage: ", current_stage)
+	if current_stage == 0:
+		print("Already at the start of the tutorial!")
+		return
+	else:
+		current_stage -= 1
+		show_stage()
+
+
 func end_tutorial():
 	visible = false
 	tutorial_active = false
@@ -119,8 +129,18 @@ func highlight_node2d(node: Node2D):
 	highlight.size = size + Vector2(padding * 2, padding * 2)
 
 
-func _input(event: InputEvent) -> void:
-	if not tutorial_active:
-		return
-	if event is InputEventMouseButton and event.pressed:
-		next_stage()
+#func _input(event: InputEvent) -> void:
+	#if not tutorial_active:
+		#return
+	#if event is InputEventMouseButton and event.pressed:
+		#next_stage()
+#
+
+func _on_previous_pressed() -> void:
+	previous_stage()
+
+func _on_next_pressed() -> void:
+	next_stage()
+
+func _on_end_tutorial_pressed() -> void:
+	end_tutorial()
