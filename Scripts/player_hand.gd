@@ -3,8 +3,7 @@ extends Node2D
 const MAX_HAND_COUNT = 8
 
 const CARD_WIDTH = 150
-const HAND_Y_POSITION = 300
-
+const HAND_Y_POSITION = 950
 var player_hand = {0:[],1:[],2:[],3:[]}
 var center_screen_x
 
@@ -12,7 +11,6 @@ var center_screen_x
 func _ready() -> void:
 	#center_screen_x = 
 	add_to_group("player_hand")
-	
 
 
 func add_card_to_hand(card):
@@ -22,8 +20,8 @@ func add_card_to_hand(card):
 		if card.get_parent():
 			card.get_parent().remove_child(card)
 		add_child(card)
-	card.position = Vector2(0,0)
 	card.scale = Vector2(0.35,0.35)
+	#print("Card connections", card.get_connections())
 	player_hand[player].insert(0, card)
 	update_hand_positions(player)
 
@@ -32,7 +30,7 @@ func update_hand_positions(player_index):
 	for i in range(player_hand[player_index].size()):
 		#retrieves new card position based on current number of cards in the player hand and index of mouse
 		var card = player_hand[player_index][i]
-		var new_position = Vector2(calculate_card_positions(i, player_index) -800, HAND_Y_POSITION)
+		var new_position = Vector2(calculate_card_positions(i, player_index) +100, HAND_Y_POSITION)
 		animate_card_to_position(card, new_position)
 
 
@@ -95,7 +93,7 @@ func remove_card_from_hand(card):
 		player_hand[curr_player].erase(card)
 		print("erased ", card)
 		# reset card transform
-		card.position = Vector2(340, 60)
+		card.position = Vector2(1310,700)
 		card.get_node("Area2D/CollisionShape2D").disabled = true
 		await get_tree().create_timer(0.05).timeout
 		update_hand_positions(curr_player)

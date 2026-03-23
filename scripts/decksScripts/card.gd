@@ -24,6 +24,21 @@ func setup(data: Dictionary) -> void:
 		"yellow":card_bg.modulate = Color(1,1,0.2)
 		"black":card_bg.modulate = Color(0.1,0.1,0.1)
 
+func get_colour():
+	return card_data.get("colour")
+
+func get_card_name():
+	return card_data.get("name")
+	
+func get_num_connections():
+	return card_data.get("num_of_connections")
+	
+func get_connections():
+	return card_data.get("connections")
+	
+func get_station():
+	return card_data.get("station")
+
 func _on_area_2d_mouse_entered() -> void:
 	emit_signal("hovering", self)
 
