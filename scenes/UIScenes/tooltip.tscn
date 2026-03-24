@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b30bds5n8qfw"]
 
-[ext_resource type="Script" uid="uid://mt7aujwgehd0" path="res://Scripts/UIScripts/tooltip.gd" id="1_7dicn"]
+[ext_resource type="Script" uid="uid://mt7aujwgehd0" path="res://scripts/UIScripts/tooltip.gd" id="1_7dicn"]
 
 [node name="Tooltip" type="CanvasLayer" unique_id=2034921970]
 script = ExtResource("1_7dicn")

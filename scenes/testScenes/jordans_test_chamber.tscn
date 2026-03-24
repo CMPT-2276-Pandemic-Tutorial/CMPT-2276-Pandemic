@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bqudw4s01ryvd"]
 
 [ext_resource type="PackedScene" uid="uid://mc7mk5akim51" path="res://scenes/deckScenes/player_deck.tscn" id="1_5tn50"]
-[ext_resource type="Script" uid="uid://blgj5wrwpb2uv" path="res://Scripts/tutorialScripts/get_cards_test.gd" id="1_khhja"]
+[ext_resource type="Script" uid="uid://blgj5wrwpb2uv" path="res://scripts/tutorialScripts/get_cards_test.gd" id="1_khhja"]
 
 [node name="Testing" type="Node2D" unique_id=1898832528]
 position = Vector2(35.454086, 24.110718)

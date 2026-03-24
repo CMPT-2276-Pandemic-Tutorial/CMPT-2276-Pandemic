@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bka1ghm5uv7go" path="res://scenes/deckScenes/card_slot.tscn" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://mc7mk5akim51" path="res://scenes/deckScenes/player_deck.tscn" id="2_vh2bk"]
 [ext_resource type="PackedScene" uid="uid://ciokm4wsa27tt" path="res://scenes/deckScenes/card_manager.tscn" id="3_vh2bk"]
-[ext_resource type="Script" uid="uid://drrolphc7nhg5" path="res://Scripts/player_hand.gd" id="4_6bp64"]
-[ext_resource type="Script" uid="uid://b175id8rtgj7x" path="res://Scripts/input_manager.gd" id="6_6bp64"]
+[ext_resource type="Script" uid="uid://drrolphc7nhg5" path="res://scripts/decksScripts/player_hand.gd" id="4_6bp64"]
+[ext_resource type="Script" uid="uid://b175id8rtgj7x" path="res://scripts/input_manager.gd" id="6_6bp64"]
 
 [node name="Main" type="Node2D" unique_id=1881671823]
 scale = Vector2(0.6, 0.6)

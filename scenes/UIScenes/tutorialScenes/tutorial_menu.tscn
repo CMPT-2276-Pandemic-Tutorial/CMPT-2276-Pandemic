@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eqfmqgb4rcvl"]
 
-[ext_resource type="Script" uid="uid://cxy65esjkxr6k" path="res://Scripts/tutorialScripts/tutorial_menu.gd" id="1_n4abv"]
+[ext_resource type="Script" uid="uid://cxy65esjkxr6k" path="res://scripts/tutorialScripts/tutorial_menu.gd" id="1_n4abv"]
 [ext_resource type="Texture2D" uid="uid://b1yq5p0yj1gw3" path="res://assets/tutorialAssets/cures.PNG" id="2_55kae"]
 [ext_resource type="Texture2D" uid="uid://lru5gebuohri" path="res://assets/tutorialAssets/diseases.PNG" id="3_1jg5c"]
 [ext_resource type="Texture2D" uid="uid://duj8wnujb4kod" path="res://assets/tutorialAssets/outbreak meter.PNG" id="4_1jg5c"]

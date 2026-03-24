@@ -11,7 +11,7 @@ extends Node
 @export var cureMarkerRed: Node
 @export var cureMarkerYellow: Node
 
-var research_station_scene = preload("res://scenes/research_station.tscn")
+var research_station_scene = preload("res://scenes/iconScenes/research_station.tscn")
 var players: Array[Node2D] = []
 var cureMarkers
 
@@ -67,6 +67,8 @@ func treat_disease_action(colour) -> void:
 		did_treat = current_city.treat_disease(colour, false)
 	if did_treat:
 		GameManager.actionCount -= 1
+	else:
+		print("No cubes of colour to treat!")
 
 func build_research_station_action() -> void:
 	if GameManager.actionCount <= 0:

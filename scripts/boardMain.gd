@@ -48,4 +48,13 @@ func _on_city_clicked(city_name):
 
 func _on_button_pressed() -> void:
 	GameManager.endTurn()
-	$TurnLabel.text = "player " + str(GameManager.currentPlayer + 1) + "'s turn"
+	$TurnLabel.text = "Player " + str(GameManager.currentPlayer + 1) + "'s Turn"
+	match(GameManager.currentPlayer):
+		0:
+			$TurnLabel.label_settings.font_color = Color(0.247, 0.278, 0.8, 1.0)
+		1:
+			$TurnLabel.label_settings.font_color = Color(0.725, 0.478, 0.341, 1.0)
+		2:
+			$TurnLabel.label_settings.font_color = Color(0.431, 0.424, 0.427, 1.0)
+		3:
+			$TurnLabel.label_settings.font_color = Color(0.929, 0.106, 0.141, 1.0)

@@ -1,6 +1,6 @@
 class_name City extends Node
 
-var cube_scene = preload("res://scenes/cube.tscn")
+var cube_scene = preload("res://scenes/iconScenes/cube.tscn")
 
 var city_name
 var colour
