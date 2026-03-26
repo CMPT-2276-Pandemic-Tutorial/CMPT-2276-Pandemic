@@ -11,8 +11,8 @@ var card_data : Dictionary
 func _ready() -> void:
 	#all cards need to be children of card manager
 	#get_parent().connect_card_signals(self)
-	$CardName.text = "TEST"
-	print("Card data on ready: ", card_data)
+	$CardName.text = card_data.get("name", "NO NAME")
+	
 
 func setup(data: Dictionary) -> void:
 	#await get_tree().process_frame
@@ -23,6 +23,10 @@ func setup(data: Dictionary) -> void:
 		"red":card_bg.modulate = Color(1, 0.2, 0.2)
 		"yellow":card_bg.modulate = Color(1,1,0.2)
 		"black":card_bg.modulate = Color(0.1,0.1,0.1)
+
+func update_visuals():
+	if typeof(card_data) == TYPE_DICTIONARY:
+		$CardName.text = card_data.get("name", "NO NAME")
 
 func get_colour():
 	return card_data.get("colour")

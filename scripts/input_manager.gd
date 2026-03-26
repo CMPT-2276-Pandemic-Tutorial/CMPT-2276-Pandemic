@@ -25,15 +25,13 @@ func _input(event: InputEvent) -> void:
 			var card = raycast_at_cursor()
 			#draws card when clicking on the deck
 			if card and card.name == "Deck":
-				#if GameManager.actionCount <= 0:
-				#	print("No actions remaining!")
-				#	return
 				$"../../Deck".draw_card()
+			if card and PlayerHand:
+				PlayerHand.select_card_via_raycast(card)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.double_click:
 		if event.pressed:
-			var player_hand_ref = get_tree().get_first_node_in_group("player_hand")
 			var card = raycast_at_cursor()
-			player_hand_ref.remove_card_from_hand(card)
+			PlayerHand.remove_card_from_hand(card)
 			#removes card upon double clicking
 
 func raycast_at_cursor():

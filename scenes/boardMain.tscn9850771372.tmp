@@ -30,21 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://d3e73xxrater6" path="res://scenes/UIScenes/tutorialScenes/tutorial_overlay.tscn" id="24_adlb6"]
 [ext_resource type="Script" uid="uid://dvs1b4eooj48g" path="res://Scripts/tutorialScripts/ingame-tutorial_button.gd" id="25_p3sgo"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_ahtse"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iihkr"]
-texture = SubResource("CanvasTexture_ahtse")
-modulate_color = Color(0.27058825, 0.21960784, 0.4, 1)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_x2t2u"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7urr1"]
-texture = SubResource("CanvasTexture_x2t2u")
-modulate_color = Color(0.3254902, 0.09019608, 0.2, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ahtse"]
-bg_color = Color(0.774329, 0.5545098, 0.1385352, 1)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_3bd5r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i10u0"]
@@ -116,15 +101,15 @@ offset_bottom = 682.5
 
 [node name="Trade" type="Button" parent="ActionHandler/ActionButtons" unique_id=1796235211 node_paths=PackedStringArray("action_handler")]
 layout_mode = 0
-offset_left = 628.0
-offset_top = 103.5
-offset_right = 799.0
-offset_bottom = 191.29596
+offset_left = 687.7947
+offset_top = -131.29596
+offset_right = 829.0
+offset_bottom = -65.5
 theme_override_colors/font_color = Color(0.83536, 0.92, 0.07359999, 1)
-theme_override_font_sizes/font_size = 24
 text = "Trade Cards"
 script = ExtResource("13_adlb6")
 action_handler = NodePath("../..")
+colour = "yellow"
 action = "trade"
 
 [node name="TreatBlack" type="Button" parent="ActionHandler/ActionButtons" unique_id=560487138 node_paths=PackedStringArray("action_handler")]
@@ -253,38 +238,30 @@ offset_bottom = 199.5
 
 [node name="TradeCard" type="Button" parent="ActionHandler/ActionButtons/TradePanel" unique_id=1426026791 node_paths=PackedStringArray("action_handler")]
 layout_mode = 0
-offset_left = 351.0
-offset_top = 454.0
+offset_left = 402.0
+offset_top = 478.0
 offset_right = 543.2053
 offset_bottom = 543.79596
 theme_override_colors/font_color = Color(0.83536, 0.92, 0.07359999, 1)
-theme_override_colors/font_outline_color = Color(0.118672766, 0.04842806, 0.13225698, 1)
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_iihkr")
 text = "Trade Selected
 Card"
 script = ExtResource("13_adlb6")
 action_handler = NodePath("../../..")
-colour = "white"
+colour = "yellow"
 action = "trade_card"
 
 [node name="CloseTradeMenu" type="Button" parent="ActionHandler/ActionButtons/TradePanel" unique_id=1071581671 node_paths=PackedStringArray("action_handler")]
 layout_mode = 0
 offset_left = 556.0
-offset_top = 453.0
-offset_right = 711.0
+offset_top = 477.0
+offset_right = 697.2053
 offset_bottom = 542.79596
 theme_override_colors/font_color = Color(0.83536, 0.92, 0.07359999, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_7urr1")
 text = "Close Trade
 Menu"
 script = ExtResource("13_adlb6")
 action_handler = NodePath("../../..")
-colour = "white"
+colour = "yellow"
 action = "close_trade"
 
 [node name="AvailablePlayers" type="VBoxContainer" parent="ActionHandler/ActionButtons/TradePanel" unique_id=1245329571]
@@ -293,19 +270,6 @@ offset_left = 3.0
 offset_top = -2.0
 offset_right = 1201.0
 offset_bottom = 438.0
-
-[node name="CurrentPlayerLabel" type="Label" parent="ActionHandler/ActionButtons/TradePanel" unique_id=2063802761]
-layout_mode = 0
-offset_left = 3.0
-offset_top = -35.0
-offset_right = 1201.0
-offset_bottom = -1.0
-theme_override_colors/font_color = Color(0.5254902, 1, 0.8862745, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ahtse")
-text = "                                          Please Select a Trade Partner!"
 
 [node name="CardContainer" type="Control" parent="ActionHandler/ActionButtons/TradePanel" unique_id=577469390 groups=["trade_container"]]
 anchors_preset = 0

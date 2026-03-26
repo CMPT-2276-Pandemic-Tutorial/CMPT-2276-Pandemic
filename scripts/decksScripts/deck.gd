@@ -18,6 +18,7 @@ func _ready() -> void:
 		player_deck.append("Epidemic")
 	set_meta("tooltip_name", "Player Deck")
 	set_meta("tooltip_desc", "Draw a city card from the player deck by clicking on it.")
+	GameManager.turn_changed.connect(_on_turn_changed)
 	#shuffle each deck at the start of the game
 	shuffle(player_deck)
 
@@ -31,10 +32,12 @@ func shuffle(deck):
 		deck[i] = deck[j]
 		deck[j] = temp
 
+func _on_turn_changed(action):
+	print("Now on turn: ", action)
 
 
 func draw_card():
-	if(PlayerHand.player_hand[GameManager.currentPlayer].size() == 7):
+	if(PlayerHand.player_hand[GameManager.currentPlayer].size() >= PlayerHand.MAX_HAND_COUNT):
 		print("player holds the max amount of cards!")
 		return
 	#GameManager.actionCount -= 1

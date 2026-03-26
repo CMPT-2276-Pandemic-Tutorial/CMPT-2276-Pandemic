@@ -7,7 +7,16 @@ var city_data = [] #storing the array from JSON file
 func _ready():
 		load_city_data() #Declaration for loading data from json - AS
 		connect_city_signals() #declaration for connecting signals to buttons (collision shapes) - AS
-		
+		GameManager.action_count_changed.connect(_on_action_changed)
+		if GameManager.playerRole[GameManager.currentPlayer] == "Generalist":
+			GameManager.actionCount = 5
+		else: 
+			GameManager.actionCount = 4
+		#Draw cards for player1s first turn
+		$cardsAndDecks/playerDeck/Deck.draw_card()
+		$cardsAndDecks/playerDeck/Deck.draw_card()
+
+
 func load_city_data():
 		var file = FileAccess.open("res://boardInformation.json", FileAccess.READ) #open the json file and give godot read access - AS
 		var json_text = file.get_as_text() #godot method to return the file contents as a string for reading - AS
@@ -33,8 +42,10 @@ func _on_city_clicked(city_name):
 		print("City not found in JSON: ", city_name)
 		return
 	InfoPanel.update_text(city_info)
-	
-	
+
+func _on_action_changed(action):
+	$ActionsRemainingLabel.text = "Actions Remaining:  " + str(action)
+
 		
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
@@ -47,7 +58,15 @@ func _on_city_clicked(city_name):
 
 
 func _on_button_pressed() -> void:
+	$ActionHandler.close_trade_action()
+	$cardsAndDecks/playerDeck/Deck.draw_card()
+	$cardsAndDecks/playerDeck/Deck.draw_card()
+	await get_tree().create_timer(0.55).timeout
+	
 	GameManager.endTurn()
+	if GameManager.turnNum <= 3:
+		$cardsAndDecks/playerDeck/Deck.draw_card()
+		$cardsAndDecks/playerDeck/Deck.draw_card()
 	$TurnLabel.text = "Player " + str(GameManager.currentPlayer + 1) + "'s Turn"
 	match(GameManager.currentPlayer):
 		0:
