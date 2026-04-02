@@ -1,212 +1,106 @@
-class_name City extends Node
+class_name City
 
-var cube_scene = preload("res://scenes/iconScenes/cube.tscn")
+const cube_scene = preload("res://scenes/iconScenes/cube.tscn")
 
-var city_name
-var colour
-var num_of_connections
-var connections
-var black_cubes
-var blue_cubes
-var red_cubes
-var yellow_cubes
-var station
-var outbreak = false
-var protected = false
-var city_node
-var cubes = []
+var city_name : String
+var colour : String
+var num_of_connections : int
+var connections : Array
+var cubes : Dictionary[String, int] = {"black": 0, "blue": 0, "red": 0, "yellow": 0}
+var station : bool
+var protected : bool = false
+var city_coords : Vector2
+
+var outbreak : bool = false
+
+var city_node : Node
+var cube_nodes : Array[Node] = []
+
+func get_city_name() -> String: return city_name
+func get_colour() -> String: return colour
+func get_num_of_connections() -> float: return num_of_connections
+func get_connection_name(index) -> String: return connections[index]
+func get_cubes(c) -> int: return cubes[c]
+func get_cubes_string(c) -> String: return str(cubes[c])
+func get_station() -> bool: return station
+func get_outbreak() -> bool: return outbreak
+func get_protected() -> bool: return protected
+func get_city_node() -> Node: return city_node
+
+func set_protection(p) -> void: protected = p
+func set_outbreak(o) -> void: outbreak = o
+func set_city_node(node) -> void: city_node = node
+	
+func add_station() -> void: station = true
+func should_outbreak() -> bool: return !outbreak
 
 func _init(city_info) -> void:
 	city_name = city_info["name"]
 	colour = city_info["colour"]
 	num_of_connections = city_info["num_of_connections"]
 	connections = city_info["connections"]
-	black_cubes = city_info["black"]
-	blue_cubes = city_info["blue"]
-	red_cubes = city_info["red"]
-	yellow_cubes = city_info["yellow"]
+	cubes["black"] = city_info["black"]
+	cubes["blue"] = city_info["blue"]
+	cubes["red"] = city_info["red"]
+	cubes["yellow"] = city_info["yellow"]
 	station = city_info["station"]
-
-func get_city_name() -> String:
-	return city_name
-
-func get_colour() -> String:
-	return colour
-
-func get_num_of_connections() -> float:
-	return num_of_connections
-
-func get_connection_name(index) -> String:
-	return connections[index]
-
-func get_cubes_string(c) -> String:
-	match c:
-		"black":
-			return str(int(black_cubes))
-		"blue":
-			return str(int(blue_cubes))
-		"red":
-			return str(int(red_cubes))
-		"yellow":
-			return str(int(yellow_cubes))
-	return "error"
-
-func get_station() -> bool:
-	return station
-
-func get_city_node() -> Node:
-	return city_node
-
-func add_station() -> void:
-	station = true
-
-func set_protection(p) -> void:
-	protected = p
-	
-func set_outbreak(o) -> void:
-	outbreak = o
-
-func set_city_node(node) -> void:
-	city_node = node
-	
-func should_outbreak() -> bool:
-	return !outbreak
 
 func infect(c) -> bool:
 	if protected:
-		print("protected")
+		print(city_name + " is protected, skipping infect.")
 		return false
 	print("Infecting " + city_name + " with " + c)
-	var ob
-	match c:
-		"black":
-			if black_cubes == 3:
-				print(city_name + " is at " + str(black_cubes) + " black")
-				ob = true
-			else: 
-				black_cubes += 1
-				add_cube(c)
-				print(city_name + " is at " + str(black_cubes) + " black")
-				ob = false
-		"blue":
-			if blue_cubes == 3:
-				print(city_name + " is at " + str(blue_cubes) + " blue")
-				ob = true
-			else: 
-				blue_cubes += 1
-				add_cube(c)
-				print(city_name + " is at " + str(blue_cubes) + " blue")
-				ob = false
-		"red":
-			if red_cubes == 3:
-				print(city_name + " is at " + str(red_cubes) + " red")
-				ob = true
-			else: 
-				red_cubes += 1
-				add_cube(c)
-				print(city_name + " is at " + str(red_cubes) + " red")
-				ob = false
-		"yellow":
-			if yellow_cubes == 3:
-				print(city_name + " is at " + str(yellow_cubes) + " yellow")
-				ob = true
-			else: 
-				yellow_cubes += 1
-				add_cube(c)
-				print(city_name + " is at " + str(yellow_cubes) + " yellow")
-				ob = false
+	var ob : bool # Should city outbreak
+	if cubes[c] == 3:
+		print(city_name + " is at " + str(cubes[c]) + " " + c)
+		ob = true
+	else: 
+		cubes[c] += 1
+		add_cube(c)
+		print(city_name + " is at " + str(cubes[c]) + " " + c)
+		ob = false
+	# Check if info panel needs to be updated.
 	if InfoPanel.current_city and InfoPanel.current_city.get_city_name() == get_city_name():
 		InfoPanel.update_text(null)
-		print("Updating label")
+		print("Updating Info Panel after infection.")
 	return ob
 
 func infect_epidemic() -> bool:
 	if protected:
-		print("protected")
+		print(city_name + " is protected, skipping epidemic.")
 		return false
-	var ob = true
-	match colour:
-		"black":
-			print(black_cubes)
-			if black_cubes == 0:
-				ob = false
-			for i in 3 - black_cubes:
-				add_cube(colour)
-			black_cubes = 3
-		"blue":
-			print(blue_cubes)
-			if blue_cubes == 0:
-				ob = false
-			for i in 3 - blue_cubes:
-				add_cube(colour)
-			blue_cubes = 3
-		"red":
-			print(red_cubes)
-			if red_cubes == 0:
-				ob = false
-			for i in 3 - red_cubes:
-				add_cube(colour)
-			red_cubes = 3
-		"yellow":
-			print(yellow_cubes)
-			if yellow_cubes == 0:
-				ob = false
-			for i in 3 - yellow_cubes:
-				add_cube(colour)
-			yellow_cubes = 3
+	var ob := true # Should city outbreak; set to true on default
+	print(city_name + " is target of Epidemic, it is at:" + str(cubes[colour]) + " " + colour + " cubes")
+	# Check if cubes are at zero and the city should not outbreak
+	if cubes[colour] == 0:
+		ob = false
+	# Add cubes until there are 3 on city.
+	for i in 3 - cubes[colour]:
+		add_cube(colour)
+	cubes[colour] = 3
+	# Check if info panel needs to be updated.
 	if InfoPanel.current_city and InfoPanel.current_city.get_city_name() == get_city_name():
 		InfoPanel.update_text(null)
-		print("Updating label")
+		print("Updating Info Panel after epidemic.")
 	return ob
 
 func treat_disease(c, cured) -> bool:
 	print("Treating " + c)
-	var treated = true
-	match c:
-		"black":
-			if black_cubes == 0:
-				treated = false
-			elif cured:
-				for i in black_cubes:
-					remove_cube(c)
-				black_cubes = 0
-			else:
-				black_cubes -= 1
-				remove_cube(c)
-		"blue":
-			if blue_cubes == 0:
-				treated = false
-			elif cured:
-				for i in blue_cubes:
-					remove_cube(c)
-				blue_cubes = 0
-			else:
-				blue_cubes -= 1
-				remove_cube(c)
-		"red":
-			if red_cubes == 0:
-				treated = false
-			elif cured:
-				for i in red_cubes:
-					remove_cube(c)
-				red_cubes = 0
-			else:
-				red_cubes -= 1
-				remove_cube(c)
-		"yellow":
-			if yellow_cubes == 0:
-				treated = false
-			elif cured:
-				for i in yellow_cubes:
-					remove_cube(c)
-				yellow_cubes = 0
-			else:
-				yellow_cubes -= 1
-				remove_cube(c)
+	var treated := true # Check for if treatment actually occured and action needs to be reduced
+	if cubes[c] == 0: # Check if city needs treating
+		treated = false
+	elif cured: # Treat all cubes
+		for i in cubes[c]:
+			remove_cube(c)
+		cubes[c] = 0
+	else: # Treat one cube
+		cubes[c] -= 1
+		remove_cube(c)
+	# Check if info panel needs to be updated.
 	if treated and InfoPanel.current_city and InfoPanel.current_city.get_city_name() == get_city_name():
 		InfoPanel.update_text(null)
-		print("Updating label")
-	return treated
+		print("Updating Info Panel after treatment.")
+	return treated 
 
 func add_cube(c:String) -> void:
 	var cube = cube_scene.instantiate()
@@ -218,11 +112,11 @@ func add_cube(c:String) -> void:
 		"red":cube.modulate = Color(1, 0.2, 0.2)
 		"yellow":cube.modulate = Color(1,1,0.2)
 		"black":cube.modulate = Color(0.1,0.1,0.1)
-	cubes.append(cube)
+	cube_nodes.append(cube)
 
 func remove_cube(c:String) -> void:
-	for i in cubes.size():
-		if cubes[i].colour == c:
-			cubes[i].queue_free()
-			cubes.erase(cubes[i])
+	for i in cube_nodes.size():
+		if cube_nodes[i].colour == c:
+			cube_nodes[i].queue_free()
+			cube_nodes.erase(cube_nodes[i])
 			return

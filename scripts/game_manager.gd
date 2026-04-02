@@ -3,42 +3,40 @@ extends Node
 signal action_count_changed(value)
 signal turn_changed(value)
 signal current_player_changed(value)
+signal game_over(won)
 
-var map
-var infectionMarker: Node
-var outbreakMarker: Node
-var infectionDeck: Node
+# References to board objects
+var infectionMarker : Node
+var outbreakMarker : Node
+var infectionDeck : Node
 
+const infectionRate : Array[int] = [2,2,2,3,3,4,4]
+var infectionIndex : int = 0
+var outbreakLevel : int = 0
+var cured : Dictionary[String, bool] = {"black": false, "blue": false, "red": false, "yellow": false}
+
+var playerCount : int = 4
+var playerRole : Array[String] = ["Generalist", "Scientist", "Medic", "Quarantine Specialist"] # Just hard coding the roles for right now
 var turnNum: int:
 	set(value):
 		if value == turnNum:
 			return
 		turnNum = value
 		turn_changed.emit(turnNum)
-var playerCount = 4
-var currentPlayer: int:
+var currentPlayer : int:
 	set(value):
 		if value == currentPlayer:
 			return
 		currentPlayer = value
 		current_player_changed.emit(currentPlayer)
-#Just hard coding the roles for right now
-var playerRole = ["Generalist", "Scientist", "Medic", "Quarantine Specialist"]
-var actionCount: int:
+var actionCount : int:
 	set(value):
 		if value == actionCount:
 			return
 		actionCount = value
 		action_count_changed.emit(actionCount)
-var infectionIndex = 0
-var infectionRate = [2,2,2,3,3,4,4]
-var outbreakLevel = 0
-var cured = {"black": false, "blue": false, "red": false, "yellow": false}
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	map = Map
+func check_for_win() -> bool: return cured["black"] && cured["blue"] && cured["red"] && cured["yellow"]
 
 #Functions to handle start/end of turn
 func beginNextTurn() -> void:
@@ -59,6 +57,7 @@ func endTurn() -> void:
 
 #Game end function, parameter is bool - true means won, false means lost
 func gameEnd(won) -> void:
+	game_over.emit(won)
 	if won:
 		print("game won")
 	else:
@@ -83,22 +82,22 @@ func infectCities() -> void:
 	var cityToInfect
 	for i in infectionRate[infectionIndex]:
 		var cityToInfectString = infectionDeck.draw_infect_card()
-		cityToInfect = map.findCity(cityToInfectString) #Replace New York with draw
+		cityToInfect = Map.findCity(cityToInfectString) #Replace New York with draw
 		print("Infected city is " + cityToInfectString)
 		if cityToInfect.infect(cityToInfect.get_colour()): #Infects City and checks for outbreak
 			outbreak(cityToInfect)
-			map.resetOutbreaks()
+			Map.resetOutbreaks()
 
 func epidemic() -> void:
 	if infectionIndex < 6: 
 		infectionIndex += 1
 		infectionMarker.move_local_x(40.0)
 	var cityToInfectString = infectionDeck.draw_infect_card_bottom()
-	var cityToInfect = map.findCity(cityToInfectString)
+	var cityToInfect = Map.findCity(cityToInfectString)
 	print("Epidemic city is " + cityToInfectString)
 	if cityToInfect.infect_epidemic(): #Infects City and checks for outbreak
 		outbreak(cityToInfect)
-		map.resetOutbreaks()
+		Map.resetOutbreaks()
 	infectionDeck.reshuffle()
 
 func outbreak(cityOutbreaking) -> void:
@@ -111,10 +110,6 @@ func outbreak(cityOutbreaking) -> void:
 		if outbreakLevel >= 8:
 			gameEnd(false)
 		for i in cityOutbreaking.get_num_of_connections():
-			var chain = map.findCity(cityOutbreaking.get_connection_name(i)).infect(cityOutbreaking.get_colour())
+			var chain = Map.findCity(cityOutbreaking.get_connection_name(i)).infect(cityOutbreaking.get_colour())
 			if chain: 
-				outbreak(map.findCity(cityOutbreaking.get_connection_name(i)))
-
-func check_for_win() -> bool:
-	var allCured = cured["black"] && cured["blue"] && cured["red"] && cured["yellow"]
-	return allCured
+				outbreak(Map.findCity(cityOutbreaking.get_connection_name(i)))
