@@ -79,6 +79,7 @@ func show_role_overlay(role_id:int)->void:
 
 func _on_button_pressed() -> void:
 	$ActionHandler.close_trade_action()
+	PlayerHand.clear_card_highlight()
 	$cardsAndDecks/playerDeck/Deck.draw_card()
 	$cardsAndDecks/playerDeck/Deck.draw_card()
 	await get_tree().create_timer(0.55).timeout
