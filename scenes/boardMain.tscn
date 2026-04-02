@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://cbhulfiaudhi7"]
 
-[ext_resource type="Script" uid="uid://bo5mklfhh26s3" path="res://Scripts/boardMain.gd" id="1_1kket"]
+[ext_resource type="Script" uid="uid://bo5mklfhh26s3" path="res://scripts/boardMain.gd" id="1_1kket"]
 [ext_resource type="PackedScene" uid="uid://b30bds5n8qfw" path="res://scenes/UIScenes/tooltip.tscn" id="2_sw1xg"]
 [ext_resource type="Texture2D" uid="uid://cqwmbeqlbf4q5" path="res://assets/mapAssets/background.jpg" id="2_ywhfr"]
 [ext_resource type="Texture2D" uid="uid://b404tol6d0pue" path="res://assets/mapAssets/pandemic.jpg" id="3_sw1xg"]
 [ext_resource type="Texture2D" uid="uid://wgk6pkcajuo0" path="res://assets/markerAssets/infectionMarker.png" id="4_gqyq5"]
 [ext_resource type="Texture2D" uid="uid://01knmvffxqwt" path="res://assets/markerAssets/outbreakMarker.png" id="5_adlb6"]
-[ext_resource type="Script" uid="uid://dsyg7q7s736jt" path="res://Scripts/utilityScripts/infection_marker.gd" id="5_ywhfr"]
+[ext_resource type="Script" uid="uid://dsyg7q7s736jt" path="res://scripts/utilityScripts/infection_marker.gd" id="5_ywhfr"]
 [ext_resource type="Texture2D" uid="uid://cas0j7vc4hn0" path="res://assets/markerAssets/cureMarkerRed.png" id="6_p3sgo"]
 [ext_resource type="Texture2D" uid="uid://busrkex1wt2d" path="res://assets/markerAssets/cureMarkerYel.png" id="7_4hyc3"]
-[ext_resource type="Script" uid="uid://criehh3fmfyqc" path="res://Scripts/utilityScripts/outbreak_marker.gd" id="7_sw1xg"]
+[ext_resource type="Script" uid="uid://criehh3fmfyqc" path="res://scripts/utilityScripts/outbreak_marker.gd" id="7_sw1xg"]
 [ext_resource type="Texture2D" uid="uid://qcfqar2nujlk" path="res://assets/markerAssets/cureMarkerBlue.png" id="8_kdxtn"]
 [ext_resource type="Texture2D" uid="uid://eqmb65trpdr7" path="res://assets/markerAssets/cureMarkerPurp.png" id="9_i10u0"]
-[ext_resource type="Script" uid="uid://k45vj6tbybik" path="res://Scripts/actionsScripts/action_handler.gd" id="12_gqyq5"]
+[ext_resource type="Script" uid="uid://k45vj6tbybik" path="res://scripts/actionsScripts/action_handler.gd" id="12_gqyq5"]
 [ext_resource type="PackedScene" uid="uid://dgd7d2ac2vuww" path="res://scenes/testScenes/card_test.tscn" id="12_x2t2u"]
 [ext_resource type="PackedScene" uid="uid://ck6tu3w86f5rp" path="res://scenes/deckScenes/infect_deck.tscn" id="13_7urr1"]
-[ext_resource type="Script" uid="uid://cigjowu718jnc" path="res://Scripts/actionsScripts/action_button.gd" id="13_adlb6"]
-[ext_resource type="Script" uid="uid://dke576880kbfj" path="res://Scripts/decksScripts/player.gd" id="14_hvsgc"]
+[ext_resource type="Script" uid="uid://cigjowu718jnc" path="res://scripts/actionsScripts/action_button.gd" id="13_adlb6"]
+[ext_resource type="Script" uid="uid://dke576880kbfj" path="res://scripts/decksScripts/player.gd" id="14_hvsgc"]
 [ext_resource type="Texture2D" uid="uid://c7pag51hxlod" path="res://assets/mapAssets/person-icon-blue.png" id="15_il6y1"]
 [ext_resource type="PackedScene" uid="uid://mc7mk5akim51" path="res://scenes/deckScenes/player_deck.tscn" id="16_gqyq5"]
 [ext_resource type="Texture2D" uid="uid://b0cwqmoi0uux8" path="res://assets/mapAssets/person-icon-brown.png" id="16_xpti6"]
@@ -24,13 +24,13 @@
 [ext_resource type="Texture2D" uid="uid://bt7vqtyc2l5yy" path="res://assets/mapAssets/person-icon-gray.png" id="17_pnibc"]
 [ext_resource type="Texture2D" uid="uid://2shoxogjih3l" path="res://assets/mapAssets/person-icon-red.png" id="18_fyuxr"]
 [ext_resource type="PackedScene" uid="uid://xbk4mit4k00r" path="res://scenes/iconScenes/research_station.tscn" id="19_4hyc3"]
-[ext_resource type="Script" uid="uid://cr7h05hqbnycw" path="res://Scripts/mapScripts/cityClicked.gd" id="19_rr5bt"]
-[ext_resource type="Script" uid="uid://cqva8aa6fypne" path="res://Scripts/utilityScripts/city_nodes.gd" id="22_p3sgo"]
-[ext_resource type="Script" uid="uid://nbnchmehur5g" path="res://Scripts/utilityScripts/info_panel_label.gd" id="23_adlb6"]
+[ext_resource type="Script" uid="uid://cr7h05hqbnycw" path="res://scripts/mapScripts/cityClicked.gd" id="19_rr5bt"]
+[ext_resource type="Script" uid="uid://cqva8aa6fypne" path="res://scripts/utilityScripts/city_nodes.gd" id="22_p3sgo"]
+[ext_resource type="Script" uid="uid://nbnchmehur5g" path="res://scripts/utilityScripts/info_panel_label.gd" id="23_adlb6"]
 [ext_resource type="PackedScene" uid="uid://d3e73xxrater6" path="res://scenes/UIScenes/tutorialScenes/tutorial_overlay.tscn" id="24_adlb6"]
-[ext_resource type="Script" uid="uid://dvs1b4eooj48g" path="res://Scripts/tutorialScripts/ingame-tutorial_button.gd" id="25_p3sgo"]
+[ext_resource type="Script" uid="uid://dvs1b4eooj48g" path="res://scripts/tutorialScripts/ingame-tutorial_button.gd" id="25_p3sgo"]
 [ext_resource type="Texture2D" uid="uid://cjimrexxhgy2w" path="res://assets/tutorialAssets/RoleCards/GeneralistRoleCardAdjustedSize.jpg" id="30_iihkr"]
-[ext_resource type="Script" uid="uid://dtpsikd06vm7x" path="res://Scripts/UIScripts/player_indicator.gd" id="31_xpti6"]
+[ext_resource type="Script" uid="uid://dtpsikd06vm7x" path="res://scripts/UIScripts/player_indicator.gd" id="31_xpti6"]
 [ext_resource type="Texture2D" uid="uid://d2quji5q74w3a" path="res://assets/mapAssets/blue-rectangle.png" id="32_pnibc"]
 [ext_resource type="Texture2D" uid="uid://cu8rg0a2ninnq" path="res://assets/mapAssets/brown-rectangle.png" id="33_fyuxr"]
 [ext_resource type="Texture2D" uid="uid://cp8g61ibfctwt" path="res://assets/mapAssets/gray-rectangle.png" id="34_rr5bt"]
@@ -393,128 +393,20 @@ vertical_alignment = 1
 
 [node name="playercard1" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1281117924]
 custom_minimum_size = Vector2(140, 185)
-offset_left = 543.0
+offset_left = 512.0
 offset_top = 852.5
-offset_right = 683.0
+offset_right = 1559.0
 offset_bottom = 1037.5
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard1" unique_id=1256621041]
 custom_minimum_size = Vector2(140, 185)
 layout_mode = 0
-offset_left = -1.0
+offset_left = 1.0
 offset_top = 1.0
-offset_right = 139.0
+offset_right = 994.0
 offset_bottom = 186.0
-text = "Card 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="playercard2" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=457924824]
-custom_minimum_size = Vector2(140, 185)
-offset_left = 688.0
-offset_top = 852.5
-offset_right = 828.0
-offset_bottom = 1037.5
-
-[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard2" unique_id=1238466698]
-custom_minimum_size = Vector2(140, 185)
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 139.0
-offset_bottom = 186.0
-text = "Card 2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="playercard3" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=2026183432]
-custom_minimum_size = Vector2(140, 185)
-offset_left = 833.0
-offset_top = 852.5
-offset_right = 973.0
-offset_bottom = 1037.5
-
-[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard3" unique_id=607292754]
-custom_minimum_size = Vector2(140, 185)
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 139.0
-offset_bottom = 186.0
-text = "Card 3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="playercard4" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=2089479655]
-custom_minimum_size = Vector2(140, 185)
-offset_left = 978.0
-offset_top = 852.5
-offset_right = 1118.0
-offset_bottom = 1037.5
-
-[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard4" unique_id=2067877189]
-custom_minimum_size = Vector2(140, 185)
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 139.0
-offset_bottom = 186.0
-text = "Card 4"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="playercard5" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1160953973]
-custom_minimum_size = Vector2(140, 185)
-offset_left = 1123.0
-offset_top = 852.5
-offset_right = 1263.0
-offset_bottom = 1037.5
-
-[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard5" unique_id=516366363]
-custom_minimum_size = Vector2(140, 185)
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 139.0
-offset_bottom = 186.0
-text = "Card 5"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="playercard6" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=1297274791]
-custom_minimum_size = Vector2(140, 185)
-offset_left = 1268.0
-offset_top = 852.5
-offset_right = 1408.0
-offset_bottom = 1037.5
-
-[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard6" unique_id=1194571768]
-custom_minimum_size = Vector2(140, 185)
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 139.0
-offset_bottom = 186.0
-text = "Card 6"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="playercard7" type="Panel" parent="cardsAndDecks/cardSlots" unique_id=273997164]
-custom_minimum_size = Vector2(140, 185)
-offset_left = 1413.0
-offset_top = 852.5
-offset_right = 1553.0
-offset_bottom = 1037.5
-
-[node name="Label" type="Label" parent="cardsAndDecks/cardSlots/playercard7" unique_id=1063817918]
-custom_minimum_size = Vector2(140, 185)
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 139.0
-offset_bottom = 186.0
-text = "Card 7"
+text = "Player Hand"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1002,6 +894,7 @@ script = ExtResource("23_adlb6")
 [node name="Tooltip" parent="." unique_id=2034921970 instance=ExtResource("2_sw1xg")]
 
 [node name="TutorialOverlay" parent="." unique_id=1681641802 instance=ExtResource("24_adlb6")]
+visible = false
 
 [node name="RoleCardButton" type="TextureButton" parent="." unique_id=545505089]
 custom_minimum_size = Vector2(140, 183)
