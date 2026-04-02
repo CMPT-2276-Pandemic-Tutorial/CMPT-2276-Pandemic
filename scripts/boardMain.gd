@@ -87,11 +87,12 @@ func _on_button_pressed() -> void:
 	await get_tree().create_timer(0.55).timeout
 	
 	GameManager.endTurn()
+	$playerIndicator.change_player()
+	$playerIndicator.side_card_display()
 	_update_role_card()
 	if GameManager.turnNum <= 3:
 		$cardsAndDecks/playerDeck/Deck.draw_card()
 		$cardsAndDecks/playerDeck/Deck.draw_card()
-		$playerIndicator.change_player()
 		$playerIndicator.side_card_display()
 		
 	$TurnLabel.text = "Player " + str(GameManager.currentPlayer + 1) + "'s Turn"
