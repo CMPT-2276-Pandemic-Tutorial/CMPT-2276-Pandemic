@@ -1,6 +1,6 @@
 extends Node
 
-var current_city = null
+var current_city : City = null
 var label
 
 func update_text(new_city) -> void:

@@ -6,8 +6,8 @@ signal current_player_changed(value)
 signal game_over(won)
 
 # References to board objects
-var infectionMarker : Node
-var outbreakMarker : Node
+var infectionMarker : Sprite2D
+var outbreakMarker : Sprite2D
 var infectionDeck : Node
 
 const infectionRate : Array[int] = [2,2,2,3,3,4,4]

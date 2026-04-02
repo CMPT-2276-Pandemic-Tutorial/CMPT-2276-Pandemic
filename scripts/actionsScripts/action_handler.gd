@@ -3,21 +3,21 @@ extends Node
 signal trade_requested(player_a, player_b)
 
 @export_category("Players")
-@export var player1: Node
-@export var player2: Node
-@export var player3: Node
-@export var player4: Node
+@export var player1 : Node
+@export var player2 : Node
+@export var player3 : Node
+@export var player4 : Node
 @export_category("Cure Tokens") 
-@export var cureMarkerBlack: Node
-@export var cureMarkerBlue: Node
-@export var cureMarkerRed: Node
-@export var cureMarkerYellow: Node
+@export var cureMarkerBlack : Sprite2D
+@export var cureMarkerBlue : Sprite2D
+@export var cureMarkerRed : Sprite2D
+@export var cureMarkerYellow : Sprite2D
 @export_category("Other Elements")
 @export var trade_container: Control
 
-var research_station_scene = preload("res://scenes/iconScenes/research_station.tscn")
-var players: Array[Node2D] = []
-var cureMarkers
+const research_station_scene = preload("res://scenes/iconScenes/research_station.tscn")
+var players : Array[Node2D] = []
+var cureMarkers : Dictionary[String, Sprite2D]
 
 func _ready() -> void:
 	add_to_group("action_handler")
@@ -64,6 +64,7 @@ func trade_action():
 		print("No available trading partners!")
 		return
 
+
 func trade_card_action():
 	var player_hand = get_tree().get_first_node_in_group("player_hand")
 	if player_hand.selected_card == null:
@@ -90,16 +91,17 @@ func _on_trade_partner_selected(target_player):
 	emit_signal("trade_requested", current_player, target_player)
 	PlayerHand._on_trade_requested(current_player, target_player)
 
+
 func cure_disease_action(colour) -> void:
 	if GameManager.actionCount <= 0:
 		print("No actions remaining!")
 		return
+	if GameManager.cured[colour]:
+		print("Colour already cured")
+		return
 	var player = players[GameManager.currentPlayer]
 	if !Map.findCity(player.current_city).get_station():
 		print("City does not have station")
-		return
-	if GameManager.cured[colour]:
-		print("Colour already cured")
 		return
 	if !PlayerHand.can_cure(colour):
 		print("Not enough cards to cure")
@@ -109,6 +111,7 @@ func cure_disease_action(colour) -> void:
 	if GameManager.check_for_win():
 		GameManager.gameEnd(true)
 	GameManager.actionCount -= 1
+
 
 func treat_disease_action(colour) -> void:
 	if GameManager.actionCount <= 0:
@@ -125,6 +128,7 @@ func treat_disease_action(colour) -> void:
 		GameManager.actionCount -= 1
 	else:
 		print("No cubes of colour to treat!")
+
 
 func build_research_station_action() -> void:
 	if GameManager.actionCount <= 0:
