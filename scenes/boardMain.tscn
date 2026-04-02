@@ -29,6 +29,11 @@
 [ext_resource type="Script" uid="uid://nbnchmehur5g" path="res://Scripts/utilityScripts/info_panel_label.gd" id="23_adlb6"]
 [ext_resource type="PackedScene" uid="uid://d3e73xxrater6" path="res://scenes/UIScenes/tutorialScenes/tutorial_overlay.tscn" id="24_adlb6"]
 [ext_resource type="Script" uid="uid://dvs1b4eooj48g" path="res://Scripts/tutorialScripts/ingame-tutorial_button.gd" id="25_p3sgo"]
+[ext_resource type="Texture2D" uid="uid://d2quji5q74w3a" path="res://assets/mapAssets/blue-rectangle.png" id="30_hvsgc"]
+[ext_resource type="Script" uid="uid://dtpsikd06vm7x" path="res://Scripts/UIScripts/player_indicator.gd" id="30_il6y1"]
+[ext_resource type="Texture2D" uid="uid://cu8rg0a2ninnq" path="res://assets/mapAssets/brown-rectangle.png" id="31_il6y1"]
+[ext_resource type="Texture2D" uid="uid://cp8g61ibfctwt" path="res://assets/mapAssets/gray-rectangle.png" id="32_xpti6"]
+[ext_resource type="Texture2D" uid="uid://bqmayy42fe06u" path="res://assets/mapAssets/red-rectangle.png" id="34_xpti6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ahtse"]
 
@@ -74,7 +79,7 @@ texture = ExtResource("4_gqyq5")
 script = ExtResource("5_ywhfr")
 
 [node name="OutbreakMarker" type="Sprite2D" parent="Markers" unique_id=1629541638]
-position = Vector2(453, 472.5)
+position = Vector2(453, 472)
 texture = ExtResource("5_adlb6")
 script = ExtResource("7_sw1xg")
 
@@ -995,6 +1000,45 @@ script = ExtResource("23_adlb6")
 [node name="Tooltip" parent="." unique_id=2034921970 instance=ExtResource("2_sw1xg")]
 
 [node name="TutorialOverlay" parent="." unique_id=1681641802 instance=ExtResource("24_adlb6")]
+
+[node name="playerIndicator" type="Node" parent="." unique_id=1011868543]
+script = ExtResource("30_il6y1")
+
+[node name="Player1" type="Node2D" parent="playerIndicator" unique_id=1967322703]
+
+[node name="BlueRect" type="Sprite2D" parent="playerIndicator/Player1" unique_id=1666015454]
+position = Vector2(1800, 370)
+scale = Vector2(0.85, 0.5)
+texture = ExtResource("30_hvsgc")
+
+[node name="BlueCards" type="Node2D" parent="playerIndicator/Player1" unique_id=752821150]
+
+[node name="Player2" type="Node2D" parent="playerIndicator" unique_id=1750577772]
+
+[node name="BrownRect" type="Sprite2D" parent="playerIndicator/Player2" unique_id=2029162540]
+position = Vector2(1850, 470)
+scale = Vector2(0.85, 0.5)
+texture = ExtResource("31_il6y1")
+
+[node name="BrownCards" type="Node2D" parent="playerIndicator/Player2" unique_id=881625594]
+
+[node name="Player3" type="Node2D" parent="playerIndicator" unique_id=576330351]
+
+[node name="GrayRect" type="Sprite2D" parent="playerIndicator/Player3" unique_id=1826294732]
+position = Vector2(1850, 570)
+scale = Vector2(0.85, 0.5)
+texture = ExtResource("32_xpti6")
+
+[node name="GrayCards" type="Node2D" parent="playerIndicator/Player3" unique_id=1425378641]
+
+[node name="Player4" type="Node2D" parent="playerIndicator" unique_id=598896341]
+
+[node name="RedRect" type="Sprite2D" parent="playerIndicator/Player4" unique_id=1758052180]
+position = Vector2(1850, 670)
+scale = Vector2(0.85, 0.5)
+texture = ExtResource("34_xpti6")
+
+[node name="RedCards" type="Node2D" parent="playerIndicator/Player4" unique_id=1965757082]
 
 [connection signal="pressed" from="endTurnButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="tutorialButton" to="tutorialButton" method="_on_pressed"]

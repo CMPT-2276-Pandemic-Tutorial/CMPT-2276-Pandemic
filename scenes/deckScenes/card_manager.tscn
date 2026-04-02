@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ciokm4wsa27tt"]
 
-[ext_resource type="Script" uid="uid://m0c52u8tvaa6" path="res://scripts/decksScripts/card_manager.gd" id="1_nxg3i"]
+[ext_resource type="Script" uid="uid://m0c52u8tvaa6" path="res://Scripts/decksScripts/card_manager.gd" id="1_nxg3i"]
 
 [node name="CardManager" type="Node2D" unique_id=1267605670]
 script = ExtResource("1_nxg3i")

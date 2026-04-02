@@ -15,6 +15,7 @@ func _ready():
 		#Draw cards for player1s first turn
 		$cardsAndDecks/playerDeck/Deck.draw_card()
 		$cardsAndDecks/playerDeck/Deck.draw_card()
+		$playerIndicator.side_card_display()
 
 
 func load_city_data():
@@ -47,14 +48,7 @@ func _on_action_changed(action):
 	$ActionsRemainingLabel.text = "Actions Remaining:  " + str(action)
 
 		
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#	for i in Map.cityCoords.size():
-#		var add_city = $Area2D.duplicate()
-#		add_city.position = Map.cityCoords[i]
-#		add_city.name = Map.cities[i].get_city_name()
-#		add_child(add_city)
-#	$Area2D.visible = false # hide our template area at 0,0
+
 
 
 func _on_button_pressed() -> void:
@@ -62,11 +56,13 @@ func _on_button_pressed() -> void:
 	$cardsAndDecks/playerDeck/Deck.draw_card()
 	$cardsAndDecks/playerDeck/Deck.draw_card()
 	await get_tree().create_timer(0.55).timeout
-	
 	GameManager.endTurn()
+	$playerIndicator.change_player()
+	$playerIndicator.side_card_display()
 	if GameManager.turnNum <= 3:
 		$cardsAndDecks/playerDeck/Deck.draw_card()
 		$cardsAndDecks/playerDeck/Deck.draw_card()
+		$playerIndicator.side_card_display()
 	$TurnLabel.text = "Player " + str(GameManager.currentPlayer + 1) + "'s Turn"
 	match(GameManager.currentPlayer):
 		0:
