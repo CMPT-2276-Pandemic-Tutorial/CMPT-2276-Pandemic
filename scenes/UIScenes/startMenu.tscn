@@ -1,7 +1,20 @@
 [gd_scene format=3 uid="uid://b471o0iju7kt2"]
 
-[ext_resource type="Texture2D" uid="uid://bxn37j24mfjfg" path="res://assets/Pandemic.jpg" id="1_tmw1y"]
-[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
+[ext_resource type="Texture2D" uid="uid://rs602raika6a" path="res://assets/titleWinLoseScreens/resizedimage.jpg" id="1_tmw1y"]
+[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://Scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
+[ext_resource type="FontFile" uid="uid://bal1o0005ji2y" path="res://assets/titleWinLoseScreens/Virus Socialista.ttf" id="2_w340i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2vvo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w340i"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb1pd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j47a1"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control" unique_id=518224251]
 clip_contents = true
@@ -12,31 +25,70 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Pandemic" type="Sprite2D" parent="." unique_id=712827567]
-position = Vector2(950.99994, 288.99997)
-scale = Vector2(11, 11)
+[node name="MainMenu" type="Sprite2D" parent="." unique_id=1688729343]
+position = Vector2(961, 538)
 texture = ExtResource("1_tmw1y")
 
-[node name="Button" type="Button" parent="." unique_id=1617829656]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 650.0
-offset_right = 880.0
-offset_bottom = 890.0
-theme_override_colors/font_color = Color(0.9843137, 0.1254902, 0.050980393, 1)
-theme_override_font_sizes/font_size = 48
+[node name="StartGame" type="Button" parent="." unique_id=1617829656]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -283.0
+offset_right = 264.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.99694544, 6.2329323e-06, 1.540184e-06, 1)
+theme_override_fonts/font = ExtResource("2_w340i")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_r2vvo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w340i")
 text = "Start Game"
 script = ExtResource("2_r2vvo")
 
 [node name="TutorialSelect" type="Button" parent="." unique_id=185771552]
 layout_mode = 0
-offset_left = 1100.0
-offset_top = 650.0
-offset_right = 1580.0
-offset_bottom = 890.0
-theme_override_colors/font_color = Color(0.9843137, 0.1254902, 0.050980393, 1)
-theme_override_font_sizes/font_size = 48
+offset_left = 696.0
+offset_top = 930.0
+offset_right = 1224.0
+offset_bottom = 1048.0
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w340i")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_tb1pd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j47a1")
 text = "Tutorial"
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="TutorialSelect" to="Button" method="_on_tutorial_select_pressed"]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1981606399]
+layout_mode = 0
+offset_left = 33.0
+offset_top = -1.0
+offset_right = 833.0
+offset_bottom = 319.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_w340i")
+theme_override_font_sizes/normal_font_size = 300
+bbcode_enabled = true
+text = "[outline_size=10][wave]PANDEMIC[/wave]"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=279134546]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 265.0
+offset_right = 919.0
+offset_bottom = 585.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_w340i")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[outline_size=10]Tutorial Edition"
+
+[connection signal="pressed" from="StartGame" to="StartGame" method="_on_pressed"]
+[connection signal="pressed" from="TutorialSelect" to="StartGame" method="_on_tutorial_select_pressed"]

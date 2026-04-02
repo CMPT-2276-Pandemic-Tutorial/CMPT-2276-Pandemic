@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bnqicgecxqphk"]
+
+[ext_resource type="Texture2D" uid="uid://bhji1papimlrk" path="res://assets/tutorialAssets/RoleCards/scientistRoleCardBig.png" id="1_3ftde"]
+[ext_resource type="Script" uid="uid://j3uiyd4s4hhg" path="res://scenes/UIScenes/tutorialScenes/roletutorialclosebutton.gd" id="2_2rg5c"]
+
+[node name="GeneralistRoleTutorial" type="CanvasLayer" unique_id=840803428]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1575262746]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 1923.0
+offset_bottom = 1081.0
+color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=397250874]
+position = Vector2(1589, 502)
+texture = ExtResource("1_3ftde")
+
+[node name="Tips" type="VBoxContainer" parent="." unique_id=1589445034]
+offset_right = 536.0
+offset_bottom = 53.0
+size_flags_horizontal = 4
+metadata/_tab_index = 4
+
+[node name="Title" type="Label" parent="Tips" unique_id=1614577921]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.993859, 0.56463444, 0.6906912, 1)
+theme_override_colors/font_shadow_color = Color(0.07065063, 0.25560194, 0.4469474, 0.85490197)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "ROLE CARD - Scientist"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="Tips" unique_id=935178182]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="Tips/Control" unique_id=1978613930]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 110.0
+offset_right = 1640.0
+offset_bottom = 995.0
+scale = Vector2(0.7507697, 0.89686716)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Player 2 has been assigned the Role Card - Scientist
+
+[wave]Special Ability[/wave] - The Scientist is able to discover a cure using only 4 cards of the same color, rather than 5 cards required of other Roles.
+
+[wave]Leveraging your Role[/wave] - The Scientist is the best Role to cure diseases using the power of modern medicine and research. Your priority should be getting sets of 4 cards for each color, whether by yourself or by trading with your team members, in order to cure diseases as soon as possible.
+
+The sooner you can cure at least 1 disease, the less pressure there will be on your team, and the greater chance that you have to succeed.
+
+Work closely together with other players and save the world from the Pandemic!
+
+Have fun :)
+"
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="." unique_id=2051172623]
+offset_left = 20.0
+offset_top = 917.0
+offset_right = 235.0
+offset_bottom = 1055.0
+theme_override_font_sizes/font_size = 28
+text = "End Tutorial"
+script = ExtResource("2_2rg5c")
+
+[connection signal="pressed" from="CloseButton" to="CloseButton" method="_on_pressed"]

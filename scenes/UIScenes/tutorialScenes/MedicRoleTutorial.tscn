@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cvm5hy36eyx1p"]
+
+[ext_resource type="Texture2D" uid="uid://bj68yuenbrhhr" path="res://assets/tutorialAssets/RoleCards/MedicRoleCardRoleCardBig.jpg" id="1_eskl7"]
+[ext_resource type="Script" uid="uid://j3uiyd4s4hhg" path="res://scenes/UIScenes/tutorialScenes/roletutorialclosebutton.gd" id="2_4lrrt"]
+
+[node name="GeneralistRoleTutorial" type="CanvasLayer" unique_id=561101660]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1575262746]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 1923.0
+offset_bottom = 1081.0
+color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=397250874]
+position = Vector2(1589, 502)
+texture = ExtResource("1_eskl7")
+
+[node name="Tips" type="VBoxContainer" parent="." unique_id=1589445034]
+offset_right = 536.0
+offset_bottom = 53.0
+size_flags_horizontal = 4
+metadata/_tab_index = 4
+
+[node name="Title" type="Label" parent="Tips" unique_id=1614577921]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.993859, 0.56463444, 0.6906912, 1)
+theme_override_colors/font_shadow_color = Color(0.07065063, 0.25560194, 0.4469474, 0.85490197)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "ROLE CARD - Medic"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Control" type="Control" parent="Tips" unique_id=935178182]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="Tips/Control" unique_id=1978613930]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 110.0
+offset_right = 1640.0
+offset_bottom = 995.0
+scale = Vector2(0.7507697, 0.89686716)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Player 3 has been assigned the Role Card - Medic
+
+[wave]Special Ability[/wave] - The Medic has the special abiliy to remove ALL cubes of a color when treating the disease, and preventing further outbreaks from happening in adjacent cities.
+
+[wave]Leveraging your Role[/wave] - The Medic should leave the curing of diseases to more equipped Roles, and should focus on stopping the Pandemic from getting out of hand. Your greatest strength to clean entire cities in your area with a limited amount of actions. You specialize in putting out \"fires\" that would otherwise cause the diseases to get out of control.
+
+You goal should be to reduce the pressure on your team while they work to solve the root cause. Don't be afraid to separate from your team and handle dangerous cities by yourself!
+
+Work closely together with other players and save the world from the Pandemic!
+
+Have fun :)
+"
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="." unique_id=2051172623]
+offset_left = 20.0
+offset_top = 917.0
+offset_right = 235.0
+offset_bottom = 1055.0
+theme_override_font_sizes/font_size = 28
+text = "End Tutorial"
+script = ExtResource("2_4lrrt")
+
+[connection signal="pressed" from="CloseButton" to="CloseButton" method="_on_pressed"]

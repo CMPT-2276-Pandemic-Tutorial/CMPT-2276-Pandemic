@@ -74,6 +74,7 @@ func trade_card_action():
 
 func close_trade_action():
 	$ActionButtons/TradePanel.visible = false
+	PlayerHand.clear_card_highlight()
 	var container = $ActionButtons/TradePanel/AvailablePlayers
 	$ActionButtons/TradePanel/CurrentPlayerLabel.text = "                                          Please Select a Trade Partner!"
 	for child in container.get_children():

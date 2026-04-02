@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://b2ym7crfi0nr"]
+
+[ext_resource type="FontFile" uid="uid://bal1o0005ji2y" path="res://assets/titleWinLoseScreens/Virus Socialista.ttf" id="1_esah3"]
+[ext_resource type="Script" uid="uid://djiahsbbqwvlp" path="res://scenes/UIScenes/back_to_menu_button.gd" id="2_pil67"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cs1dn"]
+bg_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+
+[node name="WinScreen" type="Control" unique_id=1302231217]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=266032519]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1921.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=595812008]
+custom_minimum_size = Vector2(1200, 300)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -536.0
+offset_top = 78.0
+offset_right = 664.0
+offset_bottom = 496.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0.654902, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_esah3")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[center][wave]Congratulations!
+"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1132164048]
+custom_minimum_size = Vector2(1200, 350)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -569.0
+offset_top = 409.0
+offset_right = 631.0
+offset_bottom = 709.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0.6503512, 0.016617239, 1)
+theme_override_fonts/normal_font = ExtResource("1_esah3")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]You Win!
+
+You have cured all of the diseases and saved the world from the pandemic."
+
+[node name="BackToMenuButton" type="Button" parent="." unique_id=775921485]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -207.0
+offset_right = 241.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.8745098, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("1_esah3")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_cs1dn")
+text = "Main Menu"
+script = ExtResource("2_pil67")
+
+[connection signal="pressed" from="BackToMenuButton" to="BackToMenuButton" method="_on_pressed"]

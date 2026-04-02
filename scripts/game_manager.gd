@@ -50,10 +50,12 @@ func beginNextTurn() -> void:
 	else: 
 		actionCount = 4
 	CardManager.show_player_hand(currentPlayer)
+	
 
 func endTurn() -> void:
 	infectCities()
 	beginNextTurn()
+	
 
 #Game end function, parameter is bool - true means won, false means lost
 func gameEnd(won) -> void:
@@ -99,30 +101,13 @@ func epidemic() -> void:
 		map.resetOutbreaks()
 	infectionDeck.reshuffle()
 
-var outbreakPosition: Array[Vector2]
-
 func outbreak(cityOutbreaking) -> void:
 	if cityOutbreaking.should_outbreak():
 		print(cityOutbreaking.get_city_name() + " is outbreaking")
 		cityOutbreaking.set_outbreak(true)
 		outbreakLevel += 1
-		match outbreakLevel:
-			1:
-				outbreakMarker.global_position = Vector2(495, 510)
-			2:
-				outbreakMarker.global_position = Vector2(453, 543)
-			3:
-				outbreakMarker.global_position = Vector2(495, 579)
-			4:
-				outbreakMarker.global_position = Vector2(453, 614)
-			5:
-				outbreakMarker.global_position = Vector2(495, 647)
-			6:
-				outbreakMarker.global_position = Vector2(453, 678)
-			7:
-				outbreakMarker.global_position = Vector2(495, 711)
-			_:
-				outbreakMarker.global_position = Vector2(453, 746)
+		outbreakMarker.move_local_y(40.0)
+		outbreakMarker.move_local_x(pow(-1,outbreakLevel+1)*40)
 		if outbreakLevel >= 8:
 			gameEnd(false)
 		for i in cityOutbreaking.get_num_of_connections():

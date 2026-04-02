@@ -29,11 +29,12 @@
 [ext_resource type="Script" uid="uid://nbnchmehur5g" path="res://Scripts/utilityScripts/info_panel_label.gd" id="23_adlb6"]
 [ext_resource type="PackedScene" uid="uid://d3e73xxrater6" path="res://scenes/UIScenes/tutorialScenes/tutorial_overlay.tscn" id="24_adlb6"]
 [ext_resource type="Script" uid="uid://dvs1b4eooj48g" path="res://Scripts/tutorialScripts/ingame-tutorial_button.gd" id="25_p3sgo"]
-[ext_resource type="Texture2D" uid="uid://d2quji5q74w3a" path="res://assets/mapAssets/blue-rectangle.png" id="30_hvsgc"]
-[ext_resource type="Script" uid="uid://dtpsikd06vm7x" path="res://Scripts/UIScripts/player_indicator.gd" id="30_il6y1"]
-[ext_resource type="Texture2D" uid="uid://cu8rg0a2ninnq" path="res://assets/mapAssets/brown-rectangle.png" id="31_il6y1"]
-[ext_resource type="Texture2D" uid="uid://cp8g61ibfctwt" path="res://assets/mapAssets/gray-rectangle.png" id="32_xpti6"]
-[ext_resource type="Texture2D" uid="uid://bqmayy42fe06u" path="res://assets/mapAssets/red-rectangle.png" id="34_xpti6"]
+[ext_resource type="Texture2D" uid="uid://cjimrexxhgy2w" path="res://assets/tutorialAssets/RoleCards/GeneralistRoleCardAdjustedSize.jpg" id="30_iihkr"]
+[ext_resource type="Script" uid="uid://dtpsikd06vm7x" path="res://Scripts/UIScripts/player_indicator.gd" id="31_xpti6"]
+[ext_resource type="Texture2D" uid="uid://d2quji5q74w3a" path="res://assets/mapAssets/blue-rectangle.png" id="32_pnibc"]
+[ext_resource type="Texture2D" uid="uid://cu8rg0a2ninnq" path="res://assets/mapAssets/brown-rectangle.png" id="33_fyuxr"]
+[ext_resource type="Texture2D" uid="uid://cp8g61ibfctwt" path="res://assets/mapAssets/gray-rectangle.png" id="34_rr5bt"]
+[ext_resource type="Texture2D" uid="uid://bqmayy42fe06u" path="res://assets/mapAssets/red-rectangle.png" id="35_4semp"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ahtse"]
 
@@ -79,7 +80,7 @@ texture = ExtResource("4_gqyq5")
 script = ExtResource("5_ywhfr")
 
 [node name="OutbreakMarker" type="Sprite2D" parent="Markers" unique_id=1629541638]
-position = Vector2(453, 472)
+position = Vector2(453, 472.5)
 texture = ExtResource("5_adlb6")
 script = ExtResource("7_sw1xg")
 
@@ -250,6 +251,7 @@ action = "cure"
 
 [node name="TradePanel" type="Panel" parent="ActionHandler/ActionButtons" unique_id=1392120879]
 visible = false
+z_index = 1
 layout_mode = 0
 offset_left = -606.0
 offset_top = -487.5
@@ -516,7 +518,7 @@ text = "Card 7"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="cityNodes" type="Node" parent="." unique_id=816356429]
+[node name="cityNodes" type="Node" parent="." unique_id=816356429 groups=["city_nodes"]]
 script = ExtResource("22_p3sgo")
 
 [node name="Atlanta" type="Area2D" parent="cityNodes" unique_id=1979203044]
@@ -1001,44 +1003,55 @@ script = ExtResource("23_adlb6")
 
 [node name="TutorialOverlay" parent="." unique_id=1681641802 instance=ExtResource("24_adlb6")]
 
-[node name="playerIndicator" type="Node" parent="." unique_id=1011868543]
-script = ExtResource("30_il6y1")
+[node name="RoleCardButton" type="TextureButton" parent="." unique_id=545505089]
+custom_minimum_size = Vector2(140, 183)
+offset_left = 360.0
+offset_top = 850.0
+offset_right = 500.0
+offset_bottom = 1043.0
+texture_normal = ExtResource("30_iihkr")
 
-[node name="Player1" type="Node2D" parent="playerIndicator" unique_id=1967322703]
+[node name="RoleCardOverlay" type="CanvasLayer" parent="." unique_id=589870569]
 
-[node name="BlueRect" type="Sprite2D" parent="playerIndicator/Player1" unique_id=1666015454]
+[node name="playerIndicator" type="Node" parent="." unique_id=1048591519]
+script = ExtResource("31_xpti6")
+
+[node name="Player1" type="Node2D" parent="playerIndicator" unique_id=1546293992]
+
+[node name="BlueRect" type="Sprite2D" parent="playerIndicator/Player1" unique_id=1256603723]
 position = Vector2(1800, 370)
 scale = Vector2(0.85, 0.5)
-texture = ExtResource("30_hvsgc")
+texture = ExtResource("32_pnibc")
 
-[node name="BlueCards" type="Node2D" parent="playerIndicator/Player1" unique_id=752821150]
+[node name="BlueCards" type="Node2D" parent="playerIndicator/Player1" unique_id=1262157934]
 
-[node name="Player2" type="Node2D" parent="playerIndicator" unique_id=1750577772]
+[node name="Player2" type="Node2D" parent="playerIndicator" unique_id=1899237628]
 
-[node name="BrownRect" type="Sprite2D" parent="playerIndicator/Player2" unique_id=2029162540]
+[node name="BrownRect" type="Sprite2D" parent="playerIndicator/Player2" unique_id=223423206]
 position = Vector2(1850, 470)
 scale = Vector2(0.85, 0.5)
-texture = ExtResource("31_il6y1")
+texture = ExtResource("33_fyuxr")
 
-[node name="BrownCards" type="Node2D" parent="playerIndicator/Player2" unique_id=881625594]
+[node name="BrownCards" type="Node2D" parent="playerIndicator/Player2" unique_id=96682093]
 
-[node name="Player3" type="Node2D" parent="playerIndicator" unique_id=576330351]
+[node name="Player3" type="Node2D" parent="playerIndicator" unique_id=308996442]
 
-[node name="GrayRect" type="Sprite2D" parent="playerIndicator/Player3" unique_id=1826294732]
+[node name="GrayRect" type="Sprite2D" parent="playerIndicator/Player3" unique_id=1880078913]
 position = Vector2(1850, 570)
 scale = Vector2(0.85, 0.5)
-texture = ExtResource("32_xpti6")
+texture = ExtResource("34_rr5bt")
 
-[node name="GrayCards" type="Node2D" parent="playerIndicator/Player3" unique_id=1425378641]
+[node name="GrayCards" type="Node2D" parent="playerIndicator/Player3" unique_id=1032722136]
 
-[node name="Player4" type="Node2D" parent="playerIndicator" unique_id=598896341]
+[node name="Player4" type="Node2D" parent="playerIndicator" unique_id=195407165]
 
-[node name="RedRect" type="Sprite2D" parent="playerIndicator/Player4" unique_id=1758052180]
+[node name="RedRect" type="Sprite2D" parent="playerIndicator/Player4" unique_id=1314077933]
 position = Vector2(1850, 670)
 scale = Vector2(0.85, 0.5)
-texture = ExtResource("34_xpti6")
+texture = ExtResource("35_4semp")
 
-[node name="RedCards" type="Node2D" parent="playerIndicator/Player4" unique_id=1965757082]
+[node name="RedCards" type="Node2D" parent="playerIndicator/Player4" unique_id=966096533]
 
 [connection signal="pressed" from="endTurnButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="tutorialButton" to="tutorialButton" method="_on_pressed"]
+[connection signal="pressed" from="RoleCardButton" to="." method="_on_role_card_button_pressed"]
