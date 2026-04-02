@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nubewotbxyrp"
-path="res://.godot/imported/MedicRoleCard (1).jpg-c69f0459262036f218cde2dd8637ec85.ctex"
+uid="uid://bv3rsmojnpsy7"
+path="res://.godot/imported/GeneralistRoleCardBig.jpg-e62c1a6f5efdcdf6ad7712c45b6914c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorialAssets/MedicRoleCard (1).jpg"
-dest_files=["res://.godot/imported/MedicRoleCard (1).jpg-c69f0459262036f218cde2dd8637ec85.ctex"]
+source_file="res://assets/tutorialAssets/RoleCards/GeneralistRoleCardBig.jpg"
+dest_files=["res://.godot/imported/GeneralistRoleCardBig.jpg-e62c1a6f5efdcdf6ad7712c45b6914c5.ctex"]
 
 [params]
 

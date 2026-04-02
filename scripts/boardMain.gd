@@ -3,6 +3,20 @@ extends Node
 #Comments may be excessive - I am writing line by line for practice - Aidan Sweeney
 
 var city_data = [] #storing the array from JSON file
+@onready var roleButton = $RoleCardButton
+var roleImages = {
+	0: preload("res://assets/tutorialAssets/RoleCards/GeneralistRoleCardAdjustedSize.jpg"),
+	1: preload("res://assets/tutorialAssets/RoleCards/scientistAdjustedSize.png"),
+	2: preload("res://assets/tutorialAssets/RoleCards/MedicAdjustedSize.jpg"),
+	3: preload("res://assets/tutorialAssets/RoleCards/QuarantineSpecialistAdjustedSize.jpg")
+}
+var roleTutorialScenes = {
+	0: preload ("res://scenes/UIScenes/tutorialScenes/generalistRoleTutorial.tscn"),
+	1: preload ("res://scenes/UIScenes/tutorialScenes/scientistRoleTutorial.tscn"),
+	2: preload ("res://scenes/UIScenes/tutorialScenes/MedicRoleTutorial.tscn"),
+	3: preload("res://scenes/UIScenes/tutorialScenes/QuarantineRoleTutorial.tscn")
+				
+}
 
 func _ready():
 		load_city_data() #Declaration for loading data from json - AS
@@ -15,6 +29,8 @@ func _ready():
 		#Draw cards for player1s first turn
 		$cardsAndDecks/playerDeck/Deck.draw_card()
 		$cardsAndDecks/playerDeck/Deck.draw_card()
+		
+		
 
 
 func load_city_data():
@@ -55,7 +71,11 @@ func _on_action_changed(action):
 #		add_city.name = Map.cities[i].get_city_name()
 #		add_child(add_city)
 #	$Area2D.visible = false # hide our template area at 0,0
-
+func show_role_overlay(role_id:int)->void:
+	var overlay_scene = roleTutorialScenes[role_id]
+	var overlay_instance = overlay_scene.instantiate()
+	$RoleCardOverlay.add_child(overlay_instance)
+	
 
 func _on_button_pressed() -> void:
 	$ActionHandler.close_trade_action()
@@ -64,6 +84,7 @@ func _on_button_pressed() -> void:
 	await get_tree().create_timer(0.55).timeout
 	
 	GameManager.endTurn()
+	_update_role_card()
 	if GameManager.turnNum <= 3:
 		$cardsAndDecks/playerDeck/Deck.draw_card()
 		$cardsAndDecks/playerDeck/Deck.draw_card()
@@ -77,3 +98,13 @@ func _on_button_pressed() -> void:
 			$TurnLabel.label_settings.font_color = Color(0.431, 0.424, 0.427, 1.0)
 		3:
 			$TurnLabel.label_settings.font_color = Color(0.929, 0.106, 0.141, 1.0)
+
+
+func _on_role_card_button_pressed() -> void:
+	var roleCurrentPlayer = GameManager.currentPlayer
+	#$RoleCardButton.texture_normal = roleImages[roleCurrentPlayer]
+	show_role_overlay(roleCurrentPlayer)
+	
+func _update_role_card() -> void:
+	var roleCurrentPlayer = GameManager.currentPlayer
+	$RoleCardButton.texture_normal = roleImages[roleCurrentPlayer]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4aba4vk2orq6"
-path="res://.godot/imported/GeneralistRoleCard (1).jpg-05a5652dbef5c523203913f9e1840ac5.ctex"
+uid="uid://cxfyb13pjinib"
+path="res://.godot/imported/scientistAdjustedSize.png-32b6f71843b8247fe63b16b5cb46c609.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorialAssets/GeneralistRoleCard (1).jpg"
-dest_files=["res://.godot/imported/GeneralistRoleCard (1).jpg-05a5652dbef5c523203913f9e1840ac5.ctex"]
+source_file="res://assets/tutorialAssets/RoleCards/scientistAdjustedSize.png"
+dest_files=["res://.godot/imported/scientistAdjustedSize.png-32b6f71843b8247fe63b16b5cb46c609.ctex"]
 
 [params]
 

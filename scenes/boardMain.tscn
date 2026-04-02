@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://nbnchmehur5g" path="res://Scripts/utilityScripts/info_panel_label.gd" id="23_adlb6"]
 [ext_resource type="PackedScene" uid="uid://d3e73xxrater6" path="res://scenes/UIScenes/tutorialScenes/tutorial_overlay.tscn" id="24_adlb6"]
 [ext_resource type="Script" uid="uid://dvs1b4eooj48g" path="res://Scripts/tutorialScripts/ingame-tutorial_button.gd" id="25_p3sgo"]
+[ext_resource type="Texture2D" uid="uid://cjimrexxhgy2w" path="res://assets/tutorialAssets/RoleCards/GeneralistRoleCardAdjustedSize.jpg" id="30_iihkr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ahtse"]
 
@@ -996,5 +997,16 @@ script = ExtResource("23_adlb6")
 
 [node name="TutorialOverlay" parent="." unique_id=1681641802 instance=ExtResource("24_adlb6")]
 
+[node name="RoleCardButton" type="TextureButton" parent="." unique_id=545505089]
+custom_minimum_size = Vector2(140, 183)
+offset_left = 360.0
+offset_top = 850.0
+offset_right = 500.0
+offset_bottom = 1043.0
+texture_normal = ExtResource("30_iihkr")
+
+[node name="RoleCardOverlay" type="CanvasLayer" parent="." unique_id=589870569]
+
 [connection signal="pressed" from="endTurnButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="tutorialButton" to="tutorialButton" method="_on_pressed"]
+[connection signal="pressed" from="RoleCardButton" to="." method="_on_role_card_button_pressed"]

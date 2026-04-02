@@ -1,6 +1,4 @@
 
 JSON file:
-   Montreal, Sao Paolo and Bogota uses accented letter, need to swap to regular letters because I can't make it    work
-   Cube #'s in JSON need to be integers not floats
-   Atlanta Station is set to True as default, should be false
+  
    

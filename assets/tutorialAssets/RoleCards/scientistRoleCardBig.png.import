@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://debdocfl3nik"
-path="res://.godot/imported/QuarantineSpecialistRoleCard (1).jpg-6d3bb564aae0b0fb6d77a70175c2b57e.ctex"
+uid="uid://bhji1papimlrk"
+path="res://.godot/imported/scientistRoleCardBig.png-502c236a0494740cb58c8301994c4875.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorialAssets/QuarantineSpecialistRoleCard (1).jpg"
-dest_files=["res://.godot/imported/QuarantineSpecialistRoleCard (1).jpg-6d3bb564aae0b0fb6d77a70175c2b57e.ctex"]
+source_file="res://assets/tutorialAssets/RoleCards/scientistRoleCardBig.png"
+dest_files=["res://.godot/imported/scientistRoleCardBig.png-502c236a0494740cb58c8301994c4875.ctex"]
 
 [params]
 

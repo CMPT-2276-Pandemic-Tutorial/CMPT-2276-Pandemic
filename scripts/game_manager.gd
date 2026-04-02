@@ -50,10 +50,12 @@ func beginNextTurn() -> void:
 	else: 
 		actionCount = 4
 	CardManager.show_player_hand(currentPlayer)
+	
 
 func endTurn() -> void:
 	infectCities()
 	beginNextTurn()
+	
 
 #Game end function, parameter is bool - true means won, false means lost
 func gameEnd(won) -> void:
