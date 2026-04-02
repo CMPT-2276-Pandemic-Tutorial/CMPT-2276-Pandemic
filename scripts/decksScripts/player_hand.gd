@@ -8,10 +8,14 @@ var player_hand = {0:[],1:[],2:[],3:[]}
 var trade_card_mapping = {}
 var center_screen_x
 
+var highlight_ring_scene = preload("res://scenes/UIScenes/HighlightRing.tscn")
+var active_ring = null
+
 var viewed_player = null
 var selected_card = null
 var selected_from_player = null
 var highlighted_card = null
+var highlighted_city = null
 
 var trade_container: Control
 
@@ -130,7 +134,6 @@ func select_card_via_raycast(card):
 		if card in player_hand[player_idx]:
 			selected_card = card
 			selected_from_player = player_idx
-			print("Selected card from player ", player_idx, " card: ",card.card_data.get("name"))
 			highlight_selected_card(card)
 			break
 
@@ -146,14 +149,34 @@ func _on_card_clicked(from_player, card, viewport, event, shape_idx):
 func highlight_selected_card(card):
 	if highlighted_card and highlighted_card != card:
 		highlighted_card.modulate = Color(1,1,1)
+	if active_ring:
+		active_ring.queue_free()
+		active_ring = null
 	highlighted_card = card
 	card.modulate = Color(0.431, 0.896, 0.441, 1.0)
+	highlighted_city = card.card_data.get("name")
+	if highlighted_city:
+		print("city is: ", highlighted_city)
+		
+		var city_container = get_tree().get_first_node_in_group("city_nodes")
+		var city_node = city_container.find_child(highlighted_city, true, false)
+		if city_node:
+			var ring = highlight_ring_scene.instantiate()
+			active_ring = ring
+			city_container.add_child(ring)
+			active_ring.global_position = city_node.global_position
+		else:
+			print("City node not found: ", highlighted_city)
 
 
 func clear_card_highlight():
 	if highlighted_card:
 		highlighted_card.modulate = Color(1,1,1)
+	if active_ring:
+		active_ring.queue_free()
+		active_ring = null
 	highlighted_card = null
+	highlighted_city = null
 	selected_card = null
 	selected_from_player = null
 
