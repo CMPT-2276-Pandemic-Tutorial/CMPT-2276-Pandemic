@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b471o0iju7kt2"]
 
 [ext_resource type="Texture2D" uid="uid://rs602raika6a" path="res://assets/titleWinLoseScreens/resizedimage.jpg" id="1_tmw1y"]
-[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://Scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
+[ext_resource type="Script" uid="uid://g5n7f28ookng" path="res://scripts/UIScripts/startGameButton.gd" id="2_r2vvo"]
 [ext_resource type="FontFile" uid="uid://bal1o0005ji2y" path="res://assets/titleWinLoseScreens/Virus Socialista.ttf" id="2_w340i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2vvo"]
@@ -24,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_r2vvo")
 
 [node name="MainMenu" type="Sprite2D" parent="." unique_id=1688729343]
 position = Vector2(961, 538)
@@ -49,7 +50,6 @@ theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_r2vvo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_w340i")
 text = "Start Game"
-script = ExtResource("2_r2vvo")
 
 [node name="TutorialSelect" type="Button" parent="." unique_id=185771552]
 layout_mode = 0
@@ -90,5 +90,5 @@ theme_override_font_sizes/normal_font_size = 100
 bbcode_enabled = true
 text = "[outline_size=10]Tutorial Edition"
 
-[connection signal="pressed" from="StartGame" to="StartGame" method="_on_pressed"]
-[connection signal="pressed" from="TutorialSelect" to="StartGame" method="_on_tutorial_select_pressed"]
+[connection signal="pressed" from="StartGame" to="." method="_on_start_select_pressed"]
+[connection signal="pressed" from="TutorialSelect" to="." method="_on_tutorial_select_pressed"]
