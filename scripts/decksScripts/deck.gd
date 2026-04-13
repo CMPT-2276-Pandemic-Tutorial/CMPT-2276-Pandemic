@@ -1,6 +1,7 @@
 extends Node2D
 
 const CARD_SCENE_PATH = "res://scenes/deckScenes/player_card.tscn"
+const EPIDEMIC_CARD_SCENE_PATH = "res://scenes/deckScenes/epidemic_card.tscn"
 const MAP_JSON_PATH = "res://boardInformation.json"
 
 var player_deck = []
@@ -47,6 +48,12 @@ func draw_card():
 	
 	#checks if card drawn is a string
 	if typeof(card_drawn) == 4:
+		var epidemic_scene = preload(EPIDEMIC_CARD_SCENE_PATH)
+		var epidemic_card = epidemic_scene.instantiate()
+		epidemic_card.set_meta("tooltip_name", "Epidemic Card")
+		epidemic_card.set_meta("tooltip_desc", "Increases the infection rate by 1, infects a city 3 times and reshuffles the infection deck!")
+		add_child(epidemic_card)
+		epidemic_card.position = Vector2(500,0)
 		print("Epidemic!")
 		GameManager.epidemic()
 		return

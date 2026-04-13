@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mc7mk5akim51"]
 
-[ext_resource type="Script" uid="uid://dapsgfsxrmw2l" path="res://scripts/decksScripts/deck.gd" id="1_fimse"]
+[ext_resource type="Script" uid="uid://dapsgfsxrmw2l" path="res://Scripts/decksScripts/deck.gd" id="1_fimse"]
 [ext_resource type="Texture2D" uid="uid://ds3lktds01j2l" path="res://assets/cardAssets/player-deck.PNG" id="2_r2jdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]

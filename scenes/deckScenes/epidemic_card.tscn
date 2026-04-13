@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bpf5p0r4ab8vx"]
+
+[ext_resource type="Texture2D" uid="uid://d7a8jylfdun" path="res://assets/cardAssets/player-epidemix.PNG" id="1_djrxc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q5rd8"]
+font_size = 40
+outline_size = 44
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(343, 246.00002)
+
+[node name="EpidemicCard" type="Node2D" unique_id=101719473]
+scale = Vector2(1.6, 1.6)
+
+[node name="CardBG" type="Sprite2D" parent="." unique_id=685262616]
+position = Vector2(0, -1.0000001)
+texture = ExtResource("1_djrxc")
+
+[node name="CardName" type="Label" parent="." unique_id=1492477279]
+offset_left = -105.0
+offset_top = -157.0
+offset_right = 113.0
+offset_bottom = -102.0
+text = "EPIDEMIC!!!"
+label_settings = SubResource("LabelSettings_q5rd8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1049834168]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=660083108]
+position = Vector2(1.9073486e-06, 0.5000001)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_h2yge")

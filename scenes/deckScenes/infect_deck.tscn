@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ck6tu3w86f5rp"]
 
-[ext_resource type="Script" uid="uid://c0uvfcxo716gk" path="res://scripts/decksScripts/infect_deck.gd" id="1_5joos"]
+[ext_resource type="Script" uid="uid://c0uvfcxo716gk" path="res://Scripts/decksScripts/infect_deck.gd" id="1_5joos"]
 [ext_resource type="PackedScene" uid="uid://bka1ghm5uv7go" path="res://scenes/deckScenes/card_slot.tscn" id="2_tip1d"]
 [ext_resource type="Texture2D" uid="uid://cvu74r76bdu7r" path="res://assets/cardAssets/infect-deck.PNG" id="3_pro0l"]
 

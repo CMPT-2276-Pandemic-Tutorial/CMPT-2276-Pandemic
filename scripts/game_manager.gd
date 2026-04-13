@@ -5,6 +5,8 @@ signal turn_changed(value)
 signal current_player_changed(value)
 signal game_over(won)
 
+
+
 # References to board objects
 var infectionMarker : Sprite2D
 var outbreakMarker : Sprite2D
@@ -95,6 +97,9 @@ func epidemic() -> void:
 	var cityToInfectString = infectionDeck.draw_infect_card_bottom()
 	var cityToInfect = Map.findCity(cityToInfectString)
 	print("Epidemic city is " + cityToInfectString)
+	var epidemic_alarm = get_tree().get_first_node_in_group("Alarm")
+	epidemic_alarm.play_epidemic_flash()
+	epidemic_alarm.show_epidemic_alert(cityToInfectString)
 	if cityToInfect.infect_epidemic(): #Infects City and checks for outbreak
 		outbreak(cityToInfect)
 		Map.resetOutbreaks()
