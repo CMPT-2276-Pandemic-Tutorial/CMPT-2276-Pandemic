@@ -33,7 +33,7 @@ func _ready():
 		
 		
 
-
+  
 func load_city_data():
 		var file = FileAccess.open("res://boardInformation.json", FileAccess.READ) #open the json file and give godot read access - AS
 		var json_text = file.get_as_text() #godot method to return the file contents as a string for reading - AS

@@ -60,12 +60,16 @@ func start_tutorial():
 			"text": "Here you can see which diseases have been cured and which still remain, cure all 4 to win the game!"
 		},
 		{
-			"node": $"../cardsAndDecks/cardSlots/playercard4",
+			"node": $"../cardsAndDecks/cardSlots/playercard1",
 			"text": "The cards currently in your hand will appear here, you can only have up to 7 at any time"
 		},
 		{
 			"node": $"../cardsAndDecks/cardSlots/playerclass",
 			"text": "This shows the current player's role card, each have their own unique ability that should be used as part of your strategy"
+		},
+		{
+			"node": $"../ActionHandler/ActionButtons/Trade",
+			"text": "This button opens up the trade menu where you can trade selected cards with players who are in the same city"
 		},
 		{
 			"node": $"../endTurnButton",

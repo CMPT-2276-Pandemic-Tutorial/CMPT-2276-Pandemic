@@ -7,6 +7,7 @@
 bg_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
 
 [node name="WinScreen" type="Control" unique_id=1302231217]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

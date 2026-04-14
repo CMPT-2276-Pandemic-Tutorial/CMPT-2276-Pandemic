@@ -60,10 +60,18 @@ func endTurn() -> void:
 #Game end function, parameter is bool - true means won, false means lost
 func gameEnd(won) -> void:
 	game_over.emit(won)
+	await get_tree().create_timer(1.5).timeout
+	for node in get_tree().get_nodes_in_group("BoardUI"):
+		node.queue_free()
+	get_tree().current_scene.queue_free()
+	await get_tree().process_frame
 	if won:
 		print("game won")
+		
+		get_tree().change_scene_to_file("res://scenes/UIScenes/WinScreen.tscn")
 	else:
 		print("game lost")
+		get_tree().change_scene_to_file("res://scenes/UIScenes/LoseScreen.tscn")
 
 func trading_partners(players):
 	var current_player_index = GameManager.currentPlayer #returns int index of the current player 

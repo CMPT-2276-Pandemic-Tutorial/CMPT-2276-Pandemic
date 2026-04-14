@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bdv004eogkvkv"]
 
 [ext_resource type="FontFile" uid="uid://bal1o0005ji2y" path="res://assets/titleWinLoseScreens/Virus Socialista.ttf" id="1_cs1dn"]
-[ext_resource type="Script" uid="uid://djiahsbbqwvlp" path="res://scenes/UIScenes/back_to_menu_button.gd" id="2_5rt1q"]
+[ext_resource type="Script" path="res://scenes/UIScenes/back_to_menu_button.gd" id="2_5rt1q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cs1dn"]
 bg_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
 
 [node name="WinScreen" type="Control" unique_id=1302231217]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
